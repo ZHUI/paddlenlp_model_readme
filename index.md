@@ -1,5 +1,7 @@
-
 # Model Downloads
+
+本目录包含 721 个模型参数（包括纯文和部分多模态模型）。 包含了常用Qwen、Llama系列模型。所有模型可以在本页面搜索查找。
+每个模型README的最后，有模型下载链接，用户可以自行下载。
 
 ## Available Models
 
