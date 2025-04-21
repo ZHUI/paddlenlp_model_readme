@@ -107,7 +107,7 @@ You can directly employ [Huggingface's Transformers](https://github.com/huggingf
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
+model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 input_text = "#write a quick sort algorithm"
 inputs = tokenizer(input_text, return_tensors="pd").to(model.device)
 outputs = model.generate(**inputs, max_length=128)
@@ -119,7 +119,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
+model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 input_text = """<｜fim▁begin｜>def quick_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -143,7 +143,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True)[len(input_text):])
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct", trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct", trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
+model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct", trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 messages=[
     { 'role': 'user', 'content': "write a quick sort algorithm in python."}
 ]

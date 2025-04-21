@@ -148,7 +148,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-+ model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.float16, )
++ model = AutoModelForCausalLM.from_pretrained(model_id, dtype=paddle.float16, )
 
 messages = [
     {"role": "user", "content": "What is your favourite condiment?"},

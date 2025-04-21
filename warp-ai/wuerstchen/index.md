@@ -38,10 +38,10 @@ import torch
 from diffusers import AutoPipelineForText2Image
 
 device = "cuda"
-dtype = torch.float16
+dtype = paddle.float16
 
 pipeline =  AutoPipelineForText2Image.from_pretrained(
-    "warp-diffusion/wuerstchen", torch_dtype=dtype
+    "warp-diffusion/wuerstchen", dtype=dtype
 )
 
 caption = "Anthropomorphic cat dressed as a fire fighter"

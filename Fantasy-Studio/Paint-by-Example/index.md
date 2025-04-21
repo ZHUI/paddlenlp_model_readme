@@ -55,7 +55,7 @@ example_image = download_image(example_url).resize((512, 512))
 
 pipe = DiffusionPipeline.from_pretrained(
     "Fantasy-Studio/Paint-by-Example",
-    torch_dtype=torch.float16,
+    dtype=paddle.float16,
 )
 pipe = pipe.to("cuda")
 

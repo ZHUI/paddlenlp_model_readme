@@ -62,7 +62,7 @@ device = "auto" # the device to load the model onto
 model = AutoModel.from_pretrained(
     model_name, 
     device_map=device, 
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     trust_remote_code=True,
 ).eval()
 

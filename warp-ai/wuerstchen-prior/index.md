@@ -35,14 +35,14 @@ from diffusers import WuerstchenDecoderPipeline, WuerstchenPriorPipeline
 from diffusers.pipelines.wuerstchen import DEFAULT_STAGE_C_TIMESTEPS
 
 device = "cuda"
-dtype = torch.float16
+dtype = paddle.float16
 num_images_per_prompt = 2
 
 prior_pipeline = WuerstchenPriorPipeline.from_pretrained(
-    "warp-ai/wuerstchen-prior", torch_dtype=dtype
+    "warp-ai/wuerstchen-prior", dtype=dtype
 )
 decoder_pipeline = WuerstchenDecoderPipeline.from_pretrained(
-    "warp-ai/wuerstchen", torch_dtype=dtype
+    "warp-ai/wuerstchen", dtype=dtype
 )
 
 caption = "Anthropomorphic cat dressed as a fire fighter"

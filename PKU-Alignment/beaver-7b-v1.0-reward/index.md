@@ -52,7 +52,7 @@ import torch
 from paddlenlp.transformers import AutoTokenizer
 from safe_rlhf.models import AutoModelForScore
 
-model = AutoModelForScore.from_pretrained('PKU-Alignment/beaver-7b-v1.0-reward', torch_dtype=torch.bfloat16, device_map='auto')
+model = AutoModelForScore.from_pretrained('PKU-Alignment/beaver-7b-v1.0-reward', dtype=paddle.bfloat16, device_map='auto')
 tokenizer = AutoTokenizer.from_pretrained('PKU-Alignment/beaver-7b-v1.0-reward')
 
 input = 'BEGINNING OF CONVERSATION: USER: hello ASSISTANT:Hello! How can I help you today?'
@@ -98,9 +98,9 @@ print(output)
 #          [-1.7969,  1.0234,  1.0234,  ..., -0.8047,  0.2500, -0.8398],
 #          [ 2.0469, -1.3203,  0.8984,  ..., -0.7734, -1.4141, -1.6797],
 #          [ 4.3438, -0.6953,  0.9648,  ..., -0.1787,  0.6680, -3.0000]]],
-#        dtype=torch.bfloat16, grad_fn=<ToCopyBackward0>),
+#        dtype=paddle.bfloat16, grad_fn=<ToCopyBackward0>),
 #     end_last_hidden_state=tensor([[ 4.3438, -0.6953,  0.9648,  ..., -0.1787,  0.6680, -3.0000]],
-#        dtype=torch.bfloat16, grad_fn=<ToCopyBackward0>),
+#        dtype=paddle.bfloat16, grad_fn=<ToCopyBackward0>),
 #     end_index=tensor([27])
 # )
 ```

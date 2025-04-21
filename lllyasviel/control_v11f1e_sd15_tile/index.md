@@ -86,11 +86,11 @@ def resize_for_condition_image(input_image: Image, resolution: int):
     return img
 
 controlnet = ControlNetModel.from_pretrained('lllyasviel/control_v11f1e_sd15_tile', 
-                                             torch_dtype=torch.float16)
+                                             dtype=paddle.float16)
 pipe = DiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5",
                                          custom_pipeline="stable_diffusion_controlnet_img2img",
                                          controlnet=controlnet,
-                                         torch_dtype=torch.float16).to('cuda')
+                                         dtype=paddle.float16).to('cuda')
 pipe.enable_xformers_memory_efficient_attention()
 
 source_image = load_image('https://huggingface.co/lllyasviel/control_v11f1e_sd15_tile/resolve/main/images/original.png')

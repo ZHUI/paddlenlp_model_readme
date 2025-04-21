@@ -64,7 +64,7 @@ model.eval()
 url = "https://github.com/LLaVA-VL/blog/blob/main/2024-10-03-llava-critic/static/images/critic_img_seven.png?raw=True"
 image = Image.open(requests.get(url, stream=True).raw)
 image_tensor = process_images([image], image_processor, model.config)
-image_tensor = [_image.to(dtype=torch.float16, device=device) for _image in image_tensor]
+image_tensor = [_image.to(dtype=paddle.float16, device=device) for _image in image_tensor]
 
 conv_template = "qwen_1_5"  # Make sure you use correct chat template for different models
 

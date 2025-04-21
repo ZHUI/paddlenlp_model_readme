@@ -99,13 +99,13 @@ from PIL import Image
 from paddlenlp.transformers import BlipProcessor, BlipForQuestionAnswering
 
 processor = BlipProcessor.from_pretrained("ybelkada/blip-vqa-capfilt-large")
-model = BlipForQuestionAnswering.from_pretrained("ybelkada/blip-vqa-capfilt-large", torch_dtype=torch.float16).to("cuda")
+model = BlipForQuestionAnswering.from_pretrained("ybelkada/blip-vqa-capfilt-large", dtype=paddle.float16).to("cuda")
 
 img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo.jpg' 
 raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 question = "how many dogs are in the picture?"
-inputs = processor(raw_image, question, return_tensors="pd").to("cuda", torch.float16)
+inputs = processor(raw_image, question, return_tensors="pd").to("cuda", paddle.float16)
 
 out = model.generate(**inputs)
 print(processor.decode(out[0], skip_special_tokens=True))

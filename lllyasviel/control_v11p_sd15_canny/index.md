@@ -112,9 +112,9 @@ control_image = Image.fromarray(image)
 
 control_image.save("./images/control.png")
 
-controlnet = ControlNetModel.from_pretrained(checkpoint, torch_dtype=torch.float16)
+controlnet = ControlNetModel.from_pretrained(checkpoint, dtype=paddle.float16)
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
-    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, torch_dtype=torch.float16
+    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, dtype=paddle.float16
 )
 
 pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)

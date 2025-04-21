@@ -277,7 +277,7 @@ model_dir = snapshot_download('LLM-Research/Llama-3.2-3B-Instruct')
 pipe = pipeline(
     "text-generation",
     model=model_dir,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     
 )
 messages = [

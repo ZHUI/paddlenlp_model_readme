@@ -127,7 +127,7 @@ It is highly recommended to use this model in a webui way. webui provides a visu
 
 ### 半精度 Half precision FP16 (CUDA)
 
-添加 `torch_dtype=torch.float16` 和 `device_map="auto"` 可以快速加载 FP16 的权重，以加快推理速度。
+添加 `dtype=paddle.float16` 和 `device_map="auto"` 可以快速加载 FP16 的权重，以加快推理速度。
 更多信息见 [the optimization docs](https://huggingface.co/docs/diffusers/main/en/optimization/fp16#half-precision-weights)。
 
 ```py
@@ -135,7 +135,7 @@ It is highly recommended to use this model in a webui way. webui provides a visu
 import torch
 from diffusers import StableDiffusionPipeline
 torch.backends.cudnn.benchmark = True
-pipe = StableDiffusionPipeline.from_pretrained("IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Anime-Chinese-v0.1", torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained("IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Anime-Chinese-v0.1", dtype=paddle.float16)
 pipe.to('cuda')
 
 prompt = '1个女孩,绿色头发,毛衣,看向阅图者,上半身,帽子,户外,下雪,高领毛衣'

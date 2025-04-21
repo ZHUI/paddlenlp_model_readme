@@ -90,7 +90,7 @@ from paddlenlp.transformers import AriaProcessor, AriaForConditionalGeneration
 
 model_id_or_path = "rhymes-ai/Aria"
 model = AriaForConditionalGeneration.from_pretrained(
-    model_id_or_path,  torch_dtype=torch.bfloat16
+    model_id_or_path,  dtype=paddle.bfloat16
 )
 
 processor = AriaProcessor.from_pretrained(model_id_or_path)
@@ -109,7 +109,7 @@ messages = [
 
 text = processor.apply_chat_template(messages, add_generation_prompt=True)
 inputs = processor(text=text, images=image, return_tensors="pd")
-inputs['pixel_values'] = inputs['pixel_values'].to(torch.bfloat16)
+inputs['pixel_values'] = inputs['pixel_values'].to(paddle.bfloat16)
 inputs.to(model.device)
 
 output = model.generate(
@@ -143,7 +143,7 @@ messages = [
 ]
 
 inputs = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors"pt")
-ipnuts = inputs.to(model.device, torch.bfloat16)
+ipnuts = inputs.to(model.device, paddle.bfloat16)
 
 output = model.generate(
     **inputs,

@@ -71,7 +71,7 @@ If you are limited by GPU memory and have less than 10GB of GPU RAM available, p
 ```py
 import torch
 
-pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
 pipe = pipe
 
 prompt = "a photo of an astronaut riding a horse on mars"

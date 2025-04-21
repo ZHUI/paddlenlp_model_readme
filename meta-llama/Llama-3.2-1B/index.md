@@ -276,7 +276,7 @@ model_id = "meta-llama/Llama-3.2-1B"
 pipe = pipeline(
     "text-generation", 
     model=model_id, 
-    torch_dtype=torch.bfloat16, 
+    dtype=paddle.bfloat16, 
     
 )
 

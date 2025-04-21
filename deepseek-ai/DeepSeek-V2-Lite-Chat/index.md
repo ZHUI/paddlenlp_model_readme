@@ -165,7 +165,7 @@ from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, Generati
 
 model_name = "deepseek-ai/DeepSeek-V2-Lite"
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
+model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 model.generation_config = GenerationConfig.from_pretrained(model_name)
 model.generation_config.pad_token_id = model.generation_config.eos_token_id
 
@@ -184,7 +184,7 @@ from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, Generati
 
 model_name = "deepseek-ai/DeepSeek-V2-Lite-Chat"
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
+model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 model.generation_config = GenerationConfig.from_pretrained(model_name)
 model.generation_config.pad_token_id = model.generation_config.eos_token_id
 

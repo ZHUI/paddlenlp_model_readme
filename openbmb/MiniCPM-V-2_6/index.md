@@ -149,7 +149,7 @@ from PIL import Image
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True,
-    attn_implementation='sdpa', torch_dtype=torch.bfloat16) # sdpa or flash_attention_2, no eager
+    attn_implementation='sdpa', dtype=paddle.bfloat16) # sdpa or flash_attention_2, no eager
 model = model.eval().cuda()
 tokenizer = AutoTokenizer.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True)
 
@@ -190,7 +190,7 @@ from PIL import Image
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True,
-    attn_implementation='sdpa', torch_dtype=torch.bfloat16) # sdpa or flash_attention_2, no eager
+    attn_implementation='sdpa', dtype=paddle.bfloat16) # sdpa or flash_attention_2, no eager
 model = model.eval().cuda()
 tokenizer = AutoTokenizer.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True)
 
@@ -219,7 +219,7 @@ from PIL import Image
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True,
-    attn_implementation='sdpa', torch_dtype=torch.bfloat16) # sdpa or flash_attention_2, no eager
+    attn_implementation='sdpa', dtype=paddle.bfloat16) # sdpa or flash_attention_2, no eager
 model = model.eval().cuda()
 tokenizer = AutoTokenizer.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True)
 
@@ -256,7 +256,7 @@ from paddlenlp.transformers import AutoModel, AutoTokenizer
 from decord import VideoReader, cpu    # pip install decord
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True,
-    attn_implementation='sdpa', torch_dtype=torch.bfloat16) # sdpa or flash_attention_2, no eager
+    attn_implementation='sdpa', dtype=paddle.bfloat16) # sdpa or flash_attention_2, no eager
 model = model.eval().cuda()
 tokenizer = AutoTokenizer.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True)
 

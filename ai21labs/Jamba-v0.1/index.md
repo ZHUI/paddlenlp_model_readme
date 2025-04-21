@@ -69,13 +69,13 @@ Please note that if you're using `transformers<4.40.0`, `trust_remote_code=True`
 <details>
 <summary><strong>Loading the model in half precision</strong></summary>
   
-  The published checkpoint is saved in BF16. In order to load it into RAM in BF16/FP16, you need to specify `torch_dtype`:
+  The published checkpoint is saved in BF16. In order to load it into RAM in BF16/FP16, you need to specify `dtype`:
   
 ```python
 from paddlenlp.transformers import AutoModelForCausalLM
 import torch
 model = AutoModelForCausalLM.from_pretrained("ai21labs/Jamba-v0.1",
-                                             torch_dtype=torch.bfloat16)    # you can also use torch_dtype=torch.float16
+                                             dtype=paddle.bfloat16)    # you can also use dtype=paddle.float16
 ```
 
 When using half precision, you can enable the [FlashAttention2](https://github.com/Dao-AILab/flash-attention) implementation of the Attention blocks. In order to use it, you also need the model on a CUDA device. Since in this precision the model is to big to fit on a single 80GB GPU, you'll also need to parallelize it using [accelerate](https://huggingface.co/docs/accelerate/index):
@@ -83,7 +83,7 @@ When using half precision, you can enable the [FlashAttention2](https://github.c
 from paddlenlp.transformers import AutoModelForCausalLM
 import torch
 model = AutoModelForCausalLM.from_pretrained("ai21labs/Jamba-v0.1",
-                                             torch_dtype=torch.bfloat16,
+                                             dtype=paddle.bfloat16,
                                              attn_implementation="flash_attention_2",
                                              )
 ```
@@ -98,7 +98,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, BitsAndBytesConfig
 quantization_config = BitsAndBytesConfig(load_in_8bit=True,
                                          llm_int8_skip_modules=["mamba"])
 model = AutoModelForCausalLM.from_pretrained("ai21labs/Jamba-v0.1",
-                                             torch_dtype=torch.bfloat16,
+                                             dtype=paddle.bfloat16,
                                              attn_implementation="flash_attention_2",
                                              quantization_config=quantization_config)
 ```
@@ -116,7 +116,7 @@ from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, Training
 
 tokenizer = AutoTokenizer.from_pretrained("ai21labs/Jamba-v0.1")
 model = AutoModelForCausalLM.from_pretrained(
-    "ai21labs/Jamba-v0.1", device_map='auto', torch_dtype=torch.bfloat16)
+    "ai21labs/Jamba-v0.1", device_map='auto', dtype=paddle.bfloat16)
 
 lora_config = LoraConfig(
     r=8,

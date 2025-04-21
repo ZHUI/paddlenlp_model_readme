@@ -43,7 +43,7 @@ from scipy.io.wavfile import write
 import torch
 
 model_id = "harmonai/maestro-150k"
-pipe = DiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = DiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 audios = pipeline(audio_length_in_s=4.0).audios

@@ -232,7 +232,7 @@ def get_inputs(pairs, tokenizer, prompt=None, max_length=1024):
     )
 
 tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-reranker-v2-minicpm-layerwise', trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained('BAAI/bge-reranker-v2-minicpm-layerwise', trust_remote_code=True, torch_dtype=torch.bfloat16)
+model = AutoModelForCausalLM.from_pretrained('BAAI/bge-reranker-v2-minicpm-layerwise', trust_remote_code=True, dtype=paddle.bfloat16)
 model = model.to('cuda')
 model.eval()
 

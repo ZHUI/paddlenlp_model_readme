@@ -39,13 +39,13 @@ from diffusers import StableDiffusionControlNetImg2ImgPipeline, ControlNetModel,
 from diffusers.utils import load_image
 
 controlnet = ControlNetModel.from_pretrained("DionTimmer/controlnet_qrcode-control_v1p_sd15",
-                                             torch_dtype=torch.float16)
+                                             dtype=paddle.float16)
 
 pipe = StableDiffusionControlNetImg2ImgPipeline.from_pretrained(
     "runwayml/stable-diffusion-v1-5",
     controlnet=controlnet,
     safety_checker=None,
-    torch_dtype=torch.float16
+    dtype=paddle.float16
 )
 
 pipe.enable_xformers_memory_efficient_attention()

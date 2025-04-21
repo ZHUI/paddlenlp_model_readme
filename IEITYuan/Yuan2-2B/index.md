@@ -49,7 +49,7 @@ tokenizer = LlamaTokenizer.from_pretrained('IEITYuan/Yuan2-2B-hf', add_eos_token
 tokenizer.add_tokens(['<sep>', '<pad>', '<mask>', '<predict>', '<FIM_SUFFIX>', '<FIM_PREFIX>', '<FIM_MIDDLE>','<commit_before>','<commit_msg>','<commit_after>','<jupyter_start>','<jupyter_text>','<jupyter_code>','<jupyter_output>','<empty_output>'], special_tokens=True)
 
 print("Creat model...")
-model = AutoModelForCausalLM.from_pretrained('yuan2-2B',device_map='auto',torch_dtype=torch.bfloat16,trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained('yuan2-2B',device_map='auto',dtype=paddle.bfloat16,trust_remote_code=True)
 
 inputs = tokenizer("请问目前最先进的机器学习算法有哪些？", return_tensors="pd")["input_ids"].to("cuda:0")
 outputs = model.generate(inputs,do_sample=False,max_length=100)

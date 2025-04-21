@@ -61,7 +61,7 @@ Below we share some code snippets on how to get quickly started with running the
 
 #### Running the model on a CPU
 
-As explained below, we recommend `torch.bfloat16` as the default dtype. You can use [a different precision](#precisions) if necessary.
+As explained below, we recommend `paddle.bfloat16` as the default dtype. You can use [a different precision](#precisions) if necessary.
 
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
@@ -70,7 +70,7 @@ import torch
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
     "google/gemma-2b-it",
-    torch_dtype=torch.bfloat16
+    dtype=paddle.bfloat16
 )
 
 input_text = "Write me a poem about Machine Learning."
@@ -93,7 +93,7 @@ tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
     "google/gemma-2b-it",
     
-    torch_dtype=torch.bfloat16
+    dtype=paddle.bfloat16
 )
 
 input_text = "Write me a poem about Machine Learning."
@@ -107,11 +107,11 @@ print(tokenizer.decode(outputs[0]))
 <a name="precisions"></a>
 #### Running the model on a GPU using different precisions
 
-The native weights of this model were exported in `bfloat16` precision. You can use `float16`, which may be faster on certain hardware, indicating the `torch_dtype` when loading the model. For convenience, the `float16` revision of the repo contains a copy of the weights already converted to that precision.
+The native weights of this model were exported in `bfloat16` precision. You can use `float16`, which may be faster on certain hardware, indicating the `dtype` when loading the model. For convenience, the `float16` revision of the repo contains a copy of the weights already converted to that precision.
 
 You can also use `float32` if you skip the dtype, but no precision increase will occur (model weights will just be upcasted to `float32`). See examples below.
 
-* _Using `torch.float16`_
+* _Using `paddle.float16`_
 
 ```python
 # pip install accelerate
@@ -122,7 +122,7 @@ tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
     "google/gemma-2b-it",
     
-    torch_dtype=torch.float16,
+    dtype=paddle.float16,
     revision="float16",
 )
 
@@ -133,7 +133,7 @@ outputs = model.generate(**input_ids)
 print(tokenizer.decode(outputs[0]))
 ```
 
-* _Upcasting to `torch.float32`_
+* _Upcasting to `paddle.float32`_
 
 ```python
 # pip install accelerate
@@ -200,7 +200,7 @@ First make sure to install `flash-attn` in your environment `pip install flash-a
 ```diff
 model = AutoModelForCausalLM.from_pretrained(
     model_id, 
-    torch_dtype=torch.float16, 
+    dtype=paddle.float16, 
 +   attn_implementation="flash_attention_2"
 ).to(0)
 ```
@@ -218,13 +218,13 @@ import transformers
 import torch
 
 model_id = "gg-hf/gemma-2b-it"
-dtype = torch.bfloat16
+dtype = paddle.bfloat16
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(
     model_id,
     device_map="cuda",
-    torch_dtype=dtype,
+    dtype=dtype,
 )
 
 chat = [

@@ -58,7 +58,7 @@ from diffusers import AudioLDMPipeline
 import torch
 
 repo_id = "cvssp/audioldm"
-pipe = AudioLDMPipeline.from_pretrained(repo_id, torch_dtype=torch.float16)
+pipe = AudioLDMPipeline.from_pretrained(repo_id, dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 prompt = "Techno music with a strong, upbeat tempo and high melodic riffs"

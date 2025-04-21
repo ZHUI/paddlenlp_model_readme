@@ -78,7 +78,7 @@ tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan2-13B-Chat",
 model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan2-13B-Chat",
     revision="v2.0",
     
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     trust_remote_code=True)
 model.generation_config = GenerationConfig.from_pretrained("baichuan-inc/Baichuan2-13B-Chat", revision="v2.0")
 messages = []

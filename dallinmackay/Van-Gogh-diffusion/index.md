@@ -44,7 +44,7 @@ from diffusers import StableDiffusionPipeline
 import torch
 
 model_id = "dallinmackay/Van-Gogh-diffusion"
-pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 prompt = "lvngvncnt, beautiful woman at sunset"

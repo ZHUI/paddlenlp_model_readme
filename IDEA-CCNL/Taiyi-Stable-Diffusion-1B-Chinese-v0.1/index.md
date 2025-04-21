@@ -111,7 +111,7 @@ image.save("飞流.png")
 
 ### 半精度 Half precision FP16 (CUDA)
 
-添加 `torch_dtype=torch.float16` 和 `device_map="auto"` 可以快速加载 FP16 的权重，以加快推理速度。
+添加 `dtype=paddle.float16` 和 `device_map="auto"` 可以快速加载 FP16 的权重，以加快推理速度。
 更多信息见 [the optimization docs](https://huggingface.co/docs/diffusers/main/en/optimization/fp16#half-precision-weights)。
 
 ```py
@@ -119,7 +119,7 @@ image.save("飞流.png")
 import torch
 from diffusers import StableDiffusionPipeline
 torch.backends.cudnn.benchmark = True
-pipe = StableDiffusionPipeline.from_pretrained("IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Chinese-v0.1", torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained("IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Chinese-v0.1", dtype=paddle.float16)
 pipe.to('cuda')
 
 prompt = '飞流直下三千尺，油画'

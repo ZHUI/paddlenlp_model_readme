@@ -208,7 +208,7 @@ model_inputs = tokenizer(text, return_tensors="pd").to("cuda")
 # load bfloat16 model, move to device, and apply quantization
 quantized_model = AutoModelForCausalLM.from_pretrained(
     "MiniMaxAI/MiniMax-Text-01",
-    torch_dtype="bfloat16",
+    dtype="bfloat16",
     device_map=device_map,
     quantization_config=quantization_config,
     trust_remote_code=True,

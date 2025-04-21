@@ -244,7 +244,7 @@ prompt = "A panda, dressed in a small, red jacket and a tiny hat, sits on a wood
 
 pipe = CogVideoXPipeline.from_pretrained(
     "THUDM/CogVideoX-5b",
-    torch_dtype=torch.bfloat16
+    dtype=paddle.bfloat16
 )
 
 pipe.enable_model_cpu_offload()
@@ -281,13 +281,13 @@ from diffusers.utils import export_to_video
 
 + quantization = int8_weight_only
 
-+ text_encoder = T5EncoderModel.from_pretrained("THUDM/CogVideoX-5b", subfolder="text_encoder", torch_dtype=torch.bfloat16)
++ text_encoder = T5EncoderModel.from_pretrained("THUDM/CogVideoX-5b", subfolder="text_encoder", dtype=paddle.bfloat16)
 + quantize_(text_encoder, quantization())
 
-+ transformer = CogVideoXTransformer3DModel.from_pretrained("THUDM/CogVideoX-5b", subfolder="transformer", torch_dtype=torch.bfloat16)
++ transformer = CogVideoXTransformer3DModel.from_pretrained("THUDM/CogVideoX-5b", subfolder="transformer", dtype=paddle.bfloat16)
 + quantize_(transformer, quantization())
 
-+ vae = AutoencoderKLCogVideoX.from_pretrained("THUDM/CogVideoX-5b", subfolder="vae", torch_dtype=torch.bfloat16)
++ vae = AutoencoderKLCogVideoX.from_pretrained("THUDM/CogVideoX-5b", subfolder="vae", dtype=paddle.bfloat16)
 + quantize_(vae, quantization())
 
 # Create pipeline and run inference
@@ -296,7 +296,7 @@ pipe = CogVideoXPipeline.from_pretrained(
 +    text_encoder=text_encoder,
 +    transformer=transformer,
 +    vae=vae,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
 )
 pipe.enable_model_cpu_offload()
 pipe.vae.enable_tiling()

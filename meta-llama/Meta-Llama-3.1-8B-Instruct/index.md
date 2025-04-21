@@ -325,7 +325,7 @@ model_id = snapshot_download("LLM-Research/Meta-Llama-3.1-8B-Instruct")
 pipeline = transformers.pipeline(
     "text-generation",
     model=model_id,
-    model_kwargs={"torch_dtype": torch.bfloat16},
+    model_kwargs={"dtype": paddle.bfloat16},
     
 )
 

@@ -105,7 +105,7 @@ print(tokenizer.decode(outputs[0]))
 
 #### Running the model on a GPU using different precisions
 
-* _Using `torch.float16`_
+* _Using `paddle.float16`_
 
 ```python
 # pip install accelerate
@@ -121,14 +121,14 @@ outputs = model.generate(**input_ids)
 print(tokenizer.decode(outputs[0]))
 ```
 
-* _Using `torch.bfloat16`_
+* _Using `paddle.bfloat16`_
 
 ```python
 # pip install accelerate
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b")
-model = AutoModelForCausalLM.from_pretrained("google/gemma-2b",  torch_dtype=torch.bfloat16)
+model = AutoModelForCausalLM.from_pretrained("google/gemma-2b",  dtype=paddle.bfloat16)
 
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
@@ -185,7 +185,7 @@ First make sure to install `flash-attn` in your environment `pip install flash-a
 ```diff
 model = AutoModelForCausalLM.from_pretrained(
     model_id, 
-    torch_dtype=torch.float16, 
+    dtype=paddle.float16, 
 +   attn_implementation="flash_attention_2"
 ).to(0)
 ```

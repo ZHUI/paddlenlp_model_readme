@@ -196,7 +196,7 @@ import torch
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", torch_dtype=torch.bfloat16).to(0)
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", dtype=paddle.bfloat16).to(0)
 
 model = torch.compile(model)
 
@@ -223,7 +223,7 @@ import torch
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b",  torch_dtype=torch.float16)
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b",  dtype=paddle.float16)
 
 input_text = "Question: How many hours in one day? Answer: "
 input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")

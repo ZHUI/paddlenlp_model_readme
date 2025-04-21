@@ -28,7 +28,7 @@ pip install diffusers transformers accelerate
 from diffusers import AutoPipelineForText2Image
 import torch
 
-pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-1", torch_dtype=torch.float16)
+pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-1", dtype=paddle.float16)
 pipe.enable_model_cpu_offload()
 
 prompt = "A alien cheeseburger creature eating itself, claymation, cinematic, moody lighting"
@@ -51,7 +51,7 @@ from io import BytesIO
 from PIL import Image
 import os
 
-pipe = AutoPipelineForImage2Image.from_pretrained("kandinsky-community/kandinsky-2-1", torch_dtype=torch.float16)
+pipe = AutoPipelineForImage2Image.from_pretrained("kandinsky-community/kandinsky-2-1", dtype=paddle.float16)
 
 pipe.enable_model_cpu_offload()
 
@@ -81,7 +81,7 @@ import PIL
 import torch
 
 pipe_prior = KandinskyPriorPipeline.from_pretrained(
-    "kandinsky-community/kandinsky-2-1-prior", torch_dtype=torch.float16
+    "kandinsky-community/kandinsky-2-1-prior", dtype=paddle.float16
 )
 pipe_prior.to("cuda")
 
@@ -103,7 +103,7 @@ weights = [0.3, 0.3, 0.4]
 prompt = ""
 prior_out = pipe_prior.interpolate(images_texts, weights)
 
-pipe = KandinskyPipeline.from_pretrained("kandinsky-community/kandinsky-2-1", torch_dtype=torch.float16)
+pipe = KandinskyPipeline.from_pretrained("kandinsky-community/kandinsky-2-1", dtype=paddle.float16)
 pipe.to("cuda")
 
 image = pipe(prompt, **prior_out, height=768, width=768).images[0]

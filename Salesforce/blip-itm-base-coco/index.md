@@ -96,13 +96,13 @@ from PIL import Image
 from paddlenlp.transformers import BlipProcessor, BlipForImageTextRetrieval
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-itm-base-coco")
-model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-base-coco", torch_dtype=torch.float16).to("cuda")
+model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-base-coco", dtype=paddle.float16).to("cuda")
 
 img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo.jpg' 
 raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 question = "A woman and a dog sitting together in a beach."
-inputs = processor(raw_image, question, return_tensors="pd").to("cuda", torch.float16)
+inputs = processor(raw_image, question, return_tensors="pd").to("cuda", paddle.float16)
 
 itm_scores = model(**inputs)[0]
 cosine_score = model(**inputs, use_itm_head=False)[0]

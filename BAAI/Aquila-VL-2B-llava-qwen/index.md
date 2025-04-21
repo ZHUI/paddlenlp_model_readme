@@ -90,7 +90,7 @@ image = Image.open(requests.get(url, stream=True).raw)
 # image = Image.open(url)
 
 image_tensor = process_images([image], image_processor, model.config)
-image_tensor = [_image.to(dtype=torch.float16, device=device) for _image in image_tensor]
+image_tensor = [_image.to(dtype=paddle.float16, device=device) for _image in image_tensor]
 
 conv_template = "qwen_1_5"  # Make sure you use correct chat template for different models
 question = DEFAULT_IMAGE_TOKEN + "\nWhat is shown in this image?"

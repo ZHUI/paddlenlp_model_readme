@@ -42,7 +42,7 @@ from diffusers import StableDiffusionPipeline
 import torch
 
 model_id = "nitrosocke/mo-di-diffusion"
-pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 prompt = "a magical princess with golden hair, modern disney style"

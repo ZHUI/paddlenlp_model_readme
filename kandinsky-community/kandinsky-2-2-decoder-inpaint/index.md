@@ -31,7 +31,7 @@ from diffusers.utils import load_image
 import torch
 import numpy as np
 
-pipe = AutoPipelineForInpainting.from_pretrained("kandinsky-community/kandinsky-2-2-decoder-inpaint", torch_dtype=torch.float16)
+pipe = AutoPipelineForInpainting.from_pretrained("kandinsky-community/kandinsky-2-2-decoder-inpaint", dtype=paddle.float16)
 pipe.enable_model_cpu_offload()
 
 prompt = "a hat"

@@ -161,7 +161,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 model_id = "mistral-community/Mixtral-8x22B-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-+ model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.float16).to(0)
++ model = AutoModelForCausalLM.from_pretrained(model_id, dtype=paddle.float16).to(0)
 
 text = "Hello my name is"
 + inputs = tokenizer(text, return_tensors="pd").to(0)

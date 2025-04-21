@@ -40,7 +40,7 @@ import torch
 from diffusers import DiffusionPipeline, DPMSolverMultistepScheduler
 from diffusers.utils import export_to_video
 
-pipe = DiffusionPipeline.from_pretrained("cerspense/zeroscope_v2_576w", torch_dtype=torch.float16)
+pipe = DiffusionPipeline.from_pretrained("cerspense/zeroscope_v2_576w", dtype=paddle.float16)
 pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
 pipe.enable_model_cpu_offload()
 pipe.enable_vae_slicing()
@@ -54,7 +54,7 @@ video_path = export_to_video(video_frames)
 Next, we can upscale it using [cerspense/zeroscope_v2_XL](https://huggingface.co/cerspense/zeroscope_v2_XL).
 
 ```py
-pipe = DiffusionPipeline.from_pretrained("cerspense/zeroscope_v2_XL", torch_dtype=torch.float16)
+pipe = DiffusionPipeline.from_pretrained("cerspense/zeroscope_v2_XL", dtype=paddle.float16)
 pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
 pipe.enable_model_cpu_offload()
 pipe.enable_vae_slicing()

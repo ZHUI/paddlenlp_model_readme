@@ -82,7 +82,7 @@ Bye!
 import torch
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
-model = AutoModelForCausalLM.from_pretrained('PKU-Alignment/alpaca-7b-reproduced', torch_dtype=torch.bfloat16, device_map='auto')
+model = AutoModelForCausalLM.from_pretrained('PKU-Alignment/alpaca-7b-reproduced', dtype=paddle.bfloat16, device_map='auto')
 tokenizer = AutoTokenizer.from_pretrained('PKU-Alignment/alpaca-7b-reproduced')
 
 prompt = 'BEGINNING OF CONVERSATION: USER: {input} ASSISTANT:'

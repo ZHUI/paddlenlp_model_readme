@@ -321,7 +321,7 @@ Make sure to update your transformers installation via `pip install --upgrade tr
 >>> model_id = snapshot_download("LLM-Research/Meta-Llama-3.1-70B")
 
 >>> pipeline = transformers.pipeline(
-    "text-generation", model=model_id, model_kwargs={"torch_dtype": torch.bfloat16}, 
+    "text-generation", model=model_id, model_kwargs={"dtype": paddle.bfloat16}, 
 )
 >>> pipeline("Hey how are you doing today?")
 ```

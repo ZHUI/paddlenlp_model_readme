@@ -23,11 +23,11 @@ Just load this checkpoint via `AutoencoderKL`:
 import torch
 from diffusers import DiffusionPipeline, AutoencoderKL
 
-vae = AutoencoderKL.from_pretrained("madebyollin/sdxl-vae-fp16-fix", torch_dtype=torch.float16)
-pipe = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", vae=vae, torch_dtype=torch.float16, variant="fp16", use_safetensors=True)
+vae = AutoencoderKL.from_pretrained("madebyollin/sdxl-vae-fp16-fix", dtype=paddle.float16)
+pipe = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", vae=vae, dtype=paddle.float16, variant="fp16", use_safetensors=True)
 pipe.to("cuda")
 
-refiner = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0", vae=vae, torch_dtype=torch.float16, use_safetensors=True, variant="fp16")
+refiner = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0", vae=vae, dtype=paddle.float16, use_safetensors=True, variant="fp16")
 refiner.to("cuda")
 
 n_steps = 40

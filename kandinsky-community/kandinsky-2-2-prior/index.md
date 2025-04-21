@@ -28,7 +28,7 @@ pip install diffusers transformers accelerate
 from diffusers import AutoPipelineForText2Image
 import torch
 
-pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", torch_dtype=torch.float16)
+pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 prompt = "portrait of a young women, blue eyes, cinematic"
@@ -59,7 +59,7 @@ original_image = original_image.resize((768, 512))
 from diffusers import AutoPipelineForImage2Image
 import torch
 
-pipe = AutoPipelineForImage2Image.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", torch_dtype=torch.float16)
+pipe = AutoPipelineForImage2Image.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
 pipe.enable_model_cpu_offload()
 
 prompt = "A fantasy landscape, Cinematic lighting"
@@ -83,7 +83,7 @@ import PIL
 import torch
 
 pipe_prior = KandinskyV22PriorPipeline.from_pretrained(
-    "kandinsky-community/kandinsky-2-2-prior", torch_dtype=torch.float16
+    "kandinsky-community/kandinsky-2-2-prior", dtype=paddle.float16
 )
 pipe_prior.to("cuda")
 
@@ -105,7 +105,7 @@ weights = [0.3, 0.3, 0.4]
 prompt = ""
 prior_out = pipe_prior.interpolate(images_texts, weights)
 
-pipe = KandinskyV22Pipeline.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", torch_dtype=torch.float16)
+pipe = KandinskyV22Pipeline.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
 pipe.to("cuda")
 
 image = pipe(**prior_out, height=768, width=768).images[0]
@@ -123,7 +123,7 @@ from diffusers.utils import load_image
 import torch
 import numpy as np
 
-pipe = AutoPipelineForInpainting.from_pretrained("kandinsky-community/kandinsky-2-2-decoder-inpaint", torch_dtype=torch.float16)
+pipe = AutoPipelineForInpainting.from_pretrained("kandinsky-community/kandinsky-2-2-decoder-inpaint", dtype=paddle.float16)
 pipe.enable_model_cpu_offload()
 
 prompt = "a hat"
@@ -197,12 +197,12 @@ hint = make_hint(img, depth_estimator).unsqueeze(0).half().to("cuda")
 
 # Now, we load the prior pipeline and the text-to-image controlnet pipeline
 pipe_prior = KandinskyV22PriorPipeline.from_pretrained(
-    "kandinsky-community/kandinsky-2-2-prior", torch_dtype=torch.float16
+    "kandinsky-community/kandinsky-2-2-prior", dtype=paddle.float16
 )
 pipe_prior = pipe_prior.to("cuda")
 
 pipe = KandinskyV22ControlnetPipeline.from_pretrained(
-    "kandinsky-community/kandinsky-2-2-controlnet-depth", torch_dtype=torch.float16
+    "kandinsky-community/kandinsky-2-2-controlnet-depth", dtype=paddle.float16
 )
 pipe = pipe.to("cuda")
 
@@ -258,12 +258,12 @@ depth_estimator = pipeline("depth-estimation")
 hint = make_hint(img, depth_estimator).unsqueeze(0).half().to("cuda")
 
 pipe_prior = KandinskyV22PriorEmb2EmbPipeline.from_pretrained(
-    "kandinsky-community/kandinsky-2-2-prior", torch_dtype=torch.float16
+    "kandinsky-community/kandinsky-2-2-prior", dtype=paddle.float16
 )
 pipe_prior = pipe_prior.to("cuda")
 
 pipe = KandinskyV22ControlnetImg2ImgPipeline.from_pretrained(
-    "kandinsky-community/kandinsky-2-2-controlnet-depth", torch_dtype=torch.float16
+    "kandinsky-community/kandinsky-2-2-controlnet-depth", dtype=paddle.float16
 )
 pipe = pipe.to("cuda")
 

@@ -266,11 +266,11 @@ color_seg = color_seg.astype(np.uint8)
 image = Image.fromarray(color_seg)
 
 controlnet = ControlNetModel.from_pretrained(
-    "lllyasviel/sd-controlnet-seg", torch_dtype=torch.float16
+    "lllyasviel/sd-controlnet-seg", dtype=paddle.float16
 )
 
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
-    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, safety_checker=None, torch_dtype=torch.float16
+    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, safety_checker=None, dtype=paddle.float16
 )
 
 pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)

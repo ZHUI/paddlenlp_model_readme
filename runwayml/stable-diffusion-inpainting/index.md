@@ -31,7 +31,7 @@ from diffusers import StableDiffusionInpaintPipeline
 pipe = StableDiffusionInpaintPipeline.from_pretrained(
     "sd-legacy/stable-diffusion-inpainting",
     revision="fp16",
-    torch_dtype=torch.float16,
+    dtype=paddle.float16,
 )
 prompt = "Face of a yellow cat, high resolution, sitting on a park bench"
 #image and mask_image should be PIL images.

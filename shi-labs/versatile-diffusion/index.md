@@ -66,7 +66,7 @@ import requests
 from io import BytesIO
 from PIL import Image
 
-pipe = VersatileDiffusionPipeline.from_pretrained("shi-labs/versatile-diffusion", torch_dtype=torch.float16)
+pipe = VersatileDiffusionPipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 # prompt
@@ -98,7 +98,7 @@ You can use them as follows:
 from diffusers import VersatileDiffusionTextToImagePipeline
 import torch
 
-pipe = VersatileDiffusionTextToImagePipeline.from_pretrained("shi-labs/versatile-diffusion", torch_dtype=torch.float16)
+pipe = VersatileDiffusionTextToImagePipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
 pipe.remove_unused_weights()
 pipe = pipe.to("cuda")
 
@@ -119,7 +119,7 @@ url = "https://huggingface.co/datasets/diffusers/images/resolve/main/benz.jpg"
 response = requests.get(url)
 image = Image.open(BytesIO(response.content)).convert("RGB")
 
-pipe = VersatileDiffusionImageVariationPipeline.from_pretrained("shi-labs/versatile-diffusion", torch_dtype=torch.float16)
+pipe = VersatileDiffusionImageVariationPipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 generator = torch.Generator(device="cuda").manual_seed(0)
@@ -141,7 +141,7 @@ response = requests.get(url)
 image = Image.open(BytesIO(response.content)).convert("RGB")
 text = "a red car in the sun"
 
-pipe = VersatileDiffusionDualGuidedPipeline.from_pretrained("shi-labs/versatile-diffusion", torch_dtype=torch.float16)
+pipe = VersatileDiffusionDualGuidedPipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
 pipe.remove_unused_weights()
 pipe = pipe.to("cuda")
 

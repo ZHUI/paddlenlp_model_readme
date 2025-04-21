@@ -44,7 +44,7 @@ import torch
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 from paddlenlp.transformers.generation.utils import GenerationConfig
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan-13B-Chat", use_fast=False, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-13B-Chat",  torch_dtype=torch.float16, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-13B-Chat",  dtype=paddle.float16, trust_remote_code=True)
 model.generation_config = GenerationConfig.from_pretrained("baichuan-inc/Baichuan-13B-Chat")
 messages = []
 messages.append({"role": "user", "content": "世界上第二高的山峰是哪座"})
@@ -58,7 +58,7 @@ import torch
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 from paddlenlp.transformers.generation.utils import GenerationConfig
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan-13B-Chat", use_fast=False, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-13B-Chat",  torch_dtype=torch.float16, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-13B-Chat",  dtype=paddle.float16, trust_remote_code=True)
 model.generation_config = GenerationConfig.from_pretrained("baichuan-inc/Baichuan-13B-Chat")
 messages = []
 messages.append({"role": "user", "content": "Which moutain is the second highest one in the world?"})
@@ -74,13 +74,13 @@ Baichuan-13B supports int8 and int4 quantization, users only need to make a simp
 
 使用 int8 量化 (To use int8 quantization):
 ```python
-model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-13B-Chat", torch_dtype=torch.float16, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-13B-Chat", dtype=paddle.float16, trust_remote_code=True)
 model = model.quantize(8).cuda() 
 ```
 
 同样的，如需使用 int4 量化 (Similarly, to use int4 quantization):
 ```python
-model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-13B-Chat", torch_dtype=torch.float16, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-13B-Chat", dtype=paddle.float16, trust_remote_code=True)
 model = model.quantize(4).cuda()
 ```
 

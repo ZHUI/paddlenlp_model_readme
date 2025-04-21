@@ -122,7 +122,7 @@ from paddlenlp.transformers import AutoTokenizer, AutoModel
 path = "OpenGVLab/InternVL2-40B"
 model = AutoModel.from_pretrained(
     path,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     low_cpu_mem_usage=True,
     use_flash_attn=True,
     trust_remote_code=True).eval().cuda()
@@ -136,7 +136,7 @@ from paddlenlp.transformers import AutoTokenizer, AutoModel
 path = "OpenGVLab/InternVL2-40B"
 model = AutoModel.from_pretrained(
     path,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     load_in_8bit=True,
     low_cpu_mem_usage=True,
     use_flash_attn=True,
@@ -183,7 +183,7 @@ path = "OpenGVLab/InternVL2-40B"
 device_map = split_model('InternVL2-26B')
 model = AutoModel.from_pretrained(
     path,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     low_cpu_mem_usage=True,
     use_flash_attn=True,
     trust_remote_code=True,
@@ -309,7 +309,7 @@ path = 'OpenGVLab/InternVL2-40B'
 device_map = split_model('InternVL2-40B')
 model = AutoModel.from_pretrained(
     path,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     load_in_8bit=True,
     low_cpu_mem_usage=True,
     use_flash_attn=True,
@@ -318,7 +318,7 @@ model = AutoModel.from_pretrained(
 tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True, use_fast=False)
 
 # set the max number of tiles in `max_num`
-pixel_values = load_image('./examples/image1.jpg', max_num=12).to(torch.bfloat16).cuda()
+pixel_values = load_image('./examples/image1.jpg', max_num=12).to(paddle.bfloat16).cuda()
 generation_config = dict(max_new_tokens=1024, do_sample=True)
 
 # pure-text conversation (纯文本对话)
@@ -345,8 +345,8 @@ response, history = model.chat(tokenizer, pixel_values, question, generation_con
 print(f'User: {question}\nAssistant: {response}')
 
 # multi-image multi-round conversation, combined images (多图多轮对话，拼接图像)
-pixel_values1 = load_image('./examples/image1.jpg', max_num=12).to(torch.bfloat16).cuda()
-pixel_values2 = load_image('./examples/image2.jpg', max_num=12).to(torch.bfloat16).cuda()
+pixel_values1 = load_image('./examples/image1.jpg', max_num=12).to(paddle.bfloat16).cuda()
+pixel_values2 = load_image('./examples/image2.jpg', max_num=12).to(paddle.bfloat16).cuda()
 pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
 
 question = '<image>\nDescribe the two images in detail.'
@@ -360,8 +360,8 @@ response, history = model.chat(tokenizer, pixel_values, question, generation_con
 print(f'User: {question}\nAssistant: {response}')
 
 # multi-image multi-round conversation, separate images (多图多轮对话，独立图像)
-pixel_values1 = load_image('./examples/image1.jpg', max_num=12).to(torch.bfloat16).cuda()
-pixel_values2 = load_image('./examples/image2.jpg', max_num=12).to(torch.bfloat16).cuda()
+pixel_values1 = load_image('./examples/image1.jpg', max_num=12).to(paddle.bfloat16).cuda()
+pixel_values2 = load_image('./examples/image2.jpg', max_num=12).to(paddle.bfloat16).cuda()
 pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
 num_patches_list = [pixel_values1.size(0), pixel_values2.size(0)]
 
@@ -378,8 +378,8 @@ response, history = model.chat(tokenizer, pixel_values, question, generation_con
 print(f'User: {question}\nAssistant: {response}')
 
 # batch inference, single image per sample (单图批处理)
-pixel_values1 = load_image('./examples/image1.jpg', max_num=12).to(torch.bfloat16).cuda()
-pixel_values2 = load_image('./examples/image2.jpg', max_num=12).to(torch.bfloat16).cuda()
+pixel_values1 = load_image('./examples/image1.jpg', max_num=12).to(paddle.bfloat16).cuda()
+pixel_values2 = load_image('./examples/image2.jpg', max_num=12).to(paddle.bfloat16).cuda()
 num_patches_list = [pixel_values1.size(0), pixel_values2.size(0)]
 pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
 
@@ -426,7 +426,7 @@ def load_video(video_path, bound=None, input_size=448, max_num=1, num_segments=3
 
 video_path = './examples/red-panda.mp4'
 pixel_values, num_patches_list = load_video(video_path, num_segments=8, max_num=1)
-pixel_values = pixel_values.to(torch.bfloat16).cuda()
+pixel_values = pixel_values.to(paddle.bfloat16).cuda()
 video_prefix = ''.join([f'Frame{i+1}: <image>\n' for i in range(len(num_patches_list))])
 question = video_prefix + 'What is the red panda doing?'
 # Frame1: <image>\nFrame2: <image>\n...\nFrame8: <image>\n{question}

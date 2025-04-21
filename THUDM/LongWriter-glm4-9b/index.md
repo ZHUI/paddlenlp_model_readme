@@ -35,7 +35,7 @@ A simple demo for deployment of the model:
 from modelscope import AutoTokenizer, AutoModelForCausalLM
 import torch
 tokenizer = AutoTokenizer.from_pretrained("ZhipuAI/LongWriter-glm4-9b", trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("ZhipuAI/LongWriter-glm4-9b", torch_dtype=torch.bfloat16, trust_remote_code=True, )
+model = AutoModelForCausalLM.from_pretrained("ZhipuAI/LongWriter-glm4-9b", dtype=paddle.bfloat16, trust_remote_code=True, )
 model = model.eval()
 query = "Write a `10000`-word China travel guide"
 response, history = model.chat(tokenizer, query, history=[], max_new_tokens=1024, temperature=0.5)

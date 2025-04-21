@@ -116,11 +116,11 @@ image = (image * 127.5 + 127.5).clip(0, 255).astype(np.uint8)
 image = Image.fromarray(image)
 
 controlnet = ControlNetModel.from_pretrained(
-    "fusing/stable-diffusion-v1-5-controlnet-normal", torch_dtype=torch.float16
+    "fusing/stable-diffusion-v1-5-controlnet-normal", dtype=paddle.float16
 )
 
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
-    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, safety_checker=None, torch_dtype=torch.float16
+    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, safety_checker=None, dtype=paddle.float16
 )
 
 pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)

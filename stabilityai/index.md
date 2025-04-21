@@ -59,7 +59,7 @@ Make sure you upgrade to the latest version of `diffusers`: `pip install -U diff
 import torch
 from diffusers import StableDiffusion3Pipeline
 
-pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3-medium-diffusers", torch_dtype=torch.float16)
+pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3-medium-diffusers", dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 image = pipe(

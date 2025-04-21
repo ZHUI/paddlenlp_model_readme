@@ -108,12 +108,12 @@ control_image = processor(image)
 control_image.save("./images/control.png")
 
 # we skip one layer of the encoder
-text_encoder = CLIPTextModel.from_pretrained("runwayml/stable-diffusion-v1-5", subfolder="text_encoder", num_hidden_layers=11, torch_dtype=torch.float16)
+text_encoder = CLIPTextModel.from_pretrained("runwayml/stable-diffusion-v1-5", subfolder="text_encoder", num_hidden_layers=11, dtype=paddle.float16)
 
-controlnet = ControlNetModel.from_pretrained(checkpoint, torch_dtype=torch.float16)
+controlnet = ControlNetModel.from_pretrained(checkpoint, dtype=paddle.float16)
 
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
-    "runwayml/stable-diffusion-v1-5", text_encoder=text_encoder, controlnet=controlnet, torch_dtype=torch.float16
+    "runwayml/stable-diffusion-v1-5", text_encoder=text_encoder, controlnet=controlnet, dtype=paddle.float16
 )
 
 pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)

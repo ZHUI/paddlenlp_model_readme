@@ -24,9 +24,9 @@ from diffusers.utils import export_to_video
 
 model_id = "hunyuanvideo-community/HunyuanVideo"
 transformer = HunyuanVideoTransformer3DModel.from_pretrained(
-    model_id, subfolder="transformer", torch_dtype=torch.bfloat16
+    model_id, subfolder="transformer", dtype=paddle.bfloat16
 )
-pipe = HunyuanVideoPipeline.from_pretrained(model_id, transformer=transformer, torch_dtype=torch.float16)
+pipe = HunyuanVideoPipeline.from_pretrained(model_id, transformer=transformer, dtype=paddle.float16)
 
 # Enable memory savings
 pipe.vae.enable_tiling()

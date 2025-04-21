@@ -101,7 +101,7 @@ model = Qwen2VLForConditionalGeneration.from_pretrained(
 # We recommend enabling flash_attention_2 for better acceleration and memory saving, especially in multi-image and video scenarios.
 # model = Qwen2VLForConditionalGeneration.from_pretrained(
 #     model_dir,
-#     torch_dtype=torch.bfloat16,
+#     dtype=paddle.bfloat16,
 #     attn_implementation="flash_attention_2",
 #     
 # )

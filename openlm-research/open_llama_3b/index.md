@@ -29,7 +29,7 @@ model_path = 'openlm-research/open_llama_3b'
 
 tokenizer = LlamaTokenizer.from_pretrained(model_path)
 model = LlamaForCausalLM.from_pretrained(
-    model_path, torch_dtype=torch.float16, device_map='auto',
+    model_path, dtype=paddle.float16, device_map='auto',
 )
 
 prompt = 'Q: What is the largest animal?\nA:'

@@ -46,7 +46,7 @@ pipeline = transformers.pipeline(
     "text-generation",
     model=model,
     tokenizer=tokenizer,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     trust_remote_code=True,
     
 )
@@ -117,7 +117,7 @@ pipeline = transformers.pipeline(
     "text-generation",
     model=model,
     tokenizer=tokenizer,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     trust_remote_code=True,
     
 )

@@ -39,9 +39,9 @@ from PIL import Image
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 ckpt_path = "internlm/internlm-xcomposer2-7b"
 tokenizer = AutoTokenizer.from_pretrained(ckpt_path, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(ckpt_path, torch_dtype=torch.float32, trust_remote_code=True).cuda()
-# Set `torch_dtype=torch.float16` to load model in float16, otherwise it will be loaded as float32 and might cause OOM Error.
-# model = AutoModelForCausalLM.from_pretrained(ckpt_path, torch_dtype=torch.float16, trust_remote_code=True).cuda()
+model = AutoModelForCausalLM.from_pretrained(ckpt_path, dtype=paddle.float32, trust_remote_code=True).cuda()
+# Set `dtype=paddle.float16` to load model in float16, otherwise it will be loaded as float32 and might cause OOM Error.
+# model = AutoModelForCausalLM.from_pretrained(ckpt_path, dtype=paddle.float16, trust_remote_code=True).cuda()
 model = model.eval()
 img_path_list = [
     './panda.jpg',
@@ -77,9 +77,9 @@ from PIL import Image
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 ckpt_path = "internlm/internlm-xcomposer2-7b"
 tokenizer = AutoTokenizer.from_pretrained(ckpt_path, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(ckpt_path, torch_dtype=torch.float32, trust_remote_code=True).cuda()
-# `torch_dtype=torch.float16` 可以令模型以 float16 精度加载，否则 transformers 会将模型加载为 float32，导致显存不足
-# model = AutoModelForCausalLM.from_pretrained(ckpt_path, torch_dtype=torch.float16, trust_remote_code=True).cuda()
+model = AutoModelForCausalLM.from_pretrained(ckpt_path, dtype=paddle.float32, trust_remote_code=True).cuda()
+# `dtype=paddle.float16` 可以令模型以 float16 精度加载，否则 transformers 会将模型加载为 float32，导致显存不足
+# model = AutoModelForCausalLM.from_pretrained(ckpt_path, dtype=paddle.float16, trust_remote_code=True).cuda()
 model = model.eval() 
 img_path_list = [
     './panda.jpg',

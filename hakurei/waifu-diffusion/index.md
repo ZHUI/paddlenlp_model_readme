@@ -59,7 +59,7 @@ from diffusers import StableDiffusionPipeline
 
 pipe = StableDiffusionPipeline.from_pretrained(
     'hakurei/waifu-diffusion',
-    torch_dtype=torch.float32
+    dtype=paddle.float32
 ).to('cuda')
 
 prompt = "1girl, aqua eyes, baseball cap, blonde hair, closed mouth, earrings, green background, hat, hoop earrings, jewelry, looking at viewer, shirt, short hair, simple background, solo, upper body, yellow shirt"

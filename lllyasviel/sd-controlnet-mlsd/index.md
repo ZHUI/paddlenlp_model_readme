@@ -101,11 +101,11 @@ image = load_image("https://huggingface.co/lllyasviel/sd-controlnet-mlsd/resolve
 image = mlsd(image)
 
 controlnet = ControlNetModel.from_pretrained(
-    "lllyasviel/sd-controlnet-mlsd", torch_dtype=torch.float16
+    "lllyasviel/sd-controlnet-mlsd", dtype=paddle.float16
 )
 
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
-    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, safety_checker=None, torch_dtype=torch.float16
+    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, safety_checker=None, dtype=paddle.float16
 )
 
 pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)

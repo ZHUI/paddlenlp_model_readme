@@ -326,10 +326,10 @@ from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 model_id = "meta-llama/Llama-Guard-3-8B"
 device = "cuda"
-dtype = torch.bfloat16
+dtype = paddle.bfloat16
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
-model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=dtype, device_map=device)
+model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype, device_map=device)
 
 def moderate(chat):
   input_ids = tokenizer.apply_chat_template(chat, return_tensors="pd")

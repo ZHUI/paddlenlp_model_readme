@@ -203,7 +203,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 # `max_memory` should be set based on your devices
 max_memory = {i: "75GB" for i in range(8)}
 # `device_map` cannot be set to `auto`
-model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, device_map="sequential", torch_dtype=torch.bfloat16, max_memory=max_memory, attn_implementation="eager")
+model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, device_map="sequential", dtype=paddle.bfloat16, max_memory=max_memory, attn_implementation="eager")
 model.generation_config = GenerationConfig.from_pretrained(model_name)
 model.generation_config.pad_token_id = model.generation_config.eos_token_id
 
@@ -225,7 +225,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 # `max_memory` should be set based on your devices
 max_memory = {i: "75GB" for i in range(8)}
 # `device_map` cannot be set to `auto`
-model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, device_map="sequential", torch_dtype=torch.bfloat16, max_memory=max_memory, attn_implementation="eager")
+model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, device_map="sequential", dtype=paddle.bfloat16, max_memory=max_memory, attn_implementation="eager")
 model.generation_config = GenerationConfig.from_pretrained(model_name)
 model.generation_config.pad_token_id = model.generation_config.eos_token_id
 

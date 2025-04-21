@@ -103,10 +103,10 @@ def make_inpaint_condition(image, image_mask):
 control_image = make_inpaint_condition(init_image, mask_image)
 
 controlnet = ControlNetModel.from_pretrained(
-    "lllyasviel/control_v11p_sd15_inpaint", torch_dtype=torch.float16
+    "lllyasviel/control_v11p_sd15_inpaint", dtype=paddle.float16
 )
 pipe = StableDiffusionControlNetInpaintPipeline.from_pretrained(
-    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, torch_dtype=torch.float16
+    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, dtype=paddle.float16
 )
 
 pipe.scheduler = DDIMScheduler.from_config(pipe.scheduler.config)

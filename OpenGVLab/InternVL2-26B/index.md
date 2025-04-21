@@ -215,7 +215,7 @@ path = 'OpenGVLab/InternVL2-26B'
 # If you have an 80G A100 GPU, you can put the entire model on a single GPU.
 model = AutoModel.from_pretrained(
     path,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     low_cpu_mem_usage=True,
     trust_remote_code=True).eval().cuda()
 # Otherwise, you need to set device_map to use multiple GPUs for inference.
@@ -223,14 +223,14 @@ model = AutoModel.from_pretrained(
 # print(device_map)
 # model = AutoModel.from_pretrained(
 #     path,
-#     torch_dtype=torch.bfloat16,
+#     dtype=paddle.bfloat16,
 #     low_cpu_mem_usage=True,
 #     trust_remote_code=True,
 #     device_map=device_map).eval()
 
 tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)
 # set the max number of tiles in `max_num`
-pixel_values = load_image('./examples/image1.jpg', max_num=6).to(torch.bfloat16).cuda()
+pixel_values = load_image('./examples/image1.jpg', max_num=6).to(paddle.bfloat16).cuda()
 
 generation_config = dict(
     num_beams=1,
@@ -267,8 +267,8 @@ print(f'User: {question}')
 print(f'Assistant: {response}')
 
 # multi-image multi-round conversation, combined images (多图多轮对话，拼接图像)
-pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(torch.bfloat16).cuda()
-pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(torch.bfloat16).cuda()
+pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(paddle.bfloat16).cuda()
+pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(paddle.bfloat16).cuda()
 pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
 
 question = '<image>\nDescribe the two images in detail.'
@@ -282,8 +282,8 @@ print(f'User: {question}')
 print(f'Assistant: {response}')
 
 # multi-image multi-round conversation, separate images (多图多轮对话，独立图像)
-pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(torch.bfloat16).cuda()
-pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(torch.bfloat16).cuda()
+pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(paddle.bfloat16).cuda()
+pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(paddle.bfloat16).cuda()
 pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
 num_patches_list = [pixel_values1.size(0), pixel_values2.size(0)]
 
@@ -302,8 +302,8 @@ print(f'User: {question}')
 print(f'Assistant: {response}')
 
 # batch inference, single image per sample (单图批处理)
-pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(torch.bfloat16).cuda()
-pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(torch.bfloat16).cuda()
+pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(paddle.bfloat16).cuda()
+pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(paddle.bfloat16).cuda()
 num_patches_list = [pixel_values1.size(0), pixel_values2.size(0)]
 pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
 
@@ -353,7 +353,7 @@ def load_video(video_path, bound=None, input_size=448, max_num=1, num_segments=3
 video_path = './examples/red-panda.mp4'
 # pixel_values, num_patches_list = load_video(video_path, num_segments=32, max_num=1)
 pixel_values, num_patches_list = load_video(video_path, num_segments=8, max_num=1)
-pixel_values = pixel_values.to(torch.bfloat16).cuda()
+pixel_values = pixel_values.to(paddle.bfloat16).cuda()
 video_prefix = ''.join([f'Frame{i+1}: <image>\n' for i in range(len(num_patches_list))])
 question = video_prefix + 'What is the red panda doing?'
 # Frame1: <image>\nFrame2: <image>\n...\nFrame31: <image>\n{question}

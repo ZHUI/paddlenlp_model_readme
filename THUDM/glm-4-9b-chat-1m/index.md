@@ -64,7 +64,7 @@ inputs = tokenizer.apply_chat_template([{"role": "user", "content": query}],
 inputs = inputs
 model = AutoModelForCausalLM.from_pretrained(
     "ZhipuAI/glm-4-9b-chat-1m",
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
     low_cpu_mem_usage=True,
     trust_remote_code=True
 ).eval()

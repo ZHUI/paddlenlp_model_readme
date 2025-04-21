@@ -29,7 +29,7 @@ from diffusers import StableDiffusionPipeline
 import torch
 
 model_id = "Langboat/Guohua-Diffusion"
-pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 prompt = "The Godfather poster in guohua style"

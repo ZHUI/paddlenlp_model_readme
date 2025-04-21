@@ -59,7 +59,7 @@ vl_chat_processor: DeepseekVLV2Processor = DeepseekVLV2Processor.from_pretrained
 tokenizer = vl_chat_processor.tokenizer
 
 vl_gpt: DeepseekVLV2ForCausalLM = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True)
-vl_gpt = vl_gpt.to(torch.bfloat16).cuda().eval()
+vl_gpt = vl_gpt.to(paddle.bfloat16).cuda().eval()
 
 ## single image conversation example
 conversation = [

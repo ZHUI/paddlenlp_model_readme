@@ -26,7 +26,7 @@ pip install diffusers transformers accelerate safetensors
 from diffusers import UnCLIPPipeline
 import torch
 
-pipe = UnCLIPPipeline.from_pretrained("kakaobrain/karlo-v1-alpha", torch_dtype=torch.float16)
+pipe = UnCLIPPipeline.from_pretrained("kakaobrain/karlo-v1-alpha", dtype=paddle.float16)
 pipe = pipe.to('cuda')
 
 prompt = "a high-resolution photograph of a big red frog on a green leaf."
@@ -45,7 +45,7 @@ from diffusers import UnCLIPImageVariationPipeline
 import torch
 from PIL import Image
 
-pipe = UnCLIPImageVariationPipeline.from_pretrained("kakaobrain/karlo-v1-alpha-image-variations", torch_dtype=torch.float16)
+pipe = UnCLIPImageVariationPipeline.from_pretrained("kakaobrain/karlo-v1-alpha-image-variations", dtype=paddle.float16)
 pipe = pipe.to('cuda')
 
 image = Image.open("./frog.png")

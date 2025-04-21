@@ -167,7 +167,7 @@ prompt = "A little girl is riding a bicycle at high speed. Focused, detailed, re
 image = load_image(image="input.jpg")
 pipe = CogVideoXImageToVideoPipeline.from_pretrained(
     "THUDM/CogVideoX-5b-I2V",
-    torch_dtype=torch.bfloat16
+    dtype=paddle.bfloat16
 )
 
 pipe.enable_sequential_cpu_offload()
@@ -206,13 +206,13 @@ from torchao.quantization import quantize_, int8_weight_only
 
 quantization = int8_weight_only
 
-text_encoder = T5EncoderModel.from_pretrained("THUDM/CogVideoX-5b-I2V", subfolder="text_encoder", torch_dtype=torch.bfloat16)
+text_encoder = T5EncoderModel.from_pretrained("THUDM/CogVideoX-5b-I2V", subfolder="text_encoder", dtype=paddle.bfloat16)
 quantize_(text_encoder, quantization())
 
-transformer = CogVideoXTransformer3DModel.from_pretrained("THUDM/CogVideoX-5b-I2V",subfolder="transformer", torch_dtype=torch.bfloat16)
+transformer = CogVideoXTransformer3DModel.from_pretrained("THUDM/CogVideoX-5b-I2V",subfolder="transformer", dtype=paddle.bfloat16)
 quantize_(transformer, quantization())
 
-vae = AutoencoderKLCogVideoX.from_pretrained("THUDM/CogVideoX-5b-I2V", subfolder="vae", torch_dtype=torch.bfloat16)
+vae = AutoencoderKLCogVideoX.from_pretrained("THUDM/CogVideoX-5b-I2V", subfolder="vae", dtype=paddle.bfloat16)
 quantize_(vae, quantization())
 
 # Create pipeline and run inference
@@ -221,7 +221,7 @@ pipe = CogVideoXImageToVideoPipeline.from_pretrained(
     text_encoder=text_encoder,
     transformer=transformer,
     vae=vae,
-    torch_dtype=torch.bfloat16,
+    dtype=paddle.bfloat16,
 )
 
 pipe.enable_model_cpu_offload()

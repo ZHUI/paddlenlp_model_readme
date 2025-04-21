@@ -68,11 +68,11 @@ color_palette = color_palette.resize((512, 512), resample=Image.Resampling.NEARE
 
 color_palette.save('./images/color_palette.png')
 
-adapter = T2IAdapter.from_pretrained("TencentARC/t2iadapter_color_sd14v1", torch_dtype=torch.float16)
+adapter = T2IAdapter.from_pretrained("TencentARC/t2iadapter_color_sd14v1", dtype=paddle.float16)
 pipe = StableDiffusionAdapterPipeline.from_pretrained(
     "CompVis/stable-diffusion-v1-4",
     adapter=adapter,
-    torch_dtype=torch.float16,
+    dtype=paddle.float16,
 )
 pipe.to("cuda")
 

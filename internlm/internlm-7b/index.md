@@ -68,8 +68,8 @@ To load the InternLM 7B Chat model using Transformers, use the following code:
 import torch
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 tokenizer = AutoTokenizer.from_pretrained("internlm/internlm-7b", trust_remote_code=True)
-# Set `torch_dtype=torch.float16` to load model in float16, otherwise it will be loaded as float32 and might cause OOM Error.
-model = AutoModelForCausalLM.from_pretrained("internlm/internlm-7b", torch_dtype=torch.float16, trust_remote_code=True).cuda()
+# Set `dtype=paddle.float16` to load model in float16, otherwise it will be loaded as float32 and might cause OOM Error.
+model = AutoModelForCausalLM.from_pretrained("internlm/internlm-7b", dtype=paddle.float16, trust_remote_code=True).cuda()
 model = model.eval()
 inputs = tokenizer(["A beautiful flower"], return_tensors="pd")
 for k,v in inputs.items():
@@ -121,8 +121,8 @@ InternLM ，即书生·浦语大模型，包含面向实用场景的70亿参数�
 import torch
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 tokenizer = AutoTokenizer.from_pretrained("internlm/internlm-7b", trust_remote_code=True)
-# `torch_dtype=torch.float16` 可以令模型以 float16 精度加载，否则 transformers 会将模型加载为 float32，有可能导致显存不足
-model = AutoModelForCausalLM.from_pretrained("internlm/internlm-7b", torch_dtype=torch.float16, trust_remote_code=True).cuda()
+# `dtype=paddle.float16` 可以令模型以 float16 精度加载，否则 transformers 会将模型加载为 float32，有可能导致显存不足
+model = AutoModelForCausalLM.from_pretrained("internlm/internlm-7b", dtype=paddle.float16, trust_remote_code=True).cuda()
 model = model.eval()
 inputs = tokenizer(["来到美丽的大自然，我们发现"], return_tensors="pd")
 for k,v in inputs.items():

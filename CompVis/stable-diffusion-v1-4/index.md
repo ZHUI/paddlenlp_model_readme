@@ -55,7 +55,7 @@ model_id = "CompVis/stable-diffusion-v1-4"
 device = "cuda"
 
 
-pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
 pipe = pipe
 
 prompt = "a photo of an astronaut riding a horse on mars"
@@ -71,7 +71,7 @@ If you are limited by GPU memory and have less than 4GB of GPU RAM available, pl
 ```py
 import torch
 
-pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
 pipe = pipe
 pipe.enable_attention_slicing()
 
@@ -90,7 +90,7 @@ model_id = "CompVis/stable-diffusion-v1-4"
 
 # Use the Euler scheduler here instead
 scheduler = EulerDiscreteScheduler.from_pretrained(model_id, subfolder="scheduler")
-pipe = StableDiffusionPipeline.from_pretrained(model_id, scheduler=scheduler, torch_dtype=torch.float16)
+pipe = StableDiffusionPipeline.from_pretrained(model_id, scheduler=scheduler, dtype=paddle.float16)
 pipe = pipe.to("cuda")
 
 prompt = "a photo of an astronaut riding a horse on mars"

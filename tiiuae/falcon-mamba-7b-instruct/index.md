@@ -116,7 +116,7 @@ import torch
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b-instruct")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct", torch_dtype=torch.bfloat16).to(0)
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct", dtype=paddle.bfloat16).to(0)
 
 model = torch.compile(model)
 
@@ -147,7 +147,7 @@ import torch
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b-instruct")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct",  torch_dtype=torch.float16)
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct",  dtype=paddle.float16)
 
 # We use the tokenizer's chat template to format each message - see https://huggingface.co/docs/transformers/main/en/chat_templating
 messages = [
