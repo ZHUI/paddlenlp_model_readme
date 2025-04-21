@@ -40,7 +40,7 @@ processor_name_or_path = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
 model_pretrained_name_or_path = "yuvalkirstain/PickScore_v1"
 
 processor = AutoProcessor.from_pretrained(processor_name_or_path)
-model = AutoModel.from_pretrained(model_pretrained_name_or_path).eval().to(device)
+model = AutoModel.from_pretrained(model_pretrained_name_or_path).eval()
 
 def calc_probs(prompt, images):
     
@@ -51,7 +51,7 @@ def calc_probs(prompt, images):
         truncation=True,
         max_length=77,
         return_tensors="pt",
-    ).to(device)
+    )
     
     text_inputs = processor(
         text=prompt,
@@ -59,7 +59,7 @@ def calc_probs(prompt, images):
         truncation=True,
         max_length=77,
         return_tensors="pt",
-    ).to(device)
+    )
 
 
     with torch.no_grad():

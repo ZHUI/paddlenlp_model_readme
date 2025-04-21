@@ -64,7 +64,7 @@ device = "cuda"
 # Load the cd_imagenet64_l2 checkpoint.
 model_id_or_path = "openai/diffusers-cd_imagenet64_l2"
 pipe = ConsistencyModelPipeline.from_pretrained(model_id_or_path, torch_dtype=torch.float16)
-pipe.to(device)
+pipe
 
 # Onestep Sampling
 image = pipe(num_inference_steps=1).images[0]

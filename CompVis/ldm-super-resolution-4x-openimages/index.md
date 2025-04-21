@@ -37,7 +37,7 @@ model_id = "CompVis/ldm-super-resolution-4x-openimages"
 
 # load model and scheduler
 pipeline = LDMSuperResolutionPipeline.from_pretrained(model_id)
-pipeline = pipeline.to(device)
+pipeline = pipeline
 
 # let's download an  image
 url = "https://user-images.githubusercontent.com/38061659/199705896-b48e17b8-b231-47cd-a270-4ffa5a93fa3e.png"

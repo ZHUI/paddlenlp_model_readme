@@ -46,7 +46,7 @@ sd_pipe = StableDiffusionImageVariationPipeline.from_pretrained(
   "lambdalabs/sd-image-variations-diffusers",
   revision="v2.0",
   )
-sd_pipe = sd_pipe.to(device)
+sd_pipe = sd_pipe
 
 im = Image.open("path/to/image.jpg")
 tform = transforms.Compose([
@@ -60,7 +60,7 @@ tform = transforms.Compose([
       [0.48145466, 0.4578275, 0.40821073],
       [0.26862954, 0.26130258, 0.27577711]),
 ])
-inp = tform(im).to(device).unsqueeze(0)
+inp = tform(im).unsqueeze(0)
 
 out = sd_pipe(inp, guidance_scale=3)
 out["images"][0].save("result.jpg")
@@ -215,7 +215,7 @@ pipe = StableDiffusionImageEmbedPipeline.from_pretrained(
 "lambdalabs/sd-image-variations-diffusers",
 revision="2ddbd90b14bc5892c19925b15185e561bc8e5d0a",
 )
-pipe = pipe.to(device)
+pipe = pipe
 
 im = Image.open("your/input/image/here.jpg")
 num_samples = 4

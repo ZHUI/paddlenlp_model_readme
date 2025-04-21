@@ -47,7 +47,7 @@ model = T5ForConditionalGeneration.from_pretrained("ClueAI/PromptCLUE-base")
 import torch
 #device = torch.device('cpu')
 device = torch.device('cuda')
-model.to(device)
+model
 def preprocess(text):
   return text.replace("\n", "_")
 
@@ -58,7 +58,7 @@ def answer(text, sample=False, top_p=0.8):
   '''sample：是否抽样。生成任务，可以设置为True;
   top_p：0-1之间，生成的内容越多样'''
   text = preprocess(text)
-  encoding = tokenizer(text=[text], truncation=True, padding=True, max_length=768, return_tensors="pt").to(device) 
+  encoding = tokenizer(text=[text], truncation=True, padding=True, max_length=768, return_tensors="pt") 
   if not sample:
     out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_length=128, num_beams=4, length_penalty=0.6)
   else:

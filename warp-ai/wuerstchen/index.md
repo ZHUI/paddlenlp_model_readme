@@ -42,7 +42,7 @@ dtype = torch.float16
 
 pipeline =  AutoPipelineForText2Image.from_pretrained(
     "warp-diffusion/wuerstchen", torch_dtype=dtype
-).to(device)
+)
 
 caption = "Anthropomorphic cat dressed as a fire fighter"
 

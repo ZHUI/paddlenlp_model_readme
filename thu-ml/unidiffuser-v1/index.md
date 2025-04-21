@@ -54,7 +54,7 @@ from diffusers import UniDiffuserPipeline
 device = "cuda"
 model_id_or_path = "thu-ml/unidiffuser-v1"
 pipe = UniDiffuserPipeline.from_pretrained(model_id_or_path, torch_dtype=torch.float16)
-pipe.to(device)
+pipe
 
 # Joint image-text generation. The generation task is automatically inferred.
 sample = pipe(num_inference_steps=20, guidance_scale=8.0)

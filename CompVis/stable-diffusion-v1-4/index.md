@@ -56,7 +56,7 @@ device = "cuda"
 
 
 pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
-pipe = pipe.to(device)
+pipe = pipe
 
 prompt = "a photo of an astronaut riding a horse on mars"
 image = pipe(prompt).images[0]  
@@ -72,7 +72,7 @@ If you are limited by GPU memory and have less than 4GB of GPU RAM available, pl
 import torch
 
 pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
-pipe = pipe.to(device)
+pipe = pipe
 pipe.enable_attention_slicing()
 
 prompt = "a photo of an astronaut riding a horse on mars"

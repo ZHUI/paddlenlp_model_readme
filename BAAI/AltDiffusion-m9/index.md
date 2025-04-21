@@ -208,7 +208,7 @@ pipe = StableDiffusionPipeline.from_pretrained(model_path_diffusion,
                                                use_auth_token=True,
                                                )
 print("diffusion pipeline loaded")
-pipe = pipe.to(device)
+pipe = pipe
 
 prompt = "Thirty years old lee evans as a sad 19th century postman. detailed, soft focus, candle light, interesting lights, realistic, oil canvas, character concept art by munkácsy mihály, csók istván, john everett millais, henry meynell rheam, and da vinci"
 with torch.no_grad():

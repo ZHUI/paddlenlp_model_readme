@@ -55,7 +55,7 @@ device = "cuda"
 
 
 pipe = StableDiffusionPipeline.from_pretrained(model_id)
-pipe = pipe.to(device)
+pipe = pipe
 
 prompt = "a photo of an astronaut riding a horse on mars"
 with autocast("cuda"):
@@ -72,7 +72,7 @@ If you are limited by GPU memory and have less than 10GB of GPU RAM available, p
 import torch
 
 pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
-pipe = pipe.to(device)
+pipe = pipe
 
 prompt = "a photo of an astronaut riding a horse on mars"
 with autocast("cuda"):

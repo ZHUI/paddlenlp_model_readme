@@ -40,10 +40,10 @@ num_images_per_prompt = 2
 
 prior_pipeline = WuerstchenPriorPipeline.from_pretrained(
     "warp-ai/wuerstchen-prior", torch_dtype=dtype
-).to(device)
+)
 decoder_pipeline = WuerstchenDecoderPipeline.from_pretrained(
     "warp-ai/wuerstchen", torch_dtype=dtype
-).to(device)
+)
 
 caption = "Anthropomorphic cat dressed as a fire fighter"
 negative_prompt = ""

@@ -60,8 +60,8 @@ mistral_query = ChatCompletionRequest(
 
 encodeds = tokenizer_v3.encode_chat_completion(mistral_query).tokens
 model = AutoModelForCausalLM.from_pretrained("mistralai/Mixtral-8x22B-Instruct-v0.1")
-model_inputs = encodeds.to(device)
-model.to(device)
+model_inputs = encodeds
+model
 
 generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
 sp_tokenizer = tokenizer_v3.instruct_tokenizer.tokenizer

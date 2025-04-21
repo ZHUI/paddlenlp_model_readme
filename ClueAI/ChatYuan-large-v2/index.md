@@ -100,7 +100,7 @@ import torch
 from paddlenlp.transformers import AutoTokenizer
 # 修改colab笔记本设置为gpu，推理更快
 device = torch.device('cuda')
-model.to(device)
+model
 def preprocess(text):
   text = text.replace("\n", "\\n").replace("\t", "\\t")
   return text
@@ -112,7 +112,7 @@ def answer(text, sample=True, top_p=1, temperature=0.7):
   '''sample：是否抽样。生成任务，可以设置为True;
   top_p：0-1之间，生成的内容越多样'''
   text = preprocess(text)
-  encoding = tokenizer(text=[text], truncation=True, padding=True, max_length=512, return_tensors="pt").to(device) 
+  encoding = tokenizer(text=[text], truncation=True, padding=True, max_length=512, return_tensors="pt") 
   if not sample:
     out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=512, num_beams=1, length_penalty=0.6)
   else:

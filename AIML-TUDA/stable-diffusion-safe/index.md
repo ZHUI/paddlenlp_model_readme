@@ -38,7 +38,7 @@ Currently, you can use this with the [ml-research GitHub repository](https://git
     ####################
     pipe = SLDPipeline.from_pretrained(
         ckpt_path,
-    ).to(device)    
+    )    
     ```
 
 ### Definition of <i>inappropriate</i> content
