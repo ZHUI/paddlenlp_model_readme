@@ -72,7 +72,7 @@ In that repository, we provide:
 
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b")
 model = AutoModelForCausalLM.from_pretrained("google/gemma-2b")
@@ -90,7 +90,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b")
 model = AutoModelForCausalLM.from_pretrained("google/gemma-2b", device_map="auto")
@@ -109,7 +109,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b")
 model = AutoModelForCausalLM.from_pretrained("google/gemma-2b", device_map="auto", revision="float16")
@@ -125,7 +125,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b")
 model = AutoModelForCausalLM.from_pretrained("google/gemma-2b", device_map="auto", torch_dtype=torch.bfloat16)
@@ -143,7 +143,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install bitsandbytes accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 quantization_config = BitsAndBytesConfig(load_in_8bit=True)
 
@@ -161,7 +161,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install bitsandbytes accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 quantization_config = BitsAndBytesConfig(load_in_4bit=True)
 

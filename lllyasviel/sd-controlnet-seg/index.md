@@ -237,7 +237,7 @@ palette = np.asarray([
 3. Having defined the color palette we can now run the whole segmentation + controlnet generation code:
 
 ```py
-from transformers import AutoImageProcessor, UperNetForSemanticSegmentation
+from paddlenlp.transformers import AutoImageProcessor, UperNetForSemanticSegmentation
 from PIL import Image
 import numpy as np
 import torch

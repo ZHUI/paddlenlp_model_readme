@@ -202,7 +202,7 @@ For a complete example with an extractive question answering pipeline that scale
 
 ### In Transformers
 ```python
-from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
+from paddlenlp.transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
 
 model_name = "deepset/deberta-v3-large-squad2"
 

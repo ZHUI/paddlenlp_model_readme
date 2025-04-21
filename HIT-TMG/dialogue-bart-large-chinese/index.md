@@ -45,7 +45,7 @@ Output: `[CLS] <response> [SEP]`
 
 # Example
 ```python
-from transformers import BertTokenizer, BartForConditionalGeneration
+from paddlenlp.transformers import BertTokenizer, BartForConditionalGeneration
 
 # Note that tokenizer is an object of BertTokenizer, instead of BartTokenizer
 tokenizer = BertTokenizer.from_pretrained("HIT-TMG/dialogue-bart-large-chinese")

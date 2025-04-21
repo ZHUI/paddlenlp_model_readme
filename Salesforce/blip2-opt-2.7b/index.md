@@ -87,7 +87,7 @@ The memory requirements differ based on the precision one uses. One can use 4-bi
 ```python
 import requests
 from PIL import Image
-from transformers import Blip2Processor, Blip2ForConditionalGeneration
+from paddlenlp.transformers import Blip2Processor, Blip2ForConditionalGeneration
 
 processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
 model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-opt-2.7b")
@@ -114,7 +114,7 @@ print(processor.decode(out[0], skip_special_tokens=True).strip())
 # pip install accelerate
 import requests
 from PIL import Image
-from transformers import Blip2Processor, Blip2ForConditionalGeneration
+from paddlenlp.transformers import Blip2Processor, Blip2ForConditionalGeneration
 
 processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
 model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-opt-2.7b", device_map="auto")
@@ -140,7 +140,7 @@ print(processor.decode(out[0], skip_special_tokens=True).strip())
 import torch
 import requests
 from PIL import Image
-from transformers import Blip2Processor, Blip2ForConditionalGeneration
+from paddlenlp.transformers import Blip2Processor, Blip2ForConditionalGeneration
 
 processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
 model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-opt-2.7b", torch_dtype=torch.float16, device_map="auto")
@@ -166,7 +166,7 @@ print(processor.decode(out[0], skip_special_tokens=True).strip())
 import torch
 import requests
 from PIL import Image
-from transformers import Blip2Processor, Blip2ForConditionalGeneration
+from paddlenlp.transformers import Blip2Processor, Blip2ForConditionalGeneration
 
 processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
 model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-opt-2.7b", load_in_8bit=True, device_map="auto")

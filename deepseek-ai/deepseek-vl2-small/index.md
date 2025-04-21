@@ -47,7 +47,7 @@ pip install -e .
 
 ```python
 import torch
-from transformers import AutoModelForCausalLM
+from paddlenlp.transformers import AutoModelForCausalLM
 
 from deepseek_vl.models import DeepseekVLV2Processor, DeepseekVLV2ForCausalLM
 from deepseek_vl.utils.io import load_pil_images

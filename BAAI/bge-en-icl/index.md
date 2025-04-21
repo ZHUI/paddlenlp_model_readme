@@ -1776,7 +1776,7 @@ import torch
 import torch.nn.functional as F
 
 from torch import Tensor
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 
 
 def last_token_pool(last_hidden_states: Tensor,

@@ -42,7 +42,7 @@ You can use this model for conditional and un-conditional image captioning
 ```python
 import requests
 from PIL import Image
-from transformers import BlipProcessor, BlipForImageTextRetrieval
+from paddlenlp.transformers import BlipProcessor, BlipForImageTextRetrieval
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-itm-large-coco")
 model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-large-coco")
@@ -68,7 +68,7 @@ cosine_score = model(**inputs, use_itm_head=False)[0]
 ```python
 import requests
 from PIL import Image
-from transformers import BlipProcessor, BlipForImageTextRetrieval
+from paddlenlp.transformers import BlipProcessor, BlipForImageTextRetrieval
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-itm-large-coco")
 model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-large-coco").to("cuda")
@@ -93,7 +93,7 @@ cosine_score = model(**inputs, use_itm_head=False)[0]
 import torch
 import requests
 from PIL import Image
-from transformers import BlipProcessor, BlipForImageTextRetrieval
+from paddlenlp.transformers import BlipProcessor, BlipForImageTextRetrieval
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-itm-large-coco")
 model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-large-coco", torch_dtype=torch.float16).to("cuda")

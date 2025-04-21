@@ -40,7 +40,7 @@ pip install SwissArmyTransformer>=0.3.6 torch>1.10.0 torchvision transformers>=4
 可以通过如下代码调用 VisualGLM-6B 模型来生成对话：
 
 ```ipython
->>> from transformers import AutoTokenizer, AutoModel
+>>> from paddlenlp.transformers import AutoTokenizer, AutoModel
 >>> tokenizer = AutoTokenizer.from_pretrained("THUDM/visualglm-6b", trust_remote_code=True)
 >>> model = AutoModel.from_pretrained("THUDM/visualglm-6b", trust_remote_code=True).half().cuda()
 >>> image_path = "your image path"

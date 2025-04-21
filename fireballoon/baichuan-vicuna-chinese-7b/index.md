@@ -47,7 +47,7 @@ python3 -m fastchat.serve.cli --model-path fireballoon/baichuan-vicuna-chinese-7
 
 Inference with Transformers:
 ```ipython
->>> from transformers import AutoTokenizer, AutoModelForCausalLM, TextStreamer
+>>> from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, TextStreamer
 >>> tokenizer = AutoTokenizer.from_pretrained("fireballoon/baichuan-vicuna-chinese-7b", use_fast=False)
 >>> model = AutoModelForCausalLM.from_pretrained("fireballoon/baichuan-vicuna-chinese-7b").half().cuda()
 >>> streamer = TextStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)

@@ -51,7 +51,7 @@ Currently, both the feature extractor and model support PyTorch.
 Use the code below to convert a mono 16 kHz speech waveform to text.
 
 ```python
-from transformers import SpeechT5Processor, SpeechT5ForSpeechToText
+from paddlenlp.transformers import SpeechT5Processor, SpeechT5ForSpeechToText
 from datasets import load_dataset
 
 dataset = load_dataset("hf-internal-testing/librispeech_asr_demo", "clean", split="validation")

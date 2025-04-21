@@ -64,7 +64,7 @@ import paddle
 import paddlenlp
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 from paddlenlp.generation import StoppingCriteria
-#from transformers import AutoModel, AutoTokenizer, StoppingCriteria
+#from paddlenlp.transformers import AutoModel, AutoTokenizer, StoppingCriteria
 from utils import Logger, read_dataset, process_extra_prompt, is_code_generation_finished, cleanup_code
 
 logger = Logger(__name__)

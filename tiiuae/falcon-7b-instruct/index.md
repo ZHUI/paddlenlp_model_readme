@@ -47,7 +47,7 @@ license: apache-2.0
 🔥 **Looking for an even more powerful model?** [Falcon-40B-Instruct](https://huggingface.co/tiiuae/falcon-40b-instruct) is Falcon-7B-Instruct's big brother!
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 
@@ -120,7 +120,7 @@ We recommend users of Falcon-7B-Instruct to develop guardrails and to take appro
 
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 

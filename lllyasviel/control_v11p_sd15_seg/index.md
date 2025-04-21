@@ -241,7 +241,7 @@ from pathlib import Path
 from diffusers.utils import load_image
 from PIL import Image
 import numpy as np
-from transformers import AutoImageProcessor, UperNetForSemanticSegmentation
+from paddlenlp.transformers import AutoImageProcessor, UperNetForSemanticSegmentation
 
 from diffusers import (
     ControlNetModel,

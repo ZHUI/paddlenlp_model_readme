@@ -27,7 +27,7 @@ In this project, we introduce LLaRA:
 
 ```
 import torch
-from transformers import AutoModel, AutoTokenizer, LlamaModel
+from paddlenlp.transformers import AutoModel, AutoTokenizer, LlamaModel
 
 def get_query_inputs(queries, tokenizer, max_length=512):
     prefix = '"'

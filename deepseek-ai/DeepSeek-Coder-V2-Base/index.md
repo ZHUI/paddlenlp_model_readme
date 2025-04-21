@@ -104,7 +104,7 @@ You can directly employ [Huggingface's Transformers](https://github.com/huggingf
 
 #### Code Completion
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
@@ -116,7 +116,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 #### Code Insertion
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
@@ -140,7 +140,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True)[len(input_text):])
 #### Chat Completion
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct", trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
@@ -183,7 +183,7 @@ Assistant:
 To utilize [vLLM](https://github.com/vllm-project/vllm) for model inference, please merge this Pull Request into your vLLM codebase: https://github.com/vllm-project/vllm/pull/4650.
 
 ```python
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
 
 max_model_len, tp_size = 8192, 1

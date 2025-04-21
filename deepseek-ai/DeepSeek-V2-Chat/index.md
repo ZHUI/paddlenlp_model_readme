@@ -190,7 +190,7 @@ You can directly employ [Huggingface's Transformers](https://github.com/huggingf
 ### Text Completion
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
 model_name = "deepseek-ai/DeepSeek-V2"
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)

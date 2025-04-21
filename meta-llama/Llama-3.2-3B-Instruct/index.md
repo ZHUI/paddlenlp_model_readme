@@ -269,7 +269,7 @@ Make sure to update your transformers installation via `pip install --upgrade tr
 
 ```python
 import torch
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 from modelscope import snapshot_download
 
 model_dir = snapshot_download('LLM-Research/Llama-3.2-3B-Instruct')

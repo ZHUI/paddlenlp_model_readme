@@ -64,7 +64,7 @@ Based on [IDEA-CCNL/Randeng-BART-139M](https://huggingface.co/IDEA-CCNL/Randeng-
 ## 使用 Usage
 
 ```python
-from transformers import AutoTokenizer, BartForConditionalGeneration
+from paddlenlp.transformers import AutoTokenizer, BartForConditionalGeneration
 tokenizer = AutoTokenizer.from_pretrained("IDEA-CCNL/Randeng-BART-139M-QG-Chinese",additional_special_tokens=["<ans>"])
 model = BartForConditionalGeneration.from_pretrained("IDEA-CCNL/Randeng-BART-139M-QG-Chinese")
 

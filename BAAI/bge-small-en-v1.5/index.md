@@ -2847,7 +2847,7 @@ model.query_instruction = "为这个句子生成表示以用于检索相关文�
 With the transformers package, you can use the model like this: First, you pass your input through the transformer model, then you select the last hidden state of the first token (i.e., [CLS]) as the sentence embedding.
 
 ```python
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 import torch
 # Sentences we want sentence embeddings for
 sentences = ["样例数据-1", "样例数据-2"]
@@ -2901,7 +2901,7 @@ print(scores)
 
 ```python
 import torch
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from paddlenlp.transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-reranker-large')
 model = AutoModelForSequenceClassification.from_pretrained('BAAI/bge-reranker-large')
@@ -2920,7 +2920,7 @@ with torch.no_grad():
 from optimum.onnxruntime import ORTModelForFeatureExtraction  # type: ignore
 
 import torch
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-small-en-v1.5')
 model = AutoModel.from_pretrained('BAAI/bge-small-en-v1.5')

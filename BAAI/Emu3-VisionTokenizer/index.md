@@ -44,7 +44,7 @@ import os.path as osp
 
 from PIL import Image
 import torch
-from transformers import AutoModel, AutoImageProcessor
+from paddlenlp.transformers import AutoModel, AutoImageProcessor
 
 MODEL_HUB = "BAAI/Emu3-VisionTokenizer"
 

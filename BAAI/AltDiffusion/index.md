@@ -142,17 +142,17 @@ image.save("./alt.png")
 import os
 import torch
 import transformers
-from transformers import BertPreTrainedModel
-from transformers.models.clip.modeling_clip import CLIPPreTrainedModel
-from transformers.models.xlm_roberta.tokenization_xlm_roberta import XLMRobertaTokenizer
+from paddlenlp.transformers import BertPreTrainedModel
+from paddlenlp.transformers.models.clip.modeling_clip import CLIPPreTrainedModel
+from paddlenlp.transformers.models.xlm_roberta.tokenization_xlm_roberta import XLMRobertaTokenizer
 from diffusers.schedulers import DDIMScheduler, LMSDiscreteScheduler, PNDMScheduler
 from diffusers import StableDiffusionPipeline
-from transformers import BertPreTrainedModel,BertModel,BertConfig
+from paddlenlp.transformers import BertPreTrainedModel,BertModel,BertConfig
 import torch.nn as nn
 import torch
-from transformers.models.xlm_roberta.configuration_xlm_roberta import XLMRobertaConfig
-from transformers import XLMRobertaModel
-from transformers.activations import ACT2FN
+from paddlenlp.transformers.models.xlm_roberta.configuration_xlm_roberta import XLMRobertaConfig
+from paddlenlp.transformers import XLMRobertaModel
+from paddlenlp.transformers.activations import ACT2FN
 from typing import Optional
 
 

@@ -40,7 +40,7 @@ Human: {input} \n\nAssistant:
 
 BELLE can be easily loaded with AutoModelForCausalLM.
 ``` python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import sys
 
 model_path = "./" # You can modify the path for storing the local model
@@ -136,7 +136,7 @@ Human: {input} \n\nAssistant:
 通过AutoModelForCausalLM即可直接载入模型并使用。
 
 ``` python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import sys
 
 model_path = "./" # You can modify the path for storing the local model

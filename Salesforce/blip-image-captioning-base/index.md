@@ -42,7 +42,7 @@ You can use this model for conditional and un-conditional image captioning
 ```python
 import requests
 from PIL import Image
-from transformers import BlipProcessor, BlipForConditionalGeneration
+from paddlenlp.transformers import BlipProcessor, BlipForConditionalGeneration
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
@@ -77,7 +77,7 @@ print(processor.decode(out[0], skip_special_tokens=True))
 ```python
 import requests
 from PIL import Image
-from transformers import BlipProcessor, BlipForConditionalGeneration
+from paddlenlp.transformers import BlipProcessor, BlipForConditionalGeneration
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base").to("cuda")
@@ -111,7 +111,7 @@ print(processor.decode(out[0], skip_special_tokens=True))
 import torch
 import requests
 from PIL import Image
-from transformers import BlipProcessor, BlipForConditionalGeneration
+from paddlenlp.transformers import BlipProcessor, BlipForConditionalGeneration
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base", torch_dtype=torch.float16).to("cuda")

@@ -29,7 +29,7 @@ This is an intermediate checkpoint with 480K steps and 1007B tokens.
 You will need the transformers>=4.31
 Do check the [TinyLlama](https://github.com/jzhang38/TinyLlama) github page for more information.
 ```python
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 import transformers 
 import torch
 model = "PY007/TinyLlama-1.1B-intermediate-step-240k-503b"

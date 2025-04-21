@@ -253,7 +253,7 @@ quantization is fully compatible with `torch.compile`, which allows for much fas
 import torch
 from diffusers import AutoencoderKLCogVideoX, CogVideoXTransformer3DModel, CogVideoXPipeline
 from diffusers.utils import export_to_video
-+ from transformers import T5EncoderModel
++ from paddlenlp.transformers import T5EncoderModel
 + from torchao.quantization import quantize_, int8_weight_only, int8_dynamic_activation_int8_weight
 
 + quantization = int8_weight_only

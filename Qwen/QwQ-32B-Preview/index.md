@@ -47,7 +47,7 @@ KeyError: 'qwen2'
 Here provides a code snippet with `apply_chat_template` to show you how to load the tokenizer and model and how to generate contents.
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "Qwen/QwQ-32B-Preview"
 

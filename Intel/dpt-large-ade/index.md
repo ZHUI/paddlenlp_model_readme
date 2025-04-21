@@ -47,7 +47,7 @@ fine-tuned versions on a task that interests you.
 Here is how to use this model:
 
 ```python
-from transformers import DPTFeatureExtractor, DPTForSemanticSegmentation
+from paddlenlp.transformers import DPTFeatureExtractor, DPTForSemanticSegmentation
 from PIL import Image
 import requests
 

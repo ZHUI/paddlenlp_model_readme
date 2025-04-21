@@ -43,7 +43,7 @@ To obtain a large-scale Chinese BART (around twice as large as BART-large), we u
 ## 使用 Usage
 
 ```python
-from transformers import BartForConditionalGeneration, AutoTokenizer, Text2TextGenerationPipeline
+from paddlenlp.transformers import BartForConditionalGeneration, AutoTokenizer, Text2TextGenerationPipeline
 import torch
 
 tokenizer=AutoTokenizer.from_pretrained('IDEA-CCNL/Randeng-BART-759M-Chinese-BertTokenizer', use_fast=false)

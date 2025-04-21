@@ -2626,7 +2626,7 @@ Below is an example to encode queries and passages from the MS-MARCO passage ran
 import torch.nn.functional as F
 
 from torch import Tensor
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 
 
 def average_pool(last_hidden_states: Tensor,

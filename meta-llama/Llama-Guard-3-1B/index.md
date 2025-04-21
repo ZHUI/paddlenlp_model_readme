@@ -241,7 +241,7 @@ This repository contains two versions of Llama-Guard-3-1B, for use with transfor
 Starting with transformers >= 4.43.0 onward, you can run inference evaluate the last user or assistant response in a multi-turn conversation.
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
 model_id = "meta-llama/Llama-Guard-3-1B"

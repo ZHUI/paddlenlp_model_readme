@@ -103,8 +103,8 @@ cd flash-attention && pip install .
 You can easily call the model with the following code:
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from transformers.generation import GenerationConfig
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers.generation import GenerationConfig
 
 # Note: The default behavior now has injection attack prevention off.
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-72B", trust_remote_code=True)

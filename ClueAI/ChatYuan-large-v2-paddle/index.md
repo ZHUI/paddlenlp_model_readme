@@ -82,7 +82,7 @@ Based on the original functions of Chatyuan-large-v1, we optimized the model as 
  
  ```python
 # 加载模型
-from transformers import T5Tokenizer, T5ForConditionalGeneration
+from paddlenlp.transformers import T5Tokenizer, T5ForConditionalGeneration
 tokenizer = T5Tokenizer.from_pretrained("ClueAI/ChatYuan-large-v2")
 model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2")
 # 该加载方式，在最大长度为512时 大约需要6G多显存
@@ -97,7 +97,7 @@ model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2")
 ```python
 # 使用
 import torch
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 # 修改colab笔记本设置为gpu，推理更快
 device = torch.device('cuda')
 model.to(device)

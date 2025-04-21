@@ -79,7 +79,7 @@ Here we list our data distribution in each stage:
 You will need the transformers>=4.31
 Do check the [TinyLlama](https://github.com/jzhang38/TinyLlama) GitHub page for more information.
 ```
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 import transformers 
 import torch
 model = "TinyLlama/TinyLlama_v1.1"

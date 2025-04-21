@@ -32,7 +32,7 @@ You can download the set of Chinese BART models either from the [UER-py Modelzoo
 You can use this model directly with a pipeline for text2text generation (take the case of BART-Base):
 
 ```python
->>> from transformers import BertTokenizer, BartForConditionalGeneration, Text2TextGenerationPipeline
+>>> from paddlenlp.transformers import BertTokenizer, BartForConditionalGeneration, Text2TextGenerationPipeline
 >>> tokenizer = BertTokenizer.from_pretrained("uer/bart-base-chinese-cluecorpussmall")
 >>> model = BartForConditionalGeneration.from_pretrained("uer/bart-base-chinese-cluecorpussmall")
 >>> text2text_generator = Text2TextGenerationPipeline(model, tokenizer)  

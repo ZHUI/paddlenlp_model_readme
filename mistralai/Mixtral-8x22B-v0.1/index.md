@@ -135,7 +135,7 @@ Converted to HuggingFace Transformers format using the script [here](https://hug
 The Mixtral-8x22B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts.
 ## Run the model
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistral-community/Mixtral-8x22B-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
@@ -156,7 +156,7 @@ Note `float16` precision only works on GPU devices
 
 ```diff
 + import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistral-community/Mixtral-8x22B-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
@@ -177,7 +177,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 ```diff
 + import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistral-community/Mixtral-8x22B-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
@@ -198,7 +198,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 ```diff
 + import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistral-community/Mixtral-8x22B-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)

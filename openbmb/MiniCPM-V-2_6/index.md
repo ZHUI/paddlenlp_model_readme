@@ -146,7 +146,7 @@ decord
 # test.py
 import torch
 from PIL import Image
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True,
     attn_implementation='sdpa', torch_dtype=torch.bfloat16) # sdpa or flash_attention_2, no eager
@@ -187,7 +187,7 @@ for new_text in res:
 ```python
 import torch
 from PIL import Image
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True,
     attn_implementation='sdpa', torch_dtype=torch.bfloat16) # sdpa or flash_attention_2, no eager
@@ -216,7 +216,7 @@ print(answer)
 ```python
 import torch
 from PIL import Image
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True,
     attn_implementation='sdpa', torch_dtype=torch.bfloat16) # sdpa or flash_attention_2, no eager
@@ -252,7 +252,7 @@ print(answer)
 ```python
 import torch
 from PIL import Image
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 from decord import VideoReader, cpu    # pip install decord
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-V-2_6', trust_remote_code=True,

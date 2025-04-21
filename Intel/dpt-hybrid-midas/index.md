@@ -44,7 +44,7 @@ import numpy as np
 import requests
 import torch
 
-from transformers import DPTImageProcessor, DPTForDepthEstimation
+from paddlenlp.transformers import DPTImageProcessor, DPTForDepthEstimation
 
 image_processor = DPTImageProcessor.from_pretrained("Intel/dpt-hybrid-midas")
 model = DPTForDepthEstimation.from_pretrained("Intel/dpt-hybrid-midas", low_cpu_mem_usage=True)

@@ -48,9 +48,9 @@ We introduce **Emu3**, a new suite of state-of-the-art multimodal models trained
 
 ```python
 from PIL import Image
-from transformers import AutoTokenizer, AutoModel, AutoImageProcessor, AutoModelForCausalLM
-from transformers.generation.configuration_utils import GenerationConfig
-from transformers.generation import LogitsProcessorList, PrefixConstrainedLogitsProcessor, UnbatchedClassifierFreeGuidanceLogitsProcessor
+from paddlenlp.transformers import AutoTokenizer, AutoModel, AutoImageProcessor, AutoModelForCausalLM
+from paddlenlp.transformers.generation.configuration_utils import GenerationConfig
+from paddlenlp.transformers.generation import LogitsProcessorList, PrefixConstrainedLogitsProcessor, UnbatchedClassifierFreeGuidanceLogitsProcessor
 import torch
 
 import sys

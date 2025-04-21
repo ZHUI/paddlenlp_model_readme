@@ -151,7 +151,7 @@ Find below some example scripts on how to use the model in `transformers` (Make 
 <summary> Click to expand </summary>
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
 model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b")
@@ -172,7 +172,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
 model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", device_map="auto")
@@ -193,7 +193,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
 model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", torch_dtype=torch.bfloat16).to(0)
@@ -220,7 +220,7 @@ print(tokenizer.decode(outputs[0]))
 ```python
 # pip install accelerate
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
 model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", device_map="auto", torch_dtype=torch.float16)
@@ -241,7 +241,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install bitsandbytes accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
 model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", device_map="auto", quantization_config=BitsAndBytesConfig(load_in_4bit=True))

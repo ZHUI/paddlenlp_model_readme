@@ -162,7 +162,7 @@ The architecture of MiniMax-Text-01 is briefly described as follows:
 ## 4. Quickstart
 Here we provide a simple example of loading the tokenizer and model to generate content.
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig, QuantoConfig, GenerationConfig
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig, QuantoConfig, GenerationConfig
 
 # load hf config
 hf_config = AutoConfig.from_pretrained("MiniMaxAI/MiniMax-Text-01", trust_remote_code=True)

@@ -27,7 +27,7 @@ Find more examples in our [Github repo](https://github.com/THUDM/GLM).
 
 ## How to use 
 ```python
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 tokenizer = AutoTokenizer.from_pretrained("BAAI/glm-10b-chinese", trust_remote_code=True)
 model = AutoModelForSeq2SeqLM.from_pretrained("BAAI/glm-10b-chinese", trust_remote_code=True)
 model = model.half().cuda()

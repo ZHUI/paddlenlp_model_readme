@@ -41,7 +41,7 @@ ChatYuan: 元语功能型对话大模型
  
  ```python
 # 加载模型
-from transformers import T5Tokenizer, T5ForConditionalGeneration
+from paddlenlp.transformers import T5Tokenizer, T5ForConditionalGeneration
 tokenizer = T5Tokenizer.from_pretrained("ClueAI/ChatYuan-large-v1")
 model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v1")
  ```
@@ -50,7 +50,7 @@ model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v1")
 ```python
 # 使用
 import torch
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 # 修改colab笔记本设置为gpu，推理更快
 device = torch.device('cuda')
 model.to(device)

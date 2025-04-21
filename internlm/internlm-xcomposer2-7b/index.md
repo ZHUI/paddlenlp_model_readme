@@ -36,7 +36,7 @@ To load the InternLM-XComposer2-7B model using Transformers, use the following c
 ```python
 import torch
 from PIL import Image
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 ckpt_path = "internlm/internlm-xcomposer2-7b"
 tokenizer = AutoTokenizer.from_pretrained(ckpt_path, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(ckpt_path, torch_dtype=torch.float32, trust_remote_code=True).cuda()
@@ -74,7 +74,7 @@ In conclusion, pandas are truly remarkable animals that deserve our admiration a
 ```python
 import torch
 from PIL import Image
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 ckpt_path = "internlm/internlm-xcomposer2-7b"
 tokenizer = AutoTokenizer.from_pretrained(ckpt_path, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(ckpt_path, torch_dtype=torch.float32, trust_remote_code=True).cuda()

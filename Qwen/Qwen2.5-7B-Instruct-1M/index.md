@@ -43,7 +43,7 @@ KeyError: 'qwen2'
 Here provides a code snippet with `apply_chat_template` to show you how to load the tokenizer and model and how to generate contents.
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "Qwen/Qwen2.5-7B-Instruct-1M"
 
@@ -118,7 +118,7 @@ vLLM supports offline inference or launch an openai-like server.
 **Example of Offline Inference**
 
 ```python
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
 
 # Initialize the tokenizer

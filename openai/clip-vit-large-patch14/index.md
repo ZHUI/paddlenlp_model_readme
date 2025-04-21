@@ -45,7 +45,7 @@ The original implementation had two variants: one using a ResNet image encoder a
 from PIL import Image
 import requests
 
-from transformers import CLIPProcessor, CLIPModel
+from paddlenlp.transformers import CLIPProcessor, CLIPModel
 
 model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14")

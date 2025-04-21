@@ -32,7 +32,7 @@ We provide a simple code snippet to show how to use the API of Chinese-CLIP to c
 ```python
 from PIL import Image
 import requests
-from transformers import ChineseCLIPProcessor, ChineseCLIPModel
+from paddlenlp.transformers import ChineseCLIPProcessor, ChineseCLIPModel
 
 model = ChineseCLIPModel.from_pretrained("OFA-Sys/chinese-clip-vit-base-patch16")
 processor = ChineseCLIPProcessor.from_pretrained("OFA-Sys/chinese-clip-vit-base-patch16")

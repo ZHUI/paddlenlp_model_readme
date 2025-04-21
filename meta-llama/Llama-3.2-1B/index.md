@@ -269,7 +269,7 @@ Make sure to update your transformers installation via pip install --upgrade tra
 
 ```python
 import torch
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 
 model_id = "meta-llama/Llama-3.2-1B"
 

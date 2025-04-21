@@ -38,7 +38,7 @@ If you wish to use Baichuan-7B (for inference, finetuning, etc.), we recommend u
 
 如下是一个使用Baichuan-7B进行1-shot推理的任务，根据作品给出作者名，正确输出为"夜雨寄北->李商隐"
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan-7B", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-7B", device_map="auto", trust_remote_code=True)
@@ -50,7 +50,7 @@ print(tokenizer.decode(pred.cpu()[0], skip_special_tokens=True))
 
 The following is a task of performing 1-shot inference using Baichuan-7B, where the author's name is given based on the work, with the correct output being "One Hundred Years of Solitude->Gabriel Garcia Marquez"
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan-7B", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-7B", device_map="auto", trust_remote_code=True)

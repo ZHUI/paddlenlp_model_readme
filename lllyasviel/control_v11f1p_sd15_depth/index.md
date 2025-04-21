@@ -80,7 +80,7 @@ from pathlib import Path
 from diffusers.utils import load_image
 from PIL import Image
 import numpy as np
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 
 
 from diffusers import (

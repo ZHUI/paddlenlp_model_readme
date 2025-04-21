@@ -195,7 +195,7 @@ pip install qwen-vl-utils
 Here we show a code snippet to show you how to use the chat model with `transformers` and `qwen_vl_utils`:
 
 ```python
-from transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor
+from paddlenlp.transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor
 from qwen_vl_utils import process_vision_info
 from modelscope import snapshot_download
 model_name =  snapshot_download("qwen/Qwen2-VL-72B-Instruct")
@@ -266,7 +266,7 @@ import requests
 import torch
 from torchvision import io
 from typing import Dict
-from transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor
+from paddlenlp.transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor
 from modelscope import snapshot_download
 model_name =  snapshot_download("qwen/Qwen2-VL-72B-Instruct")
 # Load the model in half-precision on the available device(s)

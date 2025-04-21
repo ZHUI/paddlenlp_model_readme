@@ -130,7 +130,7 @@ from mistral_common.protocol.instruct.messages import (
 from mistral_common.tokens.tokenizers.mistral import MistralTokenizer
 from mistral_common.tokens.instruct.normalize import ChatCompletionRequest
 
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 
 tokenizer_v3 = MistralTokenizer.v3()
 

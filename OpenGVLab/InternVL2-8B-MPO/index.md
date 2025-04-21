@@ -56,7 +56,7 @@ We also welcome you to experience the InternVL2 series models in our [online dem
 #### 16-bit (bf16 / fp16)
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 path = "OpenGVLab/InternVL2-8B-MPO"
 model = AutoModel.from_pretrained(
     path,
@@ -69,7 +69,7 @@ model = AutoModel.from_pretrained(
 
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 path = "OpenGVLab/InternVL2-8B-MPO"
 model = AutoModel.from_pretrained(
     path,
@@ -84,7 +84,7 @@ model = AutoModel.from_pretrained(
 
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 path = "OpenGVLab/InternVL2-8B-MPO"
 model = AutoModel.from_pretrained(
     path,
@@ -102,7 +102,7 @@ The reason for writing the code this way is to avoid errors that occur during mu
 ```python
 import math
 import torch
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 def split_model(model_name):
     device_map = {}
     world_size = torch.cuda.device_count()
@@ -147,7 +147,7 @@ import torchvision.transforms as T
 from decord import VideoReader, cpu
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 def build_transform(input_size):
@@ -332,7 +332,7 @@ print(f'User: {question}\nAssistant: {response}')
 Besides this method, you can also use the following code to get streamed output.
 
 ```python
-from transformers import TextIteratorStreamer
+from paddlenlp.transformers import TextIteratorStreamer
 from threading import Thread
 # Initialize the streamer
 streamer = TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True, timeout=10)

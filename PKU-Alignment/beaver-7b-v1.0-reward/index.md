@@ -49,7 +49,7 @@ It can play a role in the safe RLHF algorithm, helping the Beaver model become m
 
 ```python
 import torch
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 from safe_rlhf.models import AutoModelForScore
 
 model = AutoModelForScore.from_pretrained('PKU-Alignment/beaver-7b-v1.0-reward', torch_dtype=torch.bfloat16, device_map='auto')

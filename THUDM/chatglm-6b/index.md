@@ -44,7 +44,7 @@ pip install protobuf==3.20.0 transformers==4.27.1 icetk cpm_kernels
 可以通过如下代码调用 ChatGLM-6B 模型来生成对话：
 
 ```ipython
->>> from transformers import AutoTokenizer, AutoModel
+>>> from paddlenlp.transformers import AutoTokenizer, AutoModel
 >>> tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True)
 >>> model = AutoModel.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
 >>> response, history = model.chat(tokenizer, "你好", history=[])

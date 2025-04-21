@@ -40,7 +40,7 @@ PromptCLUE：全中文任务零样本学习模型
  
  ```python
 # 加载模型
-from transformers import T5Tokenizer, T5ForConditionalGeneration
+from paddlenlp.transformers import T5Tokenizer, T5ForConditionalGeneration
 tokenizer = T5Tokenizer.from_pretrained("ClueAI/PromptCLUE-base-v1-5")
 model = T5ForConditionalGeneration.from_pretrained("ClueAI/PromptCLUE-base-v1-5")
  ```

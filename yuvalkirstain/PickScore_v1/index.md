@@ -32,7 +32,7 @@ Use the code below to get started with the model.
 
 ```python
 # import
-from transformers import AutoProcessor, AutoModel
+from paddlenlp.transformers import AutoProcessor, AutoModel
 
 # load model
 device = "cuda"

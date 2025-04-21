@@ -35,7 +35,7 @@ new_version: tiiuae/falcon-11B
 🔥 **Looking for an even more powerful model?** [Falcon-40B](https://huggingface.co/tiiuae/falcon-40b) is Falcon-7B's big brother!
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 
@@ -106,7 +106,7 @@ We recommend users of Falcon-7B to consider finetuning it for the specific set o
 
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 

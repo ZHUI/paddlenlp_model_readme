@@ -57,7 +57,7 @@ Yunfan Shao, Zhichao Geng, Yitao Liu, Junqi Dai, Fei Yang, Li Zhe, Hujun Bao, Xi
 ## Usage
 
 ```python
->>> from transformers import BertTokenizer, BartForConditionalGeneration, Text2TextGenerationPipeline
+>>> from paddlenlp.transformers import BertTokenizer, BartForConditionalGeneration, Text2TextGenerationPipeline
 >>> tokenizer = BertTokenizer.from_pretrained("fnlp/bart-large-chinese")
 >>> model = BartForConditionalGeneration.from_pretrained("fnlp/bart-large-chinese")
 >>> text2text_generator = Text2TextGenerationPipeline(model, tokenizer)  

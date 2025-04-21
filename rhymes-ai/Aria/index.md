@@ -85,7 +85,7 @@ import requests
 import torch
 from PIL import Image
 
-from transformers import AriaProcessor, AriaForConditionalGeneration
+from paddlenlp.transformers import AriaProcessor, AriaForConditionalGeneration
 
 
 model_id_or_path = "rhymes-ai/Aria"

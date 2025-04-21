@@ -40,7 +40,7 @@ You can use this model for zero shot audio classification or extracting audio an
 
 ```python
 from datasets import load_dataset
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 
 dataset = load_dataset("ashraq/esc50")
 audio = dataset["train"]["audio"][-1]["array"]
@@ -59,7 +59,7 @@ You can also get the audio and text embeddings using `ClapModel`
 
 ```python
 from datasets import load_dataset
-from transformers import ClapModel, ClapProcessor
+from paddlenlp.transformers import ClapModel, ClapProcessor
 
 librispeech_dummy = load_dataset("hf-internal-testing/librispeech_asr_dummy", "clean", split="validation")
 audio_sample = librispeech_dummy[0]
@@ -75,7 +75,7 @@ audio_embed = model.get_audio_features(**inputs)
 
 ```python
 from datasets import load_dataset
-from transformers import ClapModel, ClapProcessor
+from paddlenlp.transformers import ClapModel, ClapProcessor
 
 librispeech_dummy = load_dataset("hf-internal-testing/librispeech_asr_dummy", "clean", split="validation")
 audio_sample = librispeech_dummy[0]

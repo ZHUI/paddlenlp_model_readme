@@ -1803,7 +1803,7 @@ Here is an example of how to encode queries and passages using Huggingface-trans
 ```python
 import torch
 import torch.nn.functional as F
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 
 # Each query needs to be accompanied by an corresponding instruction describing the task.
 task_name_to_instruct = {"example": "Given a question, retrieve passages that answer the question",}
@@ -1910,7 +1910,7 @@ For commercial purpose, we recommend you to use the models of [NeMo Retriever Mi
 
 #### 1. How to enable Multi-GPU (Note, this is the case for HuggingFace Transformers)
 ```python
-from transformers import AutoModel
+from paddlenlp.transformers import AutoModel
 from torch.nn import DataParallel
 
 embedding_model = AutoModel.from_pretrained("nvidia/NV-Embed-v1")

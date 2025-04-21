@@ -34,7 +34,7 @@ If any of these two is not installed, the "eager" implementation will be used. O
 ## Generation
 You can use the classic `generate` API:
 ```python
->>> from transformers import MambaConfig, MambaForCausalLM, AutoTokenizer
+>>> from paddlenlp.transformers import MambaConfig, MambaForCausalLM, AutoTokenizer
 >>> import torch
 
 >>> tokenizer = AutoTokenizer.from_pretrained("state-spaces/mamba-130m-hf")
@@ -53,7 +53,7 @@ In order to finetune using the `peft` library, we recommend keeping the model in
 from datasets import load_dataset
 from trl import SFTTrainer
 from peft import LoraConfig
-from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments
 tokenizer = AutoTokenizer.from_pretrained("state-spaces/mamba-130m-hf")
 model = AutoModelForCausalLM.from_pretrained("state-spaces/mamba-130m-hf")
 dataset = load_dataset("Abirate/english_quotes", split="train")

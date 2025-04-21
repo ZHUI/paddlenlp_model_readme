@@ -172,7 +172,7 @@ mask = 1 - mask
 import torch
 import numpy as np
 
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 from diffusers.utils import load_image
 
 from diffusers import KandinskyV22PriorPipeline, KandinskyV22ControlnetPipeline
@@ -191,7 +191,7 @@ img = load_image(
     "https://huggingface.co/datasets/hf-internal-testing/diffusers-images/resolve/main/kandinskyv22/cat.png"
 ).resize((768, 768))
 
-# We can use the `depth-estimation` pipeline from transformers to process the image and retrieve its depth map.
+# We can use the `depth-estimation` pipeline from paddlenlp.transformers to process the image and retrieve its depth map.
 depth_estimator = pipeline("depth-estimation")
 hint = make_hint(img, depth_estimator).unsqueeze(0).half().to("cuda")
 
@@ -239,7 +239,7 @@ import numpy as np
 
 from diffusers import KandinskyV22PriorEmb2EmbPipeline, KandinskyV22ControlnetImg2ImgPipeline
 from diffusers.utils import load_image
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 
 img = load_image(
     "https://huggingface.co/datasets/hf-internal-testing/diffusers-images/resolve/main" "/kandinskyv22/cat.png"

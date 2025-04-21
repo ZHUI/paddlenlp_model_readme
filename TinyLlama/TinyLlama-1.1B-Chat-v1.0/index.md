@@ -33,7 +33,7 @@ Do check the [TinyLlama](https://github.com/jzhang38/TinyLlama) github page for 
 # pip install accelerate
 
 import torch
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 
 pipe = pipeline("text-generation", model="TinyLlama/TinyLlama-1.1B-Chat-v1.0", torch_dtype=torch.bfloat16, device_map="auto")
 

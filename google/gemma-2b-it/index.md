@@ -64,7 +64,7 @@ Below we share some code snippets on how to get quickly started with running the
 As explained below, we recommend `torch.bfloat16` as the default dtype. You can use [a different precision](#precisions) if necessary.
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
@@ -86,7 +86,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
@@ -115,7 +115,7 @@ You can also use `float32` if you skip the dtype, but no precision increase will
 
 ```python
 # pip install accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
@@ -137,7 +137,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
@@ -158,7 +158,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install bitsandbytes accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 quantization_config = BitsAndBytesConfig(load_in_8bit=True)
 
@@ -176,7 +176,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install bitsandbytes accelerate
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 quantization_config = BitsAndBytesConfig(load_in_4bit=True)
 
@@ -213,7 +213,7 @@ The easiest way to apply it is using the tokenizer's built-in chat template, as 
 Let's load the model and apply the chat template to a conversation. In this example, we'll start with a single user interaction:
 
 ```py
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 

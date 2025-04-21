@@ -45,7 +45,7 @@ To get a Chinese BART-base, we use WuDao Corpora (180 GB version) for pre-traini
 ## 使用 Usage
 
 ```python
-from transformers import BartForConditionalGeneration, AutoTokenizer, Text2TextGenerationPipeline
+from paddlenlp.transformers import BartForConditionalGeneration, AutoTokenizer, Text2TextGenerationPipeline
 import torch
 
 tokenizer=AutoTokenizer.from_pretrained('IDEA-CCNL/Randeng-BART-139M', use_fast=false)

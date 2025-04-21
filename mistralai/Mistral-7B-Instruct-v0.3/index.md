@@ -125,7 +125,7 @@ print(result)
 If you want to use Hugging Face `transformers` to generate text, you can do something like this.
 
 ```py
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 
 messages = [
     {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
@@ -143,7 +143,7 @@ To use this example, you'll need `transformers` version 4.42.0 or higher. Please
 in the `transformers` docs for more information.
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
 model_id = "mistralai/Mistral-7B-Instruct-v0.3"

@@ -64,7 +64,7 @@ In the Baichuan 2 series models, we have utilized the new feature `F.scaled_dot_
 
 ```python
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan2-13B-Base", use_fast=False, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan2-13B-Base", device_map="auto", trust_remote_code=True)
 inputs = tokenizer('登鹳雀楼->王之涣\n夜雨寄北->', return_tensors='pt')

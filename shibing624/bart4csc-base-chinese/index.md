@@ -48,7 +48,7 @@ pip install -U textgen
 ```
 
 ```python
-from transformers import BertTokenizerFast
+from paddlenlp.transformers import BertTokenizerFast
 from textgen import BartSeq2SeqModel
 
 tokenizer = BertTokenizerFast.from_pretrained('shibing624/bart4csc-base-chinese')

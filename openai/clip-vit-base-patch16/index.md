@@ -40,7 +40,7 @@ The original implementation had two variants: one using a ResNet image encoder a
 ```python3
 from PIL import Image
 import requests
-from transformers import CLIPProcessor, CLIPModel
+from paddlenlp.transformers import CLIPProcessor, CLIPModel
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch16")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch16")
 url = "http://images.cocodataset.org/val2017/000000039769.jpg"

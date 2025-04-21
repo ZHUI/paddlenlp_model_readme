@@ -101,7 +101,7 @@ import torchvision.transforms as T
 from decord import VideoReader, cpu
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
@@ -337,7 +337,7 @@ print(f'Assistant: {response}')
 Besides this method, you can also use the following code to get streamed output.
 
 ```python
-from transformers import TextIteratorStreamer
+from paddlenlp.transformers import TextIteratorStreamer
 from threading import Thread
 
 # Initialize the streamer

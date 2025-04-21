@@ -32,7 +32,7 @@ fine-tuned versions on a task that interests you.
 Here is how to use this model to classify an image of the COCO 2017 dataset into one of the 1,000 ImageNet classes:
 
 ```python
-from transformers import BitImageProcessor, BitForImageClassification
+from paddlenlp.transformers import BitImageProcessor, BitForImageClassification
 import torch
 from datasets import load_dataset
 

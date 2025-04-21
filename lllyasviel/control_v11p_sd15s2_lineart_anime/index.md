@@ -86,7 +86,7 @@ from diffusers.utils import load_image
 from PIL import Image
 import numpy as np
 from controlnet_aux import LineartAnimeDetector
-from transformers import CLIPTextModel
+from paddlenlp.transformers import CLIPTextModel
 
 from diffusers import (
     ControlNetModel,

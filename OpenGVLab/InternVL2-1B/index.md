@@ -118,7 +118,7 @@ We provide an example code to run `InternVL2-1B` using `transformers`.
 
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 path = "OpenGVLab/InternVL2-1B"
 model = AutoModel.from_pretrained(
     path,
@@ -132,7 +132,7 @@ model = AutoModel.from_pretrained(
 
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 path = "OpenGVLab/InternVL2-1B"
 model = AutoModel.from_pretrained(
     path,
@@ -150,7 +150,7 @@ The reason for writing the code this way is to avoid errors that occur during mu
 ```python
 import math
 import torch
-from transformers import AutoTokenizer, AutoModel
+from paddlenlp.transformers import AutoTokenizer, AutoModel
 
 def split_model(model_name):
     device_map = {}
@@ -199,7 +199,7 @@ import torchvision.transforms as T
 from decord import VideoReader, cpu
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
@@ -413,7 +413,7 @@ print(f'User: {question}\nAssistant: {response}')
 Besides this method, you can also use the following code to get streamed output.
 
 ```python
-from transformers import TextIteratorStreamer
+from paddlenlp.transformers import TextIteratorStreamer
 from threading import Thread
 
 # Initialize the streamer

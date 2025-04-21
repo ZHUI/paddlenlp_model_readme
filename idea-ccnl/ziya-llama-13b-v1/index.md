@@ -108,8 +108,8 @@ python3 -m apply_delta --base ~/model_weights/llama-13b --target ~/model_weights
 
 Step 3: 加载step 2得到的模型推理
 ```python3
-from transformers import AutoTokenizer
-from transformers import LlamaForCausalLM
+from paddlenlp.transformers import AutoTokenizer
+from paddlenlp.transformers import LlamaForCausalLM
 import torch
 
 device = torch.device("cuda")
@@ -149,8 +149,8 @@ python3 -m apply_delta --base ~/model_weights/llama-13b --target ~/model_weights
 ```
 Step 3: Load the model obtained in Step 2 for inference.
 ```python3
-from transformers import AutoTokenizer
-from transformers import LlamaForCausalLM
+from paddlenlp.transformers import AutoTokenizer
+from paddlenlp.transformers import LlamaForCausalLM
 import torch
 
 

@@ -785,7 +785,7 @@ We recommend using the model to perform tasks expressed in natural language. For
 
 ```python
 # pip install -q transformers
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 checkpoint = "bigscience/bloomz-560m"
 
@@ -806,7 +806,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install -q transformers accelerate
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 checkpoint = "bigscience/bloomz-560m"
 
@@ -827,7 +827,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install -q transformers accelerate bitsandbytes
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 checkpoint = "bigscience/bloomz-560m"
 

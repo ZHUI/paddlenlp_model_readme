@@ -81,7 +81,7 @@ $ pip install diffusers transformers accelerate
 
 ```py
 from PIL import Image
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 import numpy as np
 import cv2
 from diffusers import StableDiffusionControlNetPipeline, ControlNetModel, UniPCMultistepScheduler

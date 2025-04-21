@@ -25,7 +25,7 @@ Below is an example to encode a query and a passage, and then compute their simi
 
 ```python
 import torch
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 from peft import PeftModel, PeftConfig
 
 def get_model(peft_model_name):

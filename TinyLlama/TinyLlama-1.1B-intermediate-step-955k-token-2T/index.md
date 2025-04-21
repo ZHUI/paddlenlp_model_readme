@@ -44,7 +44,7 @@ We will be rolling out intermediate checkpoints following the below schedule. We
 You will need the transformers>=4.31
 Do check the [TinyLlama](https://github.com/jzhang38/TinyLlama) github page for more information.
 ```
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 import transformers 
 import torch
 model = "TinyLlama/TinyLlama-1.1B-intermediate-step-955k-token-2T"

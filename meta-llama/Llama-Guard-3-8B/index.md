@@ -322,7 +322,7 @@ Llama Guard 3 can be directly used with `transformers`. It is only supported sin
 
   ```python
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 model_id = "meta-llama/Llama-Guard-3-8B"
 device = "cuda"

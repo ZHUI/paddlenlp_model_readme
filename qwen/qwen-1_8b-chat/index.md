@@ -96,8 +96,8 @@ cd flash-attention && pip install .
 We show an example of multi-turn interaction with Qwen-1.8B-Chat in the following code:
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from transformers.generation import GenerationConfig
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers.generation import GenerationConfig
 
 # Note: The default behavior now has injection attack prevention off.
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-1_8B-Chat", trust_remote_code=True)

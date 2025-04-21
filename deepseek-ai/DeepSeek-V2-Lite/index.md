@@ -159,7 +159,7 @@ You can directly employ [Huggingface's Transformers](https://github.com/huggingf
 #### Text Completion
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
 model_name = "deepseek-ai/DeepSeek-V2-Lite"
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
@@ -178,7 +178,7 @@ print(result)
 #### Chat Completion
 ```python
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
+from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
 model_name = "deepseek-ai/DeepSeek-V2-Lite-Chat"
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
@@ -224,7 +224,7 @@ Assistant:
 To utilize [vLLM](https://github.com/vllm-project/vllm) for model inference, please merge this Pull Request into your vLLM codebase: https://github.com/vllm-project/vllm/pull/4650.
 
 ```python
-from transformers import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
 
 max_model_len, tp_size = 8192, 1

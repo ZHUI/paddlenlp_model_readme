@@ -108,7 +108,7 @@ Get relevance scores (higher scores indicate more relevance):
 
 ```python
 import torch
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from paddlenlp.transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-reranker-v2-m3')
 model = AutoModelForSequenceClassification.from_pretrained('BAAI/bge-reranker-v2-m3')
@@ -125,7 +125,7 @@ with torch.no_grad():
 
 ```python
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 def get_inputs(pairs, tokenizer, prompt=None, max_length=1024):
     if prompt is None:
@@ -186,7 +186,7 @@ with torch.no_grad():
 
 ```python
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 def get_inputs(pairs, tokenizer, prompt=None, max_length=1024):
     if prompt is None:

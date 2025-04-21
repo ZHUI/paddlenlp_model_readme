@@ -22,7 +22,7 @@ Preview checkpoints can be directly loaded from Hugging Face Hub. **Please note 
 
 ```python
 import torch
-from transformers import LlamaTokenizer, LlamaForCausalLM
+from paddlenlp.transformers import LlamaTokenizer, LlamaForCausalLM
 
 # model_path = 'openlm-research/open_llama_3b'
 # model_path = 'openlm-research/open_llama_7b'

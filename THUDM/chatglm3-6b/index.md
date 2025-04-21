@@ -57,7 +57,7 @@ pip install protobuf transformers==4.30.2 cpm_kernels torch>=2.0 gradio mdtex2ht
 You can generate dialogue by invoking the ChatGLM3-6B model with the following code:
 
 ```ipython
->>> from transformers import AutoTokenizer, AutoModel
+>>> from paddlenlp.transformers import AutoTokenizer, AutoModel
 >>> tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm3-6b", trust_remote_code=True)
 >>> model = AutoModel.from_pretrained("THUDM/chatglm3-6b", trust_remote_code=True).half().cuda()
 >>> model = model.eval()

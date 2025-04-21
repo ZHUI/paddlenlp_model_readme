@@ -80,7 +80,7 @@ Bye!
 
 ```python
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model = AutoModelForCausalLM.from_pretrained('PKU-Alignment/alpaca-7b-reproduced', torch_dtype=torch.bfloat16, device_map='auto')
 tokenizer = AutoTokenizer.from_pretrained('PKU-Alignment/alpaca-7b-reproduced')

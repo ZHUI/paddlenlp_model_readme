@@ -201,7 +201,7 @@ with `torch.compile`, which can significantly accelerate inference.
 import torch
 from diffusers import AutoencoderKLCogVideoX, CogVideoXTransformer3DModel, CogVideoXImageToVideoPipeline
 from diffusers.utils import export_to_video, load_image
-from transformers import T5EncoderModel
+from paddlenlp.transformers import T5EncoderModel
 from torchao.quantization import quantize_, int8_weight_only
 
 quantization = int8_weight_only

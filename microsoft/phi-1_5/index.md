@@ -89,7 +89,7 @@ where the model generates the text after the comments.
 
 ```python
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 torch.set_default_device("cuda")
 

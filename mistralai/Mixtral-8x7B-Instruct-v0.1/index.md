@@ -59,7 +59,7 @@ print(result)
 ## Inference with hugging face `transformers`
  
 ```py
-from transformers import AutoModelForCausalLM
+from paddlenlp.transformers import AutoModelForCausalLM
  
 model = AutoModelForCausalLM.from_pretrained("mistralai/Mixtral-8x7B-Instruct-v0.1")
 model.to("cuda")
@@ -113,7 +113,7 @@ In the Transformers library, one can use [chat templates](https://huggingface.co
 ## Run the model
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
@@ -143,7 +143,7 @@ Note `float16` precision only works on GPU devices
 
 ```diff
 + import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
@@ -170,7 +170,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 ```diff
 + import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
@@ -198,7 +198,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 ```diff
 + import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)

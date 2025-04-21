@@ -42,7 +42,7 @@ import torch, transformers
 import sys, os
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
-from transformers import AutoModelForCausalLM,AutoTokenizer,LlamaTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM,AutoTokenizer,LlamaTokenizer
 
 print("Creat tokenizer...")
 tokenizer = LlamaTokenizer.from_pretrained('IEITYuan/Yuan2-102B-hf', add_eos_token=False, add_bos_token=False, eos_token='<eod>')

@@ -42,7 +42,7 @@ Based on 基于[Randeng-BART-139M](https://huggingface.co/IDEA-CCNL/Randeng-BART
 ## 使用 Usage
 
 ```python
-from transformers import BartForConditionalGeneration, AutoTokenizer, Text2TextGenerationPipeline
+from paddlenlp.transformers import BartForConditionalGeneration, AutoTokenizer, Text2TextGenerationPipeline
 import torch
 
 tokenizer=AutoTokenizer.from_pretrained('IDEA-CCNL/Randeng-BART-139M-SUMMARY')

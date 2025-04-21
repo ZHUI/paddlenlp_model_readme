@@ -31,7 +31,7 @@ Here is how to use this model to perform zero-shot image classification:
 ```python
 from PIL import Image
 import requests
-from transformers import AutoProcessor, AutoModel
+from paddlenlp.transformers import AutoProcessor, AutoModel
 import torch
 
 model = AutoModel.from_pretrained("google/siglip-large-patch16-384")
@@ -54,7 +54,7 @@ print(f"{probs[0][0]:.1%} that image 0 is '{texts[0]}'")
 Alternatively, one can leverage the pipeline API which abstracts away the complexity for the user:
 
 ```python
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 from PIL import Image
 import requests
 

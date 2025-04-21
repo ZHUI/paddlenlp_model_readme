@@ -38,7 +38,7 @@ The model card has been written in combination by the Hugging Face team and Inte
 The easiest is leveraging the pipeline API:
 
 ```
-from transformers import pipeline
+from paddlenlp.transformers import pipeline
 
 pipe = pipeline(task="depth-estimation", model="Intel/dpt-large")
 result = pipe(image)
@@ -48,7 +48,7 @@ result["depth"]
 In case you want to implement the entire logic yourself, here's how to do that for zero-shot depth estimation on an image:
 
 ```python
-from transformers import DPTImageProcessor, DPTForDepthEstimation
+from paddlenlp.transformers import DPTImageProcessor, DPTForDepthEstimation
 import torch
 import numpy as np
 from PIL import Image

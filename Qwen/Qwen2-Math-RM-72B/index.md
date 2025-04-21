@@ -54,7 +54,7 @@ Here we show a code snippet to show you how to use the Qwen2-Math-RM-72B with `t
 
 ```python
 import torch
-from transformers import AutoModel, AutoTokenizer
+from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 model_name = "Qwen/Qwen2-Math-RM-72B"
 device = "auto" # the device to load the model onto
