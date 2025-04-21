@@ -85,7 +85,7 @@ import torch
 model = AutoModelForCausalLM.from_pretrained("ai21labs/Jamba-v0.1",
                                              torch_dtype=torch.bfloat16,
                                              attn_implementation="flash_attention_2",
-                                             device_map="auto")
+                                             )
 ```
 
 </details>

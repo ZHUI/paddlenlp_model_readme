@@ -850,7 +850,7 @@ from paddlenlp.transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 checkpoint = "bigscience/mt0-large"
 
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
+model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint,  )
 
 inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd").to("cuda")
 outputs = model.generate(inputs)
@@ -871,7 +871,7 @@ from paddlenlp.transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 checkpoint = "bigscience/mt0-large"
 
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True)
+model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint,  load_in_8bit=True)
 
 inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd").to("cuda")
 outputs = model.generate(inputs)

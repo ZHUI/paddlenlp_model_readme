@@ -46,8 +46,8 @@ device = "cuda" # the device to load the model onto
 
 model = AutoModelForCausalLM.from_pretrained(
     "Qwen/Qwen1.5-32B-Chat",
-    torch_dtype="auto",
-    device_map="auto"
+    
+    
 )
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen1.5-32B-Chat")
 

@@ -277,7 +277,7 @@ pipe = pipeline(
     "text-generation", 
     model=model_id, 
     torch_dtype=torch.bfloat16, 
-    device_map="auto"
+    
 )
 
 pipe("The key to life is")

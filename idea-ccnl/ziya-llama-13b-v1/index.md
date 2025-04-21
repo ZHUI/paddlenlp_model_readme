@@ -116,7 +116,7 @@ device = torch.device("cuda")
 ckpt = '基于delta参数合并后的完整模型权重'
 
 query="帮我写一份去西安的旅游计划"
-model = LlamaForCausalLM.from_pretrained(ckpt, torch_dtype=torch.float16, device_map="auto")
+model = LlamaForCausalLM.from_pretrained(ckpt, torch_dtype=torch.float16, )
 tokenizer = AutoTokenizer.from_pretrained(ckpt, use_fast=False)
 inputs = '<human>:' + query.strip() + '\n<bot>:'
       
@@ -158,7 +158,7 @@ device = torch.device("cuda")
 ckpt = '基于delta合并后完整模型权重'
 
 query="帮我写一份去西安的旅游计划"
-model = LlamaForCausalLM.from_pretrained(ckpt, torch_dtype=torch.float16, device_map="auto")
+model = LlamaForCausalLM.from_pretrained(ckpt, torch_dtype=torch.float16, )
 tokenizer = AutoTokenizer.from_pretrained(ckpt, use_fast=False)
 inputs = '<human>:' + query.strip() + '\n<bot>:'
       

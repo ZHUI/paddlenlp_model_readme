@@ -87,13 +87,13 @@ from paddlenlp.transformers.generation import GenerationConfig
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-14B-Chat", trust_remote_code=True)
 
 # use bf16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-14B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-14B-Chat",  trust_remote_code=True, bf16=True).eval()
 # use fp16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-14B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-14B-Chat",  trust_remote_code=True, fp16=True).eval()
 # use cpu only
 # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-14B-Chat", device_map="cpu", trust_remote_code=True).eval()
 # use auto mode, automatically select precision based on the device.
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-14B-Chat", device_map="auto", trust_remote_code=True).eval()
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-14B-Chat",  trust_remote_code=True).eval()
 
 # Specify hyperparameters for generation. But if you use transformers>=4.32.0, there is no need to do this.
 # model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-14B-Chat", trust_remote_code=True) # 可指定不同的生成长度、top_p等相关超参
@@ -152,7 +152,7 @@ Then you can load the quantized model easily and run inference as same as usual:
 ```python
 model = AutoModelForCausalLM.from_pretrained(
     "Qwen/Qwen-14B-Chat-Int4",
-    device_map="auto",
+    
     trust_remote_code=True
 ).eval()
 response, history = model.chat(tokenizer, "你好", history=None)

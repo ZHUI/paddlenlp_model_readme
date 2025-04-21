@@ -289,7 +289,7 @@ See the snippet below for usage with Transformers:
 >>> model_id = "meta-llama/Meta-Llama-3-70B"
 
 >>> pipeline = transformers.pipeline(
-    "text-generation", model=model_id, model_kwargs={"torch_dtype": torch.bfloat16}, device_map="auto"
+    "text-generation", model=model_id, model_kwargs={"torch_dtype": torch.bfloat16}, 
 )
 >>> pipeline("Hey how are you doing today?")
 ```

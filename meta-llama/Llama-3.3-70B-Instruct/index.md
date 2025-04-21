@@ -106,7 +106,7 @@ pipeline = transformers.pipeline(
     "text-generation",
     model=model_id,
     model_kwargs={"torch_dtype": torch.bfloat16},
-    device_map="auto",
+    
 )
 
 messages = [
@@ -181,7 +181,7 @@ model_id = "LLM-Research/Llama-3.3-70B-Instruct"
 quantization_config = BitsAndBytesConfig(load_in_8bit=True)
 
 quantized_model = AutoModelForCausalLM.from_pretrained(
-	model_id, device_map="auto", torch_dtype=torch.bfloat16, quantization_config=quantization_config)
+	model_id,  torch_dtype=torch.bfloat16, quantization_config=quantization_config)
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 input_text = "What are we having for dinner?"

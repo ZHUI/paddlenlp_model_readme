@@ -276,7 +276,7 @@ pipe = pipeline(
     "text-generation",
     model=model_id,
     torch_dtype=torch.bfloat16,
-    device_map="auto",
+    
 )
 messages = [
     {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},

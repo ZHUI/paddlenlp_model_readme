@@ -118,7 +118,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(model_id, )
 
 messages = [
     {"role": "user", "content": "What is your favourite condiment?"},
@@ -148,7 +148,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-+ model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.float16, device_map="auto")
++ model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.float16, )
 
 messages = [
     {"role": "user", "content": "What is your favourite condiment?"},
@@ -175,7 +175,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-+ model = AutoModelForCausalLM.from_pretrained(model_id, load_in_4bit=True, device_map="auto")
++ model = AutoModelForCausalLM.from_pretrained(model_id, load_in_4bit=True, )
 
 text = "Hello my name is"
 messages = [
@@ -203,7 +203,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-+ model = AutoModelForCausalLM.from_pretrained(model_id, use_flash_attention_2=True, device_map="auto")
++ model = AutoModelForCausalLM.from_pretrained(model_id, use_flash_attention_2=True, )
 
 messages = [
     {"role": "user", "content": "What is your favourite condiment?"},

@@ -90,7 +90,7 @@ print(tokenizer.decode(outputs[0]))
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b-instruct")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct", device_map="auto")
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct", )
 
 # We use the tokenizer's chat template to format each message - see https://huggingface.co/docs/transformers/main/en/chat_templating
 messages = [
@@ -147,7 +147,7 @@ import torch
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b-instruct")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct", device_map="auto", torch_dtype=torch.float16)
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct",  torch_dtype=torch.float16)
 
 # We use the tokenizer's chat template to format each message - see https://huggingface.co/docs/transformers/main/en/chat_templating
 messages = [
@@ -172,7 +172,7 @@ print(tokenizer.decode(outputs[0]))
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b-instruct")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct", device_map="auto", quantization_config=BitsAndBytesConfig(load_in_4bit=True))
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b-instruct",  quantization_config=BitsAndBytesConfig(load_in_4bit=True))
 
 # We use the tokenizer's chat template to format each message - see https://huggingface.co/docs/transformers/main/en/chat_templating
 messages = [

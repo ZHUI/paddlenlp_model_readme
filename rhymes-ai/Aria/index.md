@@ -90,7 +90,7 @@ from paddlenlp.transformers import AriaProcessor, AriaForConditionalGeneration
 
 model_id_or_path = "rhymes-ai/Aria"
 model = AriaForConditionalGeneration.from_pretrained(
-    model_id_or_path, device_map="auto", torch_dtype=torch.bfloat16
+    model_id_or_path,  torch_dtype=torch.bfloat16
 )
 
 processor = AriaProcessor.from_pretrained(model_id_or_path)

@@ -249,7 +249,7 @@ model_id = "meta-llama/Llama-Guard-3-1B"
 model = AutoModelForCausalLM.from_pretrained(
     model_id,
     torch_dtype=torch.bfloat16,
-    device_map="auto",
+    
 )
 
 conversation = [

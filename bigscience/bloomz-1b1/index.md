@@ -811,7 +811,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 checkpoint = "bigscience/bloomz-1b1"
 
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(checkpoint,  )
 
 inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd").to("cuda")
 outputs = model.generate(inputs)
@@ -832,7 +832,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 checkpoint = "bigscience/bloomz-1b1"
 
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-model = AutoModelForCausalLM.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True)
+model = AutoModelForCausalLM.from_pretrained(checkpoint,  load_in_8bit=True)
 
 inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd").to("cuda")
 outputs = model.generate(inputs)

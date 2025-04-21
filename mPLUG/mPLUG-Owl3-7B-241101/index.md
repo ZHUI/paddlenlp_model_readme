@@ -217,7 +217,7 @@ apply_liger_kernel_to_mplug_owl3(model=model)
 When you have more than one GPUs, you can set the ```device_map='auto'``` to split the mPLUG-Owl3 into multiple GPUs. However, it will slowdown the inference speed.
 
 ```python
-model = AutoModel.from_pretrained(model_path, attn_implementation='flash_attention_2', device_map="auto", torch_dtype=torch.bfloat16, trust_remote_code=True)
+model = AutoModel.from_pretrained(model_path, attn_implementation='flash_attention_2',  torch_dtype=torch.bfloat16, trust_remote_code=True)
 _ = model.eval()
 first_layer_name = list(model.hf_device_map.keys())[0]
 device = model.hf_device_map[first_layer_name]

@@ -88,7 +88,7 @@ print(tokenizer.decode(outputs[0]))
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-7b")
-model = AutoModelForCausalLM.from_pretrained("google/gemma-7b", device_map="auto")
+model = AutoModelForCausalLM.from_pretrained("google/gemma-7b", )
 
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
@@ -107,7 +107,7 @@ print(tokenizer.decode(outputs[0]))
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-7b")
-model = AutoModelForCausalLM.from_pretrained("google/gemma-7b", device_map="auto", revision="float16")
+model = AutoModelForCausalLM.from_pretrained("google/gemma-7b",  revision="float16")
 
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
@@ -123,7 +123,7 @@ print(tokenizer.decode(outputs[0]))
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-7b")
-model = AutoModelForCausalLM.from_pretrained("google/gemma-7b", device_map="auto", torch_dtype=torch.bfloat16)
+model = AutoModelForCausalLM.from_pretrained("google/gemma-7b",  torch_dtype=torch.bfloat16)
 
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")

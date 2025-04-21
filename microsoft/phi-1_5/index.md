@@ -93,7 +93,7 @@ from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 torch.set_default_device("cuda")
 
-model = AutoModelForCausalLM.from_pretrained("microsoft/phi-1_5", torch_dtype="auto")
+model = AutoModelForCausalLM.from_pretrained("microsoft/phi-1_5", )
 tokenizer = AutoTokenizer.from_pretrained("microsoft/phi-1_5")
 
 inputs = tokenizer('''def print_prime(n):

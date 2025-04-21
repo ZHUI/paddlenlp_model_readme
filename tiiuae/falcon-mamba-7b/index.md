@@ -175,7 +175,7 @@ print(tokenizer.decode(outputs[0]))
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", device_map="auto")
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", )
 
 input_text = "Question: How many hours in one day? Answer: "
 input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
@@ -223,7 +223,7 @@ import torch
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", device_map="auto", torch_dtype=torch.float16)
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b",  torch_dtype=torch.float16)
 
 input_text = "Question: How many hours in one day? Answer: "
 input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
@@ -244,7 +244,7 @@ print(tokenizer.decode(outputs[0]))
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
-model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", device_map="auto", quantization_config=BitsAndBytesConfig(load_in_4bit=True))
+model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b",  quantization_config=BitsAndBytesConfig(load_in_4bit=True))
 
 input_text = "Question: How many hours in one day? Answer: "
 input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")

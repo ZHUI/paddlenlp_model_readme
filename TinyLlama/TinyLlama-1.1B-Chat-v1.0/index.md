@@ -35,7 +35,7 @@ Do check the [TinyLlama](https://github.com/jzhang38/TinyLlama) github page for 
 import torch
 from paddlenlp.transformers import pipeline
 
-pipe = pipeline("text-generation", model="TinyLlama/TinyLlama-1.1B-Chat-v1.0", torch_dtype=torch.bfloat16, device_map="auto")
+pipe = pipeline("text-generation", model="TinyLlama/TinyLlama-1.1B-Chat-v1.0", torch_dtype=torch.bfloat16, )
 
 # We use the tokenizer's chat template to format each message - see https://huggingface.co/docs/transformers/main/en/chat_templating
 messages = [

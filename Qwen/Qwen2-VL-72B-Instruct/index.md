@@ -201,7 +201,7 @@ from modelscope import snapshot_download
 model_name =  snapshot_download("qwen/Qwen2-VL-72B-Instruct")
 # default: Load the model on the available device(s)
 model = Qwen2VLForConditionalGeneration.from_pretrained(
-    model_name, torch_dtype="auto", device_map="auto"
+    model_name,  
 )
 
 # We recommend enabling flash_attention_2 for better acceleration and memory saving, especially in multi-image and video scenarios.
@@ -209,7 +209,7 @@ model = Qwen2VLForConditionalGeneration.from_pretrained(
 #     model_name,
 #     torch_dtype=torch.bfloat16,
 #     attn_implementation="flash_attention_2",
-#     device_map="auto",
+#     
 # )
 
 # default processer
@@ -271,7 +271,7 @@ from modelscope import snapshot_download
 model_name =  snapshot_download("qwen/Qwen2-VL-72B-Instruct")
 # Load the model in half-precision on the available device(s)
 model = Qwen2VLForConditionalGeneration.from_pretrained(
-    model_name, torch_dtype="auto", device_map="auto"
+    model_name,  
 )
 processor = AutoProcessor.from_pretrained(model_name)
 

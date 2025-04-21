@@ -92,7 +92,7 @@ import torch
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
     "google/gemma-2b-it",
-    device_map="auto",
+    
     torch_dtype=torch.bfloat16
 )
 
@@ -121,7 +121,7 @@ import torch
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
     "google/gemma-2b-it",
-    device_map="auto",
+    
     torch_dtype=torch.float16,
     revision="float16",
 )
@@ -142,7 +142,7 @@ from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
     "google/gemma-2b-it",
-    device_map="auto"
+    
 )
 
 input_text = "Write me a poem about Machine Learning."

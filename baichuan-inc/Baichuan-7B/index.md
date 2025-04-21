@@ -41,7 +41,7 @@ If you wish to use Baichuan-7B (for inference, finetuning, etc.), we recommend u
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan-7B", trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-7B", device_map="auto", trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-7B",  trust_remote_code=True)
 inputs = tokenizer('登鹳雀楼->王之涣\n夜雨寄北->', return_tensors='pt')
 inputs = inputs.to('cuda:0')
 pred = model.generate(**inputs, max_new_tokens=64,repetition_penalty=1.1)
@@ -53,7 +53,7 @@ The following is a task of performing 1-shot inference using Baichuan-7B, where 
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan-7B", trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-7B", device_map="auto", trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan-7B",  trust_remote_code=True)
 inputs = tokenizer('Hamlet->Shakespeare\nOne Hundred Years of Solitude->', return_tensors='pt')
 inputs = inputs.to('cuda:0')
 pred = model.generate(**inputs, max_new_tokens=64,repetition_penalty=1.1)
