@@ -88,7 +88,6 @@ pipeline = transformers.pipeline(
     "text-generation",
     model=model,
     dtype=paddle.float16,
-    
 )
 
 sequences = pipeline(

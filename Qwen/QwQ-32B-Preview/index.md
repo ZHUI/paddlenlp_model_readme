@@ -54,7 +54,6 @@ model_name = "Qwen/QwQ-32B-Preview"
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     
-    
 )
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 

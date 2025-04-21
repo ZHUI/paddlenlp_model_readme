@@ -359,7 +359,6 @@ pipeline = transformers.pipeline(
     "text-generation",
     model=model_id,
     model_kwargs={"dtype": paddle.bfloat16},
-    
 )
 
 messages = [

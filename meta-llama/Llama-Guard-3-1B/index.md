@@ -249,7 +249,6 @@ model_id = "meta-llama/Llama-Guard-3-1B"
 model = AutoModelForCausalLM.from_pretrained(
     model_id,
     dtype=paddle.bfloat16,
-    
 )
 
 conversation = [

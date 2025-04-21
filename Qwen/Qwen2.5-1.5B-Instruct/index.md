@@ -51,7 +51,6 @@ model_name = "qwen/Qwen2.5-1.5B-Instruct"
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     
-    
 )
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 

@@ -42,7 +42,6 @@ device = "cuda" # the device to load the model onto
 model = AutoModelForCausalLM.from_pretrained(
     "Qwen/Qwen2-1.5B-Instruct",
     
-    
 )
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2-1.5B-Instruct")
 

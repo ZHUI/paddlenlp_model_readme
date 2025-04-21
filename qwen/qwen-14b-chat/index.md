@@ -152,7 +152,6 @@ Then you can load the quantized model easily and run inference as same as usual:
 ```python
 model = AutoModelForCausalLM.from_pretrained(
     "Qwen/Qwen-14B-Chat-Int4",
-    
     trust_remote_code=True
 ).eval()
 response, history = model.chat(tokenizer, "你好", history=None)

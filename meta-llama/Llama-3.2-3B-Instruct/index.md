@@ -278,7 +278,6 @@ pipe = pipeline(
     "text-generation",
     model=model_dir,
     dtype=paddle.bfloat16,
-    
 )
 messages = [
     {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
