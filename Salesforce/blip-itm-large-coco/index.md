@@ -51,7 +51,7 @@ img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo
 raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 question = "A woman and a dog sitting together in a beach."
-inputs = processor(raw_image, question, return_tensors="pt")
+inputs = processor(raw_image, question, return_tensors="pd")
 
 itm_scores = model(**inputs)[0]
 cosine_score = model(**inputs, use_itm_head=False)[0]
@@ -77,7 +77,7 @@ img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo
 raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 question = "A woman and a dog sitting together in a beach."
-inputs = processor(raw_image, question, return_tensors="pt").to("cuda")
+inputs = processor(raw_image, question, return_tensors="pd").to("cuda")
 
 itm_scores = model(**inputs)[0]
 cosine_score = model(**inputs, use_itm_head=False)[0]
@@ -102,7 +102,7 @@ img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo
 raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 question = "A woman and a dog sitting together in a beach."
-inputs = processor(raw_image, question, return_tensors="pt").to("cuda", torch.float16)
+inputs = processor(raw_image, question, return_tensors="pd").to("cuda", torch.float16)
 
 itm_scores = model(**inputs)[0]
 cosine_score = model(**inputs, use_itm_head=False)[0]

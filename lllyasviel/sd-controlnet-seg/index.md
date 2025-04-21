@@ -249,7 +249,7 @@ image_segmentor = UperNetForSemanticSegmentation.from_pretrained("openmmlab/uper
 
 image = load_image("https://huggingface.co/lllyasviel/sd-controlnet-seg/resolve/main/images/house.png").convert('RGB')
 
-pixel_values = image_processor(image, return_tensors="pt").pixel_values
+pixel_values = image_processor(image, return_tensors="pd").pixel_values
 
 with torch.no_grad():
   outputs = image_segmentor(pixel_values)

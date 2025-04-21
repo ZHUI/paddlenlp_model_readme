@@ -126,7 +126,7 @@ messages = [
     {"role": "user", "content": "Do you have mayonnaise recipes?"}
 ]
 
-inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
+inputs = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
 
 outputs = model.generate(inputs, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -156,7 +156,7 @@ messages = [
     {"role": "user", "content": "Do you have mayonnaise recipes?"}
 ]
 
-input_ids = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
+input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
 
 outputs = model.generate(input_ids, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -184,7 +184,7 @@ messages = [
     {"role": "user", "content": "Do you have mayonnaise recipes?"}
 ]
 
-input_ids = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
+input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
 
 outputs = model.generate(input_ids, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -211,7 +211,7 @@ messages = [
     {"role": "user", "content": "Do you have mayonnaise recipes?"}
 ]
 
-input_ids = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
+input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
 
 outputs = model.generate(input_ids, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))

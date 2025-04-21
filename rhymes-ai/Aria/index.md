@@ -108,7 +108,7 @@ messages = [
 ]
 
 text = processor.apply_chat_template(messages, add_generation_prompt=True)
-inputs = processor(text=text, images=image, return_tensors="pt")
+inputs = processor(text=text, images=image, return_tensors="pd")
 inputs['pixel_values'] = inputs['pixel_values'].to(torch.bfloat16)
 inputs.to(model.device)
 

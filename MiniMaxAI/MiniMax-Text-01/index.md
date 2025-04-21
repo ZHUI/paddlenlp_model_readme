@@ -203,7 +203,7 @@ text = tokenizer.apply_chat_template(
     add_generation_prompt=True
 )
 # tokenize and move to device
-model_inputs = tokenizer(text, return_tensors="pt").to("cuda")
+model_inputs = tokenizer(text, return_tensors="pd").to("cuda")
 
 # load bfloat16 model, move to device, and apply quantization
 quantized_model = AutoModelForCausalLM.from_pretrained(

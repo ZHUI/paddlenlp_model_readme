@@ -137,7 +137,7 @@ inputs = processor(
     images=image_inputs,
     videos=video_inputs,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
 )
 inputs = inputs.to("cuda")
 
@@ -191,7 +191,7 @@ text_prompt = processor.apply_chat_template(conversation, add_generation_prompt=
 # Excepted output: '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>Describe this image.<|im_end|>\n<|im_start|>assistant\n'
 
 inputs = processor(
-    text=[text_prompt], images=[image], padding=True, return_tensors="pt"
+    text=[text_prompt], images=[image], padding=True, return_tensors="pd"
 )
 inputs = inputs.to("cuda")
 
@@ -234,7 +234,7 @@ inputs = processor(
     images=image_inputs,
     videos=video_inputs,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
 )
 inputs = inputs.to("cuda")
 
@@ -299,7 +299,7 @@ inputs = processor(
     images=image_inputs,
     videos=video_inputs,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
 )
 inputs = inputs.to("cuda")
 
@@ -348,7 +348,7 @@ inputs = processor(
     images=image_inputs,
     videos=video_inputs,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
 )
 inputs = inputs.to("cuda")
 

@@ -191,7 +191,7 @@ inputs = processor(
     images=image_inputs,
     videos=video_inputs,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
 )
 inputs = inputs.to("cuda")
 
@@ -231,7 +231,7 @@ inputs = processor(
     images=image_inputs,
     videos=video_inputs,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
 )
 inputs = inputs.to("cuda")
 
@@ -312,7 +312,7 @@ inputs = processor(
     videos=video_inputs,
     fps=fps,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
     **video_kwargs,
 )
 inputs = inputs.to("cuda")
@@ -370,7 +370,7 @@ inputs = processor(
     images=image_inputs,
     videos=video_inputs,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
 )
 inputs = inputs.to("cuda")
 

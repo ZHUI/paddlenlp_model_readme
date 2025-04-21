@@ -43,7 +43,7 @@ url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 image = Image.open(requests.get(url, stream=True).raw)
 
 texts = ["a photo of 2 cats", "a photo of 2 dogs"]
-inputs = processor(text=texts, images=image, padding="max_length", return_tensors="pt")
+inputs = processor(text=texts, images=image, padding="max_length", return_tensors="pd")
 
 with torch.no_grad():
     outputs = model(**inputs)

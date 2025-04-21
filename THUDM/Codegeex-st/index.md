@@ -253,7 +253,7 @@ def run_generation_distributed(args, model, tokenizer):
         prompt = obj["prompt"]
         if args.generation_mode == "instruction":
             inputs = tokenizer(prompt, return_tensors="pd")
-            #inputs = tokenizer([prompt] * args.micro_batch_size, return_tensors="pt")
+            #inputs = tokenizer([prompt] * args.micro_batch_size, return_tensors="pd")
             #inputs = inputs.to(model.device)
             outputs = model.generate(**inputs,
                                     max_length=args.max_length,
@@ -270,7 +270,7 @@ def run_generation_distributed(args, model, tokenizer):
             inputs = tokenizer(prompt, return_tensors="pd")
             print(inputs)
             print(type(model))
-            #inputs = tokenizer([prompt for _ in range(args.micro_batch_size)], return_tensors="pt")
+            #inputs = tokenizer([prompt for _ in range(args.micro_batch_size)], return_tensors="pd")
             #inputs = inputs.to(model.device)
             stop_criteria = CodeStoppingCriteria(
                 max_length=args.max_length,

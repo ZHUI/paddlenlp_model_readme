@@ -39,7 +39,7 @@ You can use the classic `generate` API:
 
 >>> tokenizer = AutoTokenizer.from_pretrained("state-spaces/mamba-790m-hf")
 >>> model = MambaForCausalLM.from_pretrained("state-spaces/mamba-790m-hf")
->>> input_ids = tokenizer("Hey how are you doing?", return_tensors="pt")["input_ids"]
+>>> input_ids = tokenizer("Hey how are you doing?", return_tensors="pd")["input_ids"]
 
 >>> out = model.generate(input_ids, max_new_tokens=10)
 >>> print(tokenizer.batch_decode(out))

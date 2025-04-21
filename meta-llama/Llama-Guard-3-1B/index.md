@@ -265,7 +265,7 @@ conversation = [
 ]
 
 input_ids = tokenizer.apply_chat_template(
-    conversation, return_tensors="pt"
+    conversation, return_tensors="pd"
 ).to(model.device)
 
 prompt_len = input_ids.shape[1]
@@ -284,7 +284,7 @@ This snippet will use the categories described in this model card. You can provi
 ```python
 input_ids = tokenizer.apply_chat_template(
     conversation,
-    return_tensors="pt",
+    return_tensors="pd",
     categories = {
         "S1": "My custom category",
     },
@@ -296,7 +296,7 @@ Or you can exclude categories from the default list by specifying an array of ca
 ```python
 input_ids = tokenizer.apply_chat_template(
     conversation,
-    return_tensors="pt",
+    return_tensors="pd",
     excluded_category_keys=["S6"],
 ).to(model.device)
 ```

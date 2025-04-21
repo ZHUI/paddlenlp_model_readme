@@ -71,7 +71,7 @@ tokenizer = AutoTokenizer.from_pretrained("internlm/internlm-7b", trust_remote_c
 # Set `torch_dtype=torch.float16` to load model in float16, otherwise it will be loaded as float32 and might cause OOM Error.
 model = AutoModelForCausalLM.from_pretrained("internlm/internlm-7b", torch_dtype=torch.float16, trust_remote_code=True).cuda()
 model = model.eval()
-inputs = tokenizer(["A beautiful flower"], return_tensors="pt")
+inputs = tokenizer(["A beautiful flower"], return_tensors="pd")
 for k,v in inputs.items():
     inputs[k] = v.cuda()
 gen_kwargs = {"max_length": 128, "top_p": 0.8, "temperature": 0.8, "do_sample": True, "repetition_penalty": 1.1}
@@ -124,7 +124,7 @@ tokenizer = AutoTokenizer.from_pretrained("internlm/internlm-7b", trust_remote_c
 # `torch_dtype=torch.float16` 可以令模型以 float16 精度加载，否则 transformers 会将模型加载为 float32，有可能导致显存不足
 model = AutoModelForCausalLM.from_pretrained("internlm/internlm-7b", torch_dtype=torch.float16, trust_remote_code=True).cuda()
 model = model.eval()
-inputs = tokenizer(["来到美丽的大自然，我们发现"], return_tensors="pt")
+inputs = tokenizer(["来到美丽的大自然，我们发现"], return_tensors="pd")
 for k,v in inputs.items():
     inputs[k] = v.cuda()
 gen_kwargs = {"max_length": 128, "top_p": 0.8, "temperature": 0.8, "do_sample": True, "repetition_penalty": 1.1}

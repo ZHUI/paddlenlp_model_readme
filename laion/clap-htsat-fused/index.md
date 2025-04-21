@@ -67,7 +67,7 @@ audio_sample = librispeech_dummy[0]
 model = ClapModel.from_pretrained("laion/clap-htsat-fused")
 processor = ClapProcessor.from_pretrained("laion/clap-htsat-fused")
 
-inputs = processor(audios=audio_sample["audio"]["array"], return_tensors="pt")
+inputs = processor(audios=audio_sample["audio"]["array"], return_tensors="pd")
 audio_embed = model.get_audio_features(**inputs)
 ```
 
@@ -83,7 +83,7 @@ audio_sample = librispeech_dummy[0]
 model = ClapModel.from_pretrained("laion/clap-htsat-fused").to(0)
 processor = ClapProcessor.from_pretrained("laion/clap-htsat-fused")
 
-inputs = processor(audios=audio_sample["audio"]["array"], return_tensors="pt").to(0)
+inputs = processor(audios=audio_sample["audio"]["array"], return_tensors="pd").to(0)
 audio_embed = model.get_audio_features(**inputs)
 ```
 

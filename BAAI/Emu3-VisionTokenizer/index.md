@@ -58,7 +58,7 @@ video = os.listdir(VIDEO_FRAMES_PATH)
 video.sort()
 video = [Image.open(osp.join(VIDEO_FRAMES_PATH, v)) for v in video]
 
-images = processor(video, return_tensors="pt")["pixel_values"]
+images = processor(video, return_tensors="pd")["pixel_values"]
 images = images.unsqueeze(0).cuda()
 
 # image autoencode

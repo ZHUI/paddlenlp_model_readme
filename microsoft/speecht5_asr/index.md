@@ -62,7 +62,7 @@ example_speech = dataset[0]["audio"]["array"]
 processor = SpeechT5Processor.from_pretrained("microsoft/speecht5_asr")
 model = SpeechT5ForSpeechToText.from_pretrained("microsoft/speecht5_asr")
 
-inputs = processor(audio=example_speech, sampling_rate=sampling_rate, return_tensors="pt")
+inputs = processor(audio=example_speech, sampling_rate=sampling_rate, return_tensors="pd")
 
 predicted_ids = model.generate(**inputs, max_length=100)
 

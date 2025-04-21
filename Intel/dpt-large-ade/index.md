@@ -57,7 +57,7 @@ image = Image.open(requests.get(url, stream=True).raw)
 feature_extractor = DPTImageProcessor .from_pretrained("Intel/dpt-large-ade")
 model = DPTForSemanticSegmentation.from_pretrained("Intel/dpt-large-ade")
 
-inputs = feature_extractor(images=image, return_tensors="pt")
+inputs = feature_extractor(images=image, return_tensors="pd")
 
 outputs = model(**inputs)
 logits = outputs.logits

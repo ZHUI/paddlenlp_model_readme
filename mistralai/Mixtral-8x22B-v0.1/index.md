@@ -143,7 +143,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(model_id)
 
 text = "Hello my name is"
-inputs = tokenizer(text, return_tensors="pt")
+inputs = tokenizer(text, return_tensors="pd")
 
 outputs = model.generate(**inputs, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -164,7 +164,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 + model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.float16).to(0)
 
 text = "Hello my name is"
-+ inputs = tokenizer(text, return_tensors="pt").to(0)
++ inputs = tokenizer(text, return_tensors="pd").to(0)
 
 outputs = model.generate(**inputs, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -185,7 +185,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 + model = AutoModelForCausalLM.from_pretrained(model_id, load_in_4bit=True)
 
 text = "Hello my name is"
-+ inputs = tokenizer(text, return_tensors="pt").to(0)
++ inputs = tokenizer(text, return_tensors="pd").to(0)
 
 outputs = model.generate(**inputs, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -206,7 +206,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 + model = AutoModelForCausalLM.from_pretrained(model_id, use_flash_attention_2=True)
 
 text = "Hello my name is"
-+ inputs = tokenizer(text, return_tensors="pt").to(0)
++ inputs = tokenizer(text, return_tensors="pd").to(0)
 
 outputs = model.generate(**inputs, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))

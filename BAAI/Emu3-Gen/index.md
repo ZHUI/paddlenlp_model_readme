@@ -87,7 +87,7 @@ kwargs = dict(
     mode='G',
     ratio="1:1",
     image_area=model.config.image_area,
-    return_tensors="pt",
+    return_tensors="pd",
     padding="longest",
 )
 pos_inputs = processor(text=prompt, **kwargs)

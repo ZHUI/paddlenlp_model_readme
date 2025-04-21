@@ -74,7 +74,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 input_text = "Write me a poem about Machine Learning."
-input_ids = tokenizer(input_text, return_tensors="pt")
+input_ids = tokenizer(input_text, return_tensors="pd")
 
 outputs = model.generate(**input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -97,7 +97,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 input_text = "Write me a poem about Machine Learning."
-input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
 outputs = model.generate(**input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -127,7 +127,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 input_text = "Write me a poem about Machine Learning."
-input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
 outputs = model.generate(**input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -146,7 +146,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 input_text = "Write me a poem about Machine Learning."
-input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
 outputs = model.generate(**input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -166,7 +166,7 @@ tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained("google/gemma-2b-it", quantization_config=quantization_config)
 
 input_text = "Write me a poem about Machine Learning."
-input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
 outputs = model.generate(**input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -184,7 +184,7 @@ tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained("google/gemma-2b-it", quantization_config=quantization_config)
 
 input_text = "Write me a poem about Machine Learning."
-input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
 outputs = model.generate(**input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -251,7 +251,7 @@ chat template.
 After the prompt is ready, generation can be performed like this:
 
 ```py
-inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt")
+inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pd")
 outputs = model.generate(input_ids=inputs.to(model.device), max_new_tokens=150)
 ```
 

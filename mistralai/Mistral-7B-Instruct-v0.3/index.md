@@ -169,7 +169,7 @@ inputs = tokenizer.apply_chat_template(
             tools=tools,
             add_generation_prompt=True,
             return_dict=True,
-            return_tensors="pt",
+            return_tensors="pd",
 )
 
 model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.bfloat16, device_map="auto")

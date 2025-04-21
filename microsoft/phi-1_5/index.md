@@ -99,7 +99,7 @@ tokenizer = AutoTokenizer.from_pretrained("microsoft/phi-1_5")
 inputs = tokenizer('''def print_prime(n):
    """
    Print all primes between 1 and n
-   """''', return_tensors="pt", return_attention_mask=False)
+   """''', return_tensors="pd", return_attention_mask=False)
 
 outputs = model.generate(**inputs, max_length=200)
 text = tokenizer.batch_decode(outputs)[0]

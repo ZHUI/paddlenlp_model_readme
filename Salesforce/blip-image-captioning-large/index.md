@@ -52,13 +52,13 @@ raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 # conditional image captioning
 text = "a photography of"
-inputs = processor(raw_image, text, return_tensors="pt")
+inputs = processor(raw_image, text, return_tensors="pd")
 
 out = model.generate(**inputs)
 print(processor.decode(out[0], skip_special_tokens=True))
 
 # unconditional image captioning
-inputs = processor(raw_image, return_tensors="pt")
+inputs = processor(raw_image, return_tensors="pd")
 
 out = model.generate(**inputs)
 print(processor.decode(out[0], skip_special_tokens=True))
@@ -85,13 +85,13 @@ raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 # conditional image captioning
 text = "a photography of"
-inputs = processor(raw_image, text, return_tensors="pt").to("cuda")
+inputs = processor(raw_image, text, return_tensors="pd").to("cuda")
 
 out = model.generate(**inputs)
 print(processor.decode(out[0], skip_special_tokens=True))
 
 # unconditional image captioning
-inputs = processor(raw_image, return_tensors="pt").to("cuda")
+inputs = processor(raw_image, return_tensors="pd").to("cuda")
 
 out = model.generate(**inputs)
 print(processor.decode(out[0], skip_special_tokens=True))
@@ -117,14 +117,14 @@ raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 # conditional image captioning
 text = "a photography of"
-inputs = processor(raw_image, text, return_tensors="pt").to("cuda", torch.float16)
+inputs = processor(raw_image, text, return_tensors="pd").to("cuda", torch.float16)
 
 out = model.generate(**inputs)
 print(processor.decode(out[0], skip_special_tokens=True))
 # >>> a photography of a woman and her dog
 
 # unconditional image captioning
-inputs = processor(raw_image, return_tensors="pt").to("cuda", torch.float16)
+inputs = processor(raw_image, return_tensors="pd").to("cuda", torch.float16)
 
 out = model.generate(**inputs)
 print(processor.decode(out[0], skip_special_tokens=True))

@@ -792,7 +792,7 @@ checkpoint = "bigscience/bloomz-560m"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 model = AutoModelForCausalLM.from_pretrained(checkpoint)
 
-inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pt")
+inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd")
 outputs = model.generate(inputs)
 print(tokenizer.decode(outputs[0]))
 ```
@@ -813,7 +813,7 @@ checkpoint = "bigscience/bloomz-560m"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
 
-inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pt").to("cuda")
+inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd").to("cuda")
 outputs = model.generate(inputs)
 print(tokenizer.decode(outputs[0]))
 ```
@@ -834,7 +834,7 @@ checkpoint = "bigscience/bloomz-560m"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 model = AutoModelForCausalLM.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True)
 
-inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pt").to("cuda")
+inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd").to("cuda")
 outputs = model.generate(inputs)
 print(tokenizer.decode(outputs[0]))
 ```

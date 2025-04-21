@@ -120,7 +120,7 @@ model = LlamaForCausalLM.from_pretrained(ckpt, torch_dtype=torch.float16, device
 tokenizer = AutoTokenizer.from_pretrained(ckpt, use_fast=False)
 inputs = '<human>:' + query.strip() + '\n<bot>:'
       
-input_ids = tokenizer(inputs, return_tensors="pt").input_ids
+input_ids = tokenizer(inputs, return_tensors="pd").input_ids
 generate_ids = model.generate(
             input_ids,
             max_new_tokens=1024, 
@@ -162,7 +162,7 @@ model = LlamaForCausalLM.from_pretrained(ckpt, torch_dtype=torch.float16, device
 tokenizer = AutoTokenizer.from_pretrained(ckpt, use_fast=False)
 inputs = '<human>:' + query.strip() + '\n<bot>:'
       
-input_ids = tokenizer(inputs, return_tensors="pt").input_ids
+input_ids = tokenizer(inputs, return_tensors="pd").input_ids
 generate_ids = model.generate(
             input_ids,
             max_new_tokens=1024, 

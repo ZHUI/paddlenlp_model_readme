@@ -82,7 +82,7 @@ conversation_str = tokenizer.apply_chat_template(
 
 input_ids = tokenizer.encode(
     conversation_str, 
-    return_tensors="pt", 
+    return_tensors="pd", 
     add_special_tokens=False
 ).to(model.device)
 

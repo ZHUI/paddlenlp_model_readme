@@ -61,7 +61,7 @@ processor = DPTImageProcessor.from_pretrained("Intel/dpt-large")
 model = DPTForDepthEstimation.from_pretrained("Intel/dpt-large")
 
 # prepare image for the model
-inputs = processor(images=image, return_tensors="pt")
+inputs = processor(images=image, return_tensors="pd")
 
 with torch.no_grad():
     outputs = model(**inputs)

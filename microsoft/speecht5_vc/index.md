@@ -63,7 +63,7 @@ processor = SpeechT5Processor.from_pretrained("microsoft/speecht5_vc")
 model = SpeechT5ForSpeechToSpeech.from_pretrained("microsoft/speecht5_vc")
 vocoder = SpeechT5HifiGan.from_pretrained("microsoft/speecht5_hifigan")
 
-inputs = processor(audio=example_speech, sampling_rate=sampling_rate, return_tensors="pt")
+inputs = processor(audio=example_speech, sampling_rate=sampling_rate, return_tensors="pd")
 
 # load xvector containing speaker's voice characteristics from a file
 import numpy as np

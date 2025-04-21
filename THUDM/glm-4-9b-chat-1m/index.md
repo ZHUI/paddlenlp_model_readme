@@ -57,7 +57,7 @@ query = "你好"
 inputs = tokenizer.apply_chat_template([{"role": "user", "content": query}],
                                        add_generation_prompt=True,
                                        tokenize=True,
-                                       return_tensors="pt",
+                                       return_tensors="pd",
                                        return_dict=True
                                        )
 

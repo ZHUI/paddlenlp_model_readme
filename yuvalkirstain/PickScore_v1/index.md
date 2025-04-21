@@ -50,7 +50,7 @@ def calc_probs(prompt, images):
         padding=True,
         truncation=True,
         max_length=77,
-        return_tensors="pt",
+        return_tensors="pd",
     )
     
     text_inputs = processor(
@@ -58,7 +58,7 @@ def calc_probs(prompt, images):
         padding=True,
         truncation=True,
         max_length=77,
-        return_tensors="pt",
+        return_tensors="pd",
     )
 
 

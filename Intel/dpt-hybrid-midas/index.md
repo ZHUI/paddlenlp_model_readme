@@ -53,7 +53,7 @@ url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 image = Image.open(requests.get(url, stream=True).raw)
 
 # prepare image for the model
-inputs = image_processor(images=image, return_tensors="pt")
+inputs = image_processor(images=image, return_tensors="pd")
 
 with torch.no_grad():
     outputs = model(**inputs)

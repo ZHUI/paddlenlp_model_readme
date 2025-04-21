@@ -92,7 +92,7 @@ inputs = processor(
     images=image_inputs,
     videos=video_inputs,
     padding=True,
-    return_tensors="pt",
+    return_tensors="pd",
 )
 inputs = inputs.to("cuda")
 

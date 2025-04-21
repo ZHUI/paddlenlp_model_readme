@@ -260,7 +260,7 @@ image = load_image(
 
 prompt = "old house in stormy weather with rain and wind"
 
-pixel_values = image_processor(image, return_tensors="pt").pixel_values
+pixel_values = image_processor(image, return_tensors="pd").pixel_values
 with torch.no_grad():
   outputs = image_segmentor(pixel_values)
 seg = image_processor.post_process_semantic_segmentation(outputs, target_sizes=[image.size[::-1]])[0]

@@ -112,7 +112,7 @@ tool_use_prompt = tokenizer.apply_chat_template(
 )
 model = AutoModelForCausalLM.from_pretrained("mistralai/Mixtral-8x22B-Instruct-v0.1")
 
-inputs = tokenizer(tool_use_prompt, return_tensors="pt")
+inputs = tokenizer(tool_use_prompt, return_tensors="pd")
 
 outputs = model.generate(**inputs, max_new_tokens=20)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))

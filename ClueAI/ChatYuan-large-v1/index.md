@@ -65,7 +65,7 @@ def answer(text, sample=True, top_p=1, temperature=0.7):
   '''sample：是否抽样。生成任务，可以设置为True;
   top_p：0-1之间，生成的内容越多样'''
   text = preprocess(text)
-  encoding = tokenizer(text=[text], truncation=True, padding=True, max_length=768, return_tensors="pt") 
+  encoding = tokenizer(text=[text], truncation=True, padding=True, max_length=768, return_tensors="pd") 
   if not sample:
     out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=512, num_beams=1, length_penalty=0.6)
   else:

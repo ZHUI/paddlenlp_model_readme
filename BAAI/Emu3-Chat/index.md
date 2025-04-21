@@ -77,7 +77,7 @@ inputs = processor(
     text=text,
     image=image,
     mode='U',
-    return_tensors="pt",
+    return_tensors="pd",
     padding="longest",
 )
 

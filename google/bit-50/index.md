@@ -42,7 +42,7 @@ image = dataset["test"]["image"][0]
 feature_extractor = BitImageProcessor.from_pretrained("google/bit-50")
 model = BitForImageClassification.from_pretrained("google/bit-50")
 
-inputs = feature_extractor(image, return_tensors="pt")
+inputs = feature_extractor(image, return_tensors="pd")
 
 with torch.no_grad():
     logits = model(**inputs).logits
