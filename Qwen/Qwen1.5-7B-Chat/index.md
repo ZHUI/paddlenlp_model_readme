@@ -65,7 +65,7 @@ model_inputs = tokenizer([text], return_tensors="pd")
 generated_ids = model.generate(
     model_inputs.input_ids,
     max_new_tokens=512
-)
+)[0]
 generated_ids = [
     output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
 ]

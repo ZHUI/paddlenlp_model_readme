@@ -145,7 +145,7 @@ model = AutoModelForCausalLM.from_pretrained(model_id)
 text = "Hello my name is"
 inputs = tokenizer(text, return_tensors="pd")
 
-outputs = model.generate(**inputs, max_new_tokens=20)
+outputs = model.generate(**inputs, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 By default, transformers will load the model in full precision. Therefore you might be interested to further reduce down the memory requirements to run the model through the optimizations we offer in HF ecosystem:
@@ -166,7 +166,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 text = "Hello my name is"
 + inputs = tokenizer(text, return_tensors="pd").to(0)
 
-outputs = model.generate(**inputs, max_new_tokens=20)
+outputs = model.generate(**inputs, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 </details>
@@ -187,7 +187,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 text = "Hello my name is"
 + inputs = tokenizer(text, return_tensors="pd").to(0)
 
-outputs = model.generate(**inputs, max_new_tokens=20)
+outputs = model.generate(**inputs, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 </details>
@@ -208,7 +208,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 text = "Hello my name is"
 + inputs = tokenizer(text, return_tensors="pd").to(0)
 
-outputs = model.generate(**inputs, max_new_tokens=20)
+outputs = model.generate(**inputs, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 </details>

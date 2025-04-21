@@ -52,7 +52,7 @@ print("Creat model...")
 model = AutoModelForCausalLM.from_pretrained('IEITYuan/Yuan2-51B-hf', device_map='auto', dtype=paddle.bfloat16, trust_remote_code=True)
 
 inputs = tokenizer("请问目前最先进的机器学习算法有哪些？", return_tensors="pd")["input_ids"].to("cuda:0")
-outputs = model.generate(inputs,do_sample=False,max_length=100)
+outputs = model.generate(inputs,do_sample=False,max_length=100)[0]
 print(tokenizer.decode(outputs[0]))
 
 ```

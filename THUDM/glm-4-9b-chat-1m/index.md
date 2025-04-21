@@ -71,7 +71,7 @@ model = AutoModelForCausalLM.from_pretrained(
 
 gen_kwargs = {"max_length": 2500, "do_sample": True, "top_k": 1}
 with torch.no_grad():
-    outputs = model.generate(**inputs, **gen_kwargs)
+    outputs = model.generate(**inputs, **gen_kwargs)[0]
     outputs = outputs[:, inputs['input_ids'].shape[1]:]
     print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```

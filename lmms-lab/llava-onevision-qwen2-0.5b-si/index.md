@@ -308,7 +308,7 @@ cont = model.generate(
     do_sample=False,
     temperature=0,
     max_new_tokens=4096,
-)
+)[0]
 text_outputs = tokenizer.batch_decode(cont, skip_special_tokens=True)
 print(text_outputs)
 ```

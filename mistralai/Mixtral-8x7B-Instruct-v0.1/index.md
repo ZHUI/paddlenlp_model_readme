@@ -64,7 +64,7 @@ from paddlenlp.transformers import AutoModelForCausalLM
 model = AutoModelForCausalLM.from_pretrained("mistralai/Mixtral-8x7B-Instruct-v0.1")
 model.to("cuda")
  
-generated_ids = model.generate(tokens, max_new_tokens=1000, do_sample=True)
+generated_ids = model.generate(tokens, max_new_tokens=1000, do_sample=True)[0]
 
 # decode with mistral tokenizer
 result = tokenizer.decode(generated_ids[0].tolist())
@@ -128,7 +128,7 @@ messages = [
 
 inputs = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
 
-outputs = model.generate(inputs, max_new_tokens=20)
+outputs = model.generate(inputs, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 
@@ -158,7 +158,7 @@ messages = [
 
 input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
 
-outputs = model.generate(input_ids, max_new_tokens=20)
+outputs = model.generate(input_ids, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 </details>
@@ -186,7 +186,7 @@ messages = [
 
 input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
 
-outputs = model.generate(input_ids, max_new_tokens=20)
+outputs = model.generate(input_ids, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 </details>
@@ -213,7 +213,7 @@ messages = [
 
 input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
 
-outputs = model.generate(input_ids, max_new_tokens=20)
+outputs = model.generate(input_ids, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 </details>

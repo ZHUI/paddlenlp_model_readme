@@ -88,7 +88,7 @@ model = AutoModelForCausalLM.from_pretrained(
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -111,7 +111,7 @@ model = AutoModelForCausalLM.from_pretrained(
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -140,7 +140,7 @@ model = AutoModelForCausalLM.from_pretrained(
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -156,7 +156,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b-it",  dtype=paddle
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -175,7 +175,7 @@ model = AutoModelForCausalLM.from_pretrained(
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -195,7 +195,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b-it", quantization_
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -213,7 +213,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b-it", quantization_
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -279,7 +279,7 @@ After the prompt is ready, generation can be performed like this:
 
 ```py
 inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pd")
-outputs = model.generate(input_ids=inputs.to(model.device), max_new_tokens=150)
+outputs = model.generate(input_ids=inputs.to(model.device, max_new_tokens=150))[0]
 print(tokenizer.decode(outputs[0]))
 ```
 

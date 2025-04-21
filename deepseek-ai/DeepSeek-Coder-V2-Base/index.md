@@ -110,7 +110,7 @@ tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Ba
 model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 input_text = "#write a quick sort algorithm"
 inputs = tokenizer(input_text, return_tensors="pd").to(model.device)
-outputs = model.generate(**inputs, max_length=128)
+outputs = model.generate(**inputs, max_length=128)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 
@@ -133,7 +133,7 @@ input_text = """<｜fim▁begin｜>def quick_sort(arr):
             right.append(arr[i])
     return quick_sort(left) + [pivot] + quick_sort(right)<｜fim▁end｜>"""
 inputs = tokenizer(input_text, return_tensors="pd").to(model.device)
-outputs = model.generate(**inputs, max_length=128)
+outputs = model.generate(**inputs, max_length=128)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True)[len(input_text):])
 ```
 
@@ -149,7 +149,7 @@ messages=[
 ]
 inputs = tokenizer.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pd").to(model.device)
 # tokenizer.eos_token_id is the id of <｜end▁of▁sentence｜>  token
-outputs = model.generate(inputs, max_new_tokens=512, do_sample=False, top_k=50, top_p=0.95, num_return_sequences=1, eos_token_id=tokenizer.eos_token_id)
+outputs = model.generate(inputs, max_new_tokens=512, do_sample=False, top_k=50, top_p=0.95, num_return_sequences=1, eos_token_id=tokenizer.eos_token_id)[0]
 print(tokenizer.decode(outputs[0][len(inputs[0]):], skip_special_tokens=True))
 ```
 

@@ -75,7 +75,7 @@ inputs = tokenizer(["A beautiful flower"], return_tensors="pd")
 for k,v in inputs.items():
     inputs[k] = v.cuda()
 gen_kwargs = {"max_length": 128, "top_p": 0.8, "temperature": 0.8, "do_sample": True, "repetition_penalty": 1.1}
-output = model.generate(**inputs, **gen_kwargs)
+output = model.generate(**inputs, **gen_kwargs)[0]
 output = tokenizer.decode(output[0].tolist(), skip_special_tokens=True)
 print(output)
 # <s> A beautiful flower box made of white rose wood. It is a perfect gift for weddings, birthdays and anniversaries.
@@ -128,7 +128,7 @@ inputs = tokenizer(["来到美丽的大自然，我们发现"], return_tensors="
 for k,v in inputs.items():
     inputs[k] = v.cuda()
 gen_kwargs = {"max_length": 128, "top_p": 0.8, "temperature": 0.8, "do_sample": True, "repetition_penalty": 1.1}
-output = model.generate(**inputs, **gen_kwargs)
+output = model.generate(**inputs, **gen_kwargs)[0]
 output = tokenizer.decode(output[0].tolist(), skip_special_tokens=True)
 print(output)
 # 来到美丽的大自然，我们发现各种各样的花千奇百怪。有的颜色鲜艳亮丽,使人感觉生机勃勃；有的是红色的花瓣儿粉嫩嫩的像少女害羞的脸庞一样让人爱不释手．有的小巧玲珑; 还有的花瓣粗大看似枯黄实则暗藏玄机！

@@ -75,7 +75,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b")
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -93,7 +93,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b", )
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -112,7 +112,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b",  revision="float
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -128,7 +128,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b",  dtype=paddle.bf
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -148,7 +148,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b", quantization_con
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -166,7 +166,7 @@ model = AutoModelForCausalLM.from_pretrained("google/gemma-7b", quantization_con
 input_text = "Write me a poem about Machine Learning."
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-outputs = model.generate(**input_ids)
+outputs = model.generate(**input_ids)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 

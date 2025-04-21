@@ -209,7 +209,7 @@ model.generation_config.pad_token_id = model.generation_config.eos_token_id
 
 text = "An attention function can be described as mapping a query and a set of key-value pairs to an output, where the query, keys, values, and output are all vectors. The output is"
 inputs = tokenizer(text, return_tensors="pd")
-outputs = model.generate(**inputs.to(model.device), max_new_tokens=100)
+outputs = model.generate(**inputs.to(model.device), max_new_tokens=100)[0]
 
 result = tokenizer.decode(outputs[0], skip_special_tokens=True)
 print(result)
@@ -233,7 +233,7 @@ messages = [
     {"role": "user", "content": "Write a piece of quicksort code in C++"}
 ]
 input_tensor = tokenizer.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pd")
-outputs = model.generate(input_tensor.to(model.device), max_new_tokens=100)
+outputs = model.generate(input_tensor.to(model.device), max_new_tokens=100)[0]
 
 result = tokenizer.decode(outputs[0][input_tensor.shape[1]:], skip_special_tokens=True)
 print(result)

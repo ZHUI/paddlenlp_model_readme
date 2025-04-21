@@ -114,7 +114,7 @@ model = AutoModelForCausalLM.from_pretrained("mistralai/Mixtral-8x22B-Instruct-v
 
 inputs = tokenizer(tool_use_prompt, return_tensors="pd")
 
-outputs = model.generate(**inputs, max_new_tokens=20)
+outputs = model.generate(**inputs, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 

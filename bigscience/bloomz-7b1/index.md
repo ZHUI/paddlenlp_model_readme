@@ -794,7 +794,7 @@ tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 model = AutoModelForCausalLM.from_pretrained(checkpoint)
 
 inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd")
-outputs = model.generate(inputs)
+outputs = model.generate(inputs)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -815,7 +815,7 @@ tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 model = AutoModelForCausalLM.from_pretrained(checkpoint,  )
 
 inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd").to("cuda")
-outputs = model.generate(inputs)
+outputs = model.generate(inputs)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 
@@ -836,7 +836,7 @@ tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 model = AutoModelForCausalLM.from_pretrained(checkpoint,  load_in_8bit=True)
 
 inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pd").to("cuda")
-outputs = model.generate(inputs)
+outputs = model.generate(inputs)[0]
 print(tokenizer.decode(outputs[0]))
 ```
 

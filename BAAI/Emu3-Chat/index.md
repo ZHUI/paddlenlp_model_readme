@@ -94,7 +94,7 @@ outputs = model.generate(
     inputs.input_ids.to("cuda:0"),
     GENERATION_CONFIG,
     attention_mask=inputs.attention_mask.to("cuda:0"),
-)
+)[0]
 
 outputs = outputs[:, inputs.input_ids.shape[-1]:]
 print(processor.batch_decode(outputs, skip_special_tokens=True)[0])

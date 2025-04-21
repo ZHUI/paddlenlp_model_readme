@@ -55,7 +55,7 @@ tokenizer = AquilaTokenizer.from_pretrained(path)
 model = AquilaForCausalLM.from_pretrained(path, config=config)
 
 input_features = tokenizer("Hello, please introduce yourself.\n", return_tensors="pd")
-outputs = model.generate(**input_features, max_new_tokens=128)
+outputs = model.generate(**input_features, max_new_tokens=128)[0]
 print(tokenizer.batch_decode(outputs[0], skip_special_tokens=True))
 ```
 

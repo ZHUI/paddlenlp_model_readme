@@ -124,7 +124,7 @@ outputs = model.generate(
     GENERATION_CONFIG,
     logits_processor=logits_processor,
     attention_mask=pos_inputs.attention_mask.to("cuda:0"),
-)
+)[0]
 
 mm_list = processor.decode(outputs[0])
 for idx, im in enumerate(mm_list):

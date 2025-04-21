@@ -187,7 +187,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 input_text = "What are we having for dinner?"
 input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
 
-output = quantized_model.generate(**input_ids, max_new_tokens=10)
+output = quantized_model.generate(**input_ids, max_new_tokens=10)[0]
 
 print(tokenizer.decode(output[0], skip_special_tokens=True))
 ```

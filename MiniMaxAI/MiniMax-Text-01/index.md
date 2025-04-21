@@ -221,7 +221,7 @@ generation_config = GenerationConfig(
     eos_token_id=200020,
     use_cache=True,
 )
-generated_ids = quantized_model.generate(**model_inputs, generation_config=generation_config)
+generated_ids = quantized_model.generate(**model_inputs, generation_config=generation_config)[0]
 print(f"generated_ids: {generated_ids}")
 generated_ids = [
     output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
