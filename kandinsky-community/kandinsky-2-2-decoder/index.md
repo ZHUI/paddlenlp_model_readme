@@ -29,7 +29,7 @@ from diffusers import AutoPipelineForText2Image
 import torch
 
 pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "portrait of a young women, blue eyes, cinematic"
 negative_prompt = "low quality, bad quality"
@@ -85,7 +85,7 @@ import torch
 pipe_prior = KandinskyV22PriorPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-2-prior", dtype=paddle.float16
 )
-pipe_prior.to("cuda")
+pipe_prior
 
 img1 = load_image(
     "https://huggingface.co/datasets/hf-internal-testing/diffusers-images/resolve/main" "/kandinsky/cat.png"
@@ -106,7 +106,7 @@ prompt = ""
 prior_out = pipe_prior.interpolate(images_texts, weights)
 
 pipe = KandinskyV22Pipeline.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
-pipe.to("cuda")
+pipe
 
 image = pipe(**prior_out, height=768, width=768).images[0]
 

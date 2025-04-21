@@ -90,7 +90,7 @@ model_id = "CompVis/stable-diffusion-v1-1"
 # Use the K-LMS scheduler here instead
 scheduler = LMSDiscreteScheduler(beta_start=0.00085, beta_end=0.012, beta_schedule="scaled_linear", num_train_timesteps=1000)
 pipe = StableDiffusionPipeline.from_pretrained(model_id, scheduler=scheduler, use_auth_token=True)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "a photo of an astronaut riding a horse on mars"
 with autocast("cuda"):

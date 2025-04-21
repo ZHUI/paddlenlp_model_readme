@@ -238,7 +238,7 @@ model.eval()
 
 pairs = [['what is panda?', 'hi'], ['what is panda?', 'The giant panda (Ailuropoda melanoleuca), sometimes called a panda bear or simply panda, is a bear species endemic to China.']]
 with torch.no_grad():
-    inputs = get_inputs(pairs, tokenizer).to(model.device)
+    inputs = get_inputs(pairs, tokenizer)
     all_scores = model(**inputs, return_dict=True, cutoff_layers=[28])
     all_scores = [scores[:, -1].view(-1, ).float() for scores in all_scores[0]]
     print(all_scores)

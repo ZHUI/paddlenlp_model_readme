@@ -62,7 +62,7 @@ print(result)
 from paddlenlp.transformers import AutoModelForCausalLM
  
 model = AutoModelForCausalLM.from_pretrained("mistralai/Mixtral-8x7B-Instruct-v0.1")
-model.to("cuda")
+model
  
 generated_ids = model.generate(tokens, max_new_tokens=1000, do_sample=True)[0]
 
@@ -126,7 +126,7 @@ messages = [
     {"role": "user", "content": "Do you have mayonnaise recipes?"}
 ]
 
-inputs = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
+inputs = tokenizer.apply_chat_template(messages, return_tensors="pd")
 
 outputs = model.generate(inputs, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -156,7 +156,7 @@ messages = [
     {"role": "user", "content": "Do you have mayonnaise recipes?"}
 ]
 
-input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
+input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd")
 
 outputs = model.generate(input_ids, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -184,7 +184,7 @@ messages = [
     {"role": "user", "content": "Do you have mayonnaise recipes?"}
 ]
 
-input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
+input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd")
 
 outputs = model.generate(input_ids, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
@@ -211,7 +211,7 @@ messages = [
     {"role": "user", "content": "Do you have mayonnaise recipes?"}
 ]
 
-input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd").to("cuda")
+input_ids = tokenizer.apply_chat_template(messages, return_tensors="pd")
 
 outputs = model.generate(input_ids, max_new_tokens=20)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))

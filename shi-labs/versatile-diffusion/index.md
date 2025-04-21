@@ -67,7 +67,7 @@ from io import BytesIO
 from PIL import Image
 
 pipe = VersatileDiffusionPipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 # prompt
 prompt = "a red car"
@@ -100,7 +100,7 @@ import torch
 
 pipe = VersatileDiffusionTextToImagePipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
 pipe.remove_unused_weights()
-pipe = pipe.to("cuda")
+pipe = pipe
 
 generator = torch.Generator(device="cuda").manual_seed(0)
 image = pipe("an astronaut riding on a horse on mars", generator=generator).images[0]
@@ -120,7 +120,7 @@ response = requests.get(url)
 image = Image.open(BytesIO(response.content)).convert("RGB")
 
 pipe = VersatileDiffusionImageVariationPipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 generator = torch.Generator(device="cuda").manual_seed(0)
 image = pipe(image, generator=generator).images[0]
@@ -143,7 +143,7 @@ text = "a red car in the sun"
 
 pipe = VersatileDiffusionDualGuidedPipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
 pipe.remove_unused_weights()
-pipe = pipe.to("cuda")
+pipe = pipe
 
 generator = torch.Generator(device="cuda").manual_seed(0)
 text_to_image_strength = 0.75

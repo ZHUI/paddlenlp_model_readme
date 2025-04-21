@@ -266,7 +266,7 @@ conversation = [
 
 input_ids = tokenizer.apply_chat_template(
     conversation, return_tensors="pd"
-).to(model.device)
+)
 
 prompt_len = input_ids.shape[1]
 output = model.generate(
@@ -288,7 +288,7 @@ input_ids = tokenizer.apply_chat_template(
     categories = {
         "S1": "My custom category",
     },
-).to(model.device)
+)
 ```
 
 Or you can exclude categories from the default list by specifying an array of category keys to exclude:
@@ -298,7 +298,7 @@ input_ids = tokenizer.apply_chat_template(
     conversation,
     return_tensors="pd",
     excluded_category_keys=["S6"],
-).to(model.device)
+)
 ```
 
 ### Use with `llama`

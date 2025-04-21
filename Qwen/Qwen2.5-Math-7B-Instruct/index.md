@@ -69,7 +69,7 @@ For requirements on GPU memory and the respective throughput, see similar result
 Qwen2.5-Math can be deployed and infered in the same way as [Qwen2.5](https://github.com/QwenLM/Qwen2.5). Here we show a code snippet to show you how to use the chat model with `transformers`:
 
 ```python
-from modelscope import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "qwen/Qwen2.5-Math-7B-Instruct"
 device = "cuda" # the device to load the model onto

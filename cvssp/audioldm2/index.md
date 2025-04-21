@@ -60,7 +60,7 @@ import torch
 
 repo_id = "cvssp/audioldm2"
 pipe = AudioLDM2Pipeline.from_pretrained(repo_id, dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "The sound of a hammer hitting a wooden surface"
 audio = pipe(prompt, num_inference_steps=200, audio_length_in_s=10.0).audios[0]
@@ -105,7 +105,7 @@ from diffusers import AudioLDM2Pipeline
 # load the pipeline
 repo_id = "cvssp/audioldm2"
 pipe = AudioLDM2Pipeline.from_pretrained(repo_id, dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 # define the prompts
 prompt = "The sound of a hammer hitting a wooden surface"

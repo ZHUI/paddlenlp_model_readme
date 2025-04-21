@@ -59,7 +59,7 @@ import torch
 
 model_id = "nitrosocke/redshift-diffusion"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "redshift style magical princess with golden hair"
 image = pipe(prompt).images[0]

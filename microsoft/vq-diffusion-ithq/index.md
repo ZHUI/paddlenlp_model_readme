@@ -21,7 +21,7 @@ import torch
 from diffusers import VQDiffusionPipeline
 
 pipeline = VQDiffusionPipeline.from_pretrained("microsoft/vq-diffusion-ithq", dtype=paddle.float16)
-pipeline = pipeline.to("cuda")
+pipeline = pipeline
 
 output = pipeline("teddy bear playing in the pool", truncation_rate=1.0)
 

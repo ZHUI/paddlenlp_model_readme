@@ -47,7 +47,7 @@ image = image[:, :, None]
 image = np.concatenate([image, image, image], axis=2)
 canny_image = Image.fromarray(image)
 
-pipe = StableDiffusionControlNetPipeline.from_pretrained("krea/aesthetic-controlnet").to("cuda")
+pipe = StableDiffusionControlNetPipeline.from_pretrained("krea/aesthetic-controlnet")
 pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
 
 output = pipe(

@@ -351,7 +351,7 @@ See the snippet below for usage with Transformers:
 ```python
 import transformers
 import torch
-from modelscope import snapshot_download
+from paddlenlp.transformers import snapshot_download
 
 model_id = snapshot_download("LLM-Research/Meta-Llama-3.1-70B-Instruct")
 
@@ -382,7 +382,7 @@ See the snippet below for usage:
 
 ```python
 import torch
-from modelscope import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "meta-llama/Meta-Llama-3.1-70B-Instruct"
 quantization_config = BitsAndBytesConfig(load_in_8bit=True)
@@ -392,7 +392,7 @@ quantized_model = AutoModelForCausalLM.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 input_text = "What are we having for dinner?"
-input_ids = tokenizer(input_text, return_tensors="pd").to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd")
 
 output = quantized_model.generate(**input_ids, max_new_tokens=10)
 

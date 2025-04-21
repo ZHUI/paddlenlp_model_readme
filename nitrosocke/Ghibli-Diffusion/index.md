@@ -63,7 +63,7 @@ import torch
 
 model_id = "nitrosocke/Ghibli-Diffusion"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "ghibli style magical princess with golden hair"
 image = pipe(prompt).images[0]

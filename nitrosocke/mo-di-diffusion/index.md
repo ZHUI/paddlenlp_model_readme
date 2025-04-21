@@ -43,7 +43,7 @@ import torch
 
 model_id = "nitrosocke/mo-di-diffusion"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "a magical princess with golden hair, modern disney style"
 image = pipe(prompt).images[0]

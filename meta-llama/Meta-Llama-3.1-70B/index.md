@@ -317,7 +317,7 @@ Make sure to update your transformers installation via `pip install --upgrade tr
 ```python
 >>> import transformers
 >>> import torch
->>> from modelscope import snapshot_download
+>>> from paddlenlp.transformers import snapshot_download
 >>> model_id = snapshot_download("LLM-Research/Meta-Llama-3.1-70B")
 
 >>> pipeline = transformers.pipeline(

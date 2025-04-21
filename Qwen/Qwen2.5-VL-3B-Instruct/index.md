@@ -193,7 +193,7 @@ inputs = processor(
     padding=True,
     return_tensors="pd",
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Inference: Generation of the output
 generated_ids = model.generate(**inputs, max_new_tokens=128)[0]
@@ -233,7 +233,7 @@ inputs = processor(
     padding=True,
     return_tensors="pd",
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Inference
 generated_ids = model.generate(**inputs, max_new_tokens=128)[0]
@@ -315,7 +315,7 @@ inputs = processor(
     return_tensors="pd",
     **video_kwargs,
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Inference
 generated_ids = model.generate(**inputs, max_new_tokens=128)[0]
@@ -372,7 +372,7 @@ inputs = processor(
     padding=True,
     return_tensors="pd",
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Batch Inference
 generated_ids = model.generate(**inputs, max_new_tokens=128)[0]

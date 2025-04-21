@@ -60,7 +60,7 @@ import torch
 from diffusers import StableDiffusion3Pipeline
 
 pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3-medium-diffusers", dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 image = pipe(
 	"A cat holding a sign that says hello world",

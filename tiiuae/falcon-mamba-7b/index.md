@@ -178,7 +178,7 @@ tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
 model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", )
 
 input_text = "Question: How many hours in one day? Answer: "
-input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").input_ids
 
 outputs = model.generate(input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -201,7 +201,7 @@ model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b", dtype=pad
 model = torch.compile(model)
 
 input_text = "Question: How many hours in one day? Answer: "
-input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").input_ids
 
 outputs = model.generate(input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -226,7 +226,7 @@ tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
 model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b",  dtype=paddle.float16)
 
 input_text = "Question: How many hours in one day? Answer: "
-input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").input_ids
 
 outputs = model.generate(input_ids)
 print(tokenizer.decode(outputs[0]))
@@ -247,7 +247,7 @@ tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
 model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-mamba-7b",  quantization_config=BitsAndBytesConfig(load_in_4bit=True))
 
 input_text = "Question: How many hours in one day? Answer: "
-input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").input_ids
 
 outputs = model.generate(input_ids)
 print(tokenizer.decode(outputs[0]))

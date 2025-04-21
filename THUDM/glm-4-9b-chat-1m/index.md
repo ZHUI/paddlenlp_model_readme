@@ -46,7 +46,7 @@ GLM-4-9B 是智谱 AI 推出的最新一代预训练模型 GLM-4 系列中的开
 
 ```python
 import torch
-from modelscope import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 device = "cuda"
 
@@ -79,9 +79,9 @@ with torch.no_grad():
 使用 VLLM后端进行推理:
 
 ```python
-from modelscope import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
-from modelscope import snapshot_download
+from paddlenlp.transformers import snapshot_download
 
 # GLM-4-9B-Chat-1M
 # max_model_len, tp_size = 1048576, 4

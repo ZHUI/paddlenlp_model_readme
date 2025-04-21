@@ -86,7 +86,7 @@ input_ids = tokenizer.encode(
     conversation_str, 
     return_tensors="pd", 
     add_special_tokens=False
-).to(model.device)
+)
 
 outputs = model(input_ids=input_ids)
 print(outputs[0])

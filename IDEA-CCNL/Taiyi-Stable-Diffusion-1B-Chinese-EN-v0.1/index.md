@@ -67,7 +67,7 @@ It takes 80 hours to train the first stage, 100 hours to train the second stage,
 ```py
 from diffusers import StableDiffusionPipeline
 
-pipe = StableDiffusionPipeline.from_pretrained("IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Chinese-EN-v0.1").to("cuda")
+pipe = StableDiffusionPipeline.from_pretrained("IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Chinese-EN-v0.1")
 
 prompt = '小桥流水人家，Van Gogh style'
 image = pipe(prompt, guidance_scale=10).images[0]  

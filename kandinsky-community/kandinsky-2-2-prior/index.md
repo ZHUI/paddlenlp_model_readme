@@ -29,7 +29,7 @@ from diffusers import AutoPipelineForText2Image
 import torch
 
 pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "portrait of a young women, blue eyes, cinematic"
 negative_prompt = "low quality, bad quality"
@@ -85,7 +85,7 @@ import torch
 pipe_prior = KandinskyV22PriorPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-2-prior", dtype=paddle.float16
 )
-pipe_prior.to("cuda")
+pipe_prior
 
 img1 = load_image(
     "https://huggingface.co/datasets/hf-internal-testing/diffusers-images/resolve/main" "/kandinsky/cat.png"
@@ -106,7 +106,7 @@ prompt = ""
 prior_out = pipe_prior.interpolate(images_texts, weights)
 
 pipe = KandinskyV22Pipeline.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
-pipe.to("cuda")
+pipe
 
 image = pipe(**prior_out, height=768, width=768).images[0]
 
@@ -193,18 +193,18 @@ img = load_image(
 
 # We can use the `depth-estimation` pipeline from paddlenlp.transformers to process the image and retrieve its depth map.
 depth_estimator = pipeline("depth-estimation")
-hint = make_hint(img, depth_estimator).unsqueeze(0).half().to("cuda")
+hint = make_hint(img, depth_estimator).unsqueeze(0).half()
 
 # Now, we load the prior pipeline and the text-to-image controlnet pipeline
 pipe_prior = KandinskyV22PriorPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-2-prior", dtype=paddle.float16
 )
-pipe_prior = pipe_prior.to("cuda")
+pipe_prior = pipe_prior
 
 pipe = KandinskyV22ControlnetPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-2-controlnet-depth", dtype=paddle.float16
 )
-pipe = pipe.to("cuda")
+pipe = pipe
 
 # We pass the prompt and negative prompt through the prior to generate image embeddings
 prompt = "A robot, 4k photo"
@@ -255,17 +255,17 @@ def make_hint(image, depth_estimator):
     return hint
 
 depth_estimator = pipeline("depth-estimation")
-hint = make_hint(img, depth_estimator).unsqueeze(0).half().to("cuda")
+hint = make_hint(img, depth_estimator).unsqueeze(0).half()
 
 pipe_prior = KandinskyV22PriorEmb2EmbPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-2-prior", dtype=paddle.float16
 )
-pipe_prior = pipe_prior.to("cuda")
+pipe_prior = pipe_prior
 
 pipe = KandinskyV22ControlnetImg2ImgPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-2-controlnet-depth", dtype=paddle.float16
 )
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "A robot, 4k photo"
 negative_prior_prompt = "lowres, text, error, cropped, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, out of frame, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, username, watermark, signature"

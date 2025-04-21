@@ -363,7 +363,7 @@ for new_text in streamer:
 
 ## Finetune
 
-SWIFT from ModelScope community has supported the fine-tuning (Image/Video) of InternVL, please check [this link](https://github.com/modelscope/swift/blob/main/docs/source_en/Multi-Modal/internvl-best-practice.md) for more details.
+SWIFT from paddlenlp.transformers community has supported the fine-tuning (Image/Video) of InternVL, please check [this link](https://github.com/modelscope/swift/blob/main/docs/source_en/Multi-Modal/internvl-best-practice.md) for more details.
 
 ## Deployment
 

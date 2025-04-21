@@ -25,10 +25,10 @@ from diffusers import DiffusionPipeline, AutoencoderKL
 
 vae = AutoencoderKL.from_pretrained("madebyollin/sdxl-vae-fp16-fix", dtype=paddle.float16)
 pipe = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", vae=vae, dtype=paddle.float16, variant="fp16", use_safetensors=True)
-pipe.to("cuda")
+pipe
 
 refiner = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0", vae=vae, dtype=paddle.float16, use_safetensors=True, variant="fp16")
-refiner.to("cuda")
+refiner
 
 n_steps = 40
 high_noise_frac = 0.7

@@ -174,7 +174,7 @@ inputs = tokenizer.apply_chat_template(
 
 model = AutoModelForCausalLM.from_pretrained(model_id, dtype=paddle.bfloat16, )
 
-inputs.to(model.device)
+inputs
 outputs = model.generate(**inputs, max_new_tokens=1000)[0]
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```

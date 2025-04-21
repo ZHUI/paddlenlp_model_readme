@@ -46,7 +46,7 @@ from diffusers.utils import export_to_gif
 
 
 ckpt_id = "openai/shap-e"
-pipe = ShapEPipeline.from_pretrained(repo).to("cuda")
+pipe = ShapEPipeline.from_pretrained(repo)
 
 
 guidance_scale = 15.0

@@ -30,7 +30,7 @@ import torch
 
 model_id = "Langboat/Guohua-Diffusion"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
-pipe = pipe.to("cuda")
+pipe = pipe
 
 prompt = "The Godfather poster in guohua style"
 image = pipe(prompt).images[0]

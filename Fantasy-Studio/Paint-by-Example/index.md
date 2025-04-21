@@ -57,7 +57,7 @@ pipe = DiffusionPipeline.from_pretrained(
     "Fantasy-Studio/Paint-by-Example",
     dtype=paddle.float16,
 )
-pipe = pipe.to("cuda")
+pipe = pipe
 
 image = pipe(image=init_image, mask_image=mask_image, example_image=example_image).images[0]
 image

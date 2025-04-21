@@ -98,7 +98,7 @@ messages = [
 ]
 
 input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").input_ids
 
 outputs = model.generate(input_ids, max_new_tokens=30)
 print(tokenizer.decode(outputs[0]))
@@ -125,7 +125,7 @@ messages = [
     {"role": "user", "content": "How many helicopters can a human eat in one sitting?"},
 ]
 input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").input_ids
 
 outputs = model.generate(input_ids, max_new_tokens=30)
 print(tokenizer.decode(outputs[0]))
@@ -154,7 +154,7 @@ messages = [
     {"role": "user", "content": "How many helicopters can a human eat in one sitting?"},
 ]
 input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").input_ids
 
 outputs = model.generate(input_ids, max_new_tokens=30)
 print(tokenizer.decode(outputs[0]))
@@ -179,7 +179,7 @@ messages = [
     {"role": "user", "content": "How many helicopters can a human eat in one sitting?"},
 ]
 input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-input_ids = tokenizer(input_text, return_tensors="pd").input_ids.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pd").input_ids
 
 outputs = model.generate(input_ids, max_new_tokens=30)
 print(tokenizer.decode(outputs[0]))

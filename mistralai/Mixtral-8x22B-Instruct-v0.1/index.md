@@ -12,7 +12,7 @@ The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-t
 
 ## Run the model 
 ```python
-from modelscope import AutoModelForCausalLM
+from paddlenlp.transformers import AutoModelForCausalLM
 from mistral_common.protocol.instruct.messages import (
     AssistantMessage,
     UserMessage,
@@ -74,7 +74,7 @@ To use this example, you'll need transformers version 4.39.0 or higher.
 pip install transformers==4.39.0
 ```
 ```python
-from modelscope import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistralai/Mixtral-8x22B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_id)

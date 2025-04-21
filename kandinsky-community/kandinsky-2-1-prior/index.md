@@ -126,7 +126,7 @@ import torch
 pipe_prior = KandinskyPriorPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-1-prior", dtype=paddle.float16
 )
-pipe_prior.to("cuda")
+pipe_prior
 
 img1 = load_image(
     "https://huggingface.co/datasets/hf-internal-testing/diffusers-images/resolve/main" "/kandinsky/cat.png"
@@ -147,7 +147,7 @@ prompt = ""
 prior_out = pipe_prior.interpolate(images_texts, weights)
 
 pipe = KandinskyPipeline.from_pretrained("kandinsky-community/kandinsky-2-1", dtype=paddle.float16)
-pipe.to("cuda")
+pipe
 
 image = pipe(prompt, **prior_out, height=768, width=768).images[0]
 

@@ -114,7 +114,7 @@ model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B",  trust_remote_code=
 # model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-7B", trust_remote_code=True)
 
 inputs = tokenizer('蒙古国的首都是乌兰巴托（Ulaanbaatar）\n冰岛的首都是雷克雅未克（Reykjavik）\n埃塞俄比亚的首都是', return_tensors='pt')
-inputs = inputs.to(model.device)
+inputs = inputs
 pred = model.generate(**inputs)[0]
 print(tokenizer.decode(pred.cpu()[0], skip_special_tokens=True))
 # 蒙古国的首都是乌兰巴托（Ulaanbaatar）\n冰岛的首都是雷克雅未克（Reykjavik）\n埃塞俄比亚的首都是亚的斯亚贝巴（Addis Ababa）...

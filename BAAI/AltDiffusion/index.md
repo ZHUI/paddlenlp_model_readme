@@ -122,7 +122,7 @@ from diffusers import AltDiffusionPipeline, DPMSolverMultistepScheduler
 import torch
 
 pipe = AltDiffusionPipeline.from_pretrained("BAAI/AltDiffusion", dtype=paddle.float16, revision="fp16")
-pipe = pipe.to("cuda")
+pipe = pipe
 
 pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
 

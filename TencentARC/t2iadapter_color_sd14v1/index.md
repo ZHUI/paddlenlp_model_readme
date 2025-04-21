@@ -74,7 +74,7 @@ pipe = StableDiffusionAdapterPipeline.from_pretrained(
     adapter=adapter,
     dtype=paddle.float16,
 )
-pipe.to("cuda")
+pipe
 
 generator = torch.manual_seed(0)
 

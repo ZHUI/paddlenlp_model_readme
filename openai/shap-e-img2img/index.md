@@ -46,7 +46,7 @@ from diffusers.utils import export_to_gif, load_image
 
 
 ckpt_id = "openai/shap-e-img2img"
-pipe = ShapEImg2ImgPipeline.from_pretrained(repo).to("cuda")
+pipe = ShapEImg2ImgPipeline.from_pretrained(repo)
 
 img_url = "https://hf.co/datasets/diffusers/docs-images/resolve/main/shap-e/corgi.png"
 image = load_image(img_url)

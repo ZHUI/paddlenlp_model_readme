@@ -197,7 +197,7 @@ Here we show a code snippet to show you how to use the chat model with `transfor
 ```python
 from paddlenlp.transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor
 from qwen_vl_utils import process_vision_info
-from modelscope import snapshot_download
+from paddlenlp.transformers import snapshot_download
 model_name =  snapshot_download("qwen/Qwen2-VL-72B-Instruct")
 # default: Load the model on the available device(s)
 model = Qwen2VLForConditionalGeneration.from_pretrained(
@@ -245,7 +245,7 @@ inputs = processor(
     padding=True,
     return_tensors="pd",
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Inference: Generation of the output
 generated_ids = model.generate(**inputs, max_new_tokens=128)[0]
@@ -267,7 +267,7 @@ import torch
 from torchvision import io
 from typing import Dict
 from paddlenlp.transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor
-from modelscope import snapshot_download
+from paddlenlp.transformers import snapshot_download
 model_name =  snapshot_download("qwen/Qwen2-VL-72B-Instruct")
 # Load the model in half-precision on the available device(s)
 model = Qwen2VLForConditionalGeneration.from_pretrained(
@@ -299,7 +299,7 @@ text_prompt = processor.apply_chat_template(conversation, add_generation_prompt=
 inputs = processor(
     text=[text_prompt], images=[image], padding=True, return_tensors="pd"
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Inference: Generation of the output
 output_ids = model.generate(**inputs, max_new_tokens=128)[0]
@@ -341,7 +341,7 @@ inputs = processor(
     padding=True,
     return_tensors="pd",
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Inference
 generated_ids = model.generate(**inputs, max_new_tokens=128)[0]
@@ -406,7 +406,7 @@ inputs = processor(
     padding=True,
     return_tensors="pd",
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Inference
 generated_ids = model.generate(**inputs, max_new_tokens=128)[0]
@@ -455,7 +455,7 @@ inputs = processor(
     padding=True,
     return_tensors="pd",
 )
-inputs = inputs.to("cuda")
+inputs = inputs
 
 # Batch Inference
 generated_ids = model.generate(**inputs, max_new_tokens=128)[0]

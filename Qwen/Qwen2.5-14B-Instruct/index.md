@@ -45,7 +45,7 @@ KeyError: 'qwen2'
 Here provides a code snippet with `apply_chat_template` to show you how to load the tokenizer and model and how to generate contents.
 
 ```python
-from modelscope import AutoModelForCausalLM, AutoTokenizer
+from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "qwen/Qwen2.5-14B-Instruct"
 
@@ -66,7 +66,7 @@ text = tokenizer.apply_chat_template(
     tokenize=False,
     add_generation_prompt=True
 )
-model_inputs = tokenizer([text], return_tensors="pd").to(model.device)
+model_inputs = tokenizer([text], return_tensors="pd")
 
 generated_ids = model.generate(
     **model_inputs,

@@ -71,13 +71,13 @@ from PIL import Image
 from paddlenlp.transformers import BlipProcessor, BlipForImageTextRetrieval
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-itm-large-flickr")
-model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-large-flickr").to("cuda")
+model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-large-flickr")
 
 img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo.jpg' 
 raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 question = "A woman and a dog sitting together in a beach."
-inputs = processor(raw_image, question, return_tensors="pd").to("cuda")
+inputs = processor(raw_image, question, return_tensors="pd")
 
 itm_scores = model(**inputs)[0]
 cosine_score = model(**inputs, use_itm_head=False)[0]
@@ -96,7 +96,7 @@ from PIL import Image
 from paddlenlp.transformers import BlipProcessor, BlipForImageTextRetrieval
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-itm-large-flickr")
-model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-large-flickr", dtype=paddle.float16).to("cuda")
+model = BlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-large-flickr", dtype=paddle.float16)
 
 img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo.jpg' 
 raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')

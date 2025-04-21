@@ -72,7 +72,7 @@ Previously, media_offset recorded the range of images each token could see. Duri
 Load the mPLUG-Owl3. We now only support attn_implementation in ```['sdpa', 'flash_attention_2']```.
 ```Python
 import torch
-from modelscope import AutoConfig, AutoModel
+from paddlenlp.transformers import AutoConfig, AutoModel
 model_path = 'iic/mPLUG-Owl3-2B-241101'
 config = AutoConfig.from_pretrained(model_path, trust_remote_code=True)
 print(config)
@@ -85,7 +85,7 @@ Chat with images.
 ```Python
 from PIL import Image
 
-from modelscope import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 from decord import VideoReader, cpu 
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 processor = model.init_processor(tokenizer)
@@ -116,7 +116,7 @@ Chat with a video.
 ```Python
 from PIL import Image
 
-from modelscope import AutoTokenizer
+from paddlenlp.transformers import AutoTokenizer
 from decord import VideoReader, cpu    # pip install decord
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 processor = model.init_processor(tokenizer)
@@ -203,7 +203,7 @@ def apply_liger_kernel_to_mplug_owl3(
     print("Applied Liger kernels to Qwen2 in mPLUG-Owl3")
 
 import torch
-from modelscope import AutoConfig, AutoModel
+from paddlenlp.transformers import AutoConfig, AutoModel
 model_path = 'iic/mPLUG-Owl3-2B-241101'
 config = AutoConfig.from_pretrained(model_path, trust_remote_code=True)
 print(config)
