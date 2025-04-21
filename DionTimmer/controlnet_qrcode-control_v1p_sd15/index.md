@@ -33,7 +33,7 @@ pip -q install diffusers transformers accelerate torch xformers
 ```
 
 ```python
-import torch
+import paddle
 from PIL import Image
 from diffusers import StableDiffusionControlNetImg2ImgPipeline, ControlNetModel, DDIMScheduler
 from diffusers.utils import load_image
@@ -72,7 +72,7 @@ source_image = load_image("https://s3.amazonaws.com/moonup/production/uploads/60
 init_image = load_image("https://s3.amazonaws.com/moonup/production/uploads/noauth/KfMBABpOwIuNolv1pe3qX.jpeg")
 condition_image = resize_for_condition_image(source_image, 768)
 init_image = resize_for_condition_image(init_image, 768)
-generator = torch.manual_seed(123121231)
+generator = paddle.seed(123121231)
 image = pipe(prompt="a bilboard in NYC with a qrcode",
              negative_prompt="ugly, disfigured, low quality, blurry, nsfw", 
              image=init_image,

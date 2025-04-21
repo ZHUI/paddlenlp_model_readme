@@ -30,7 +30,7 @@ We also observed that the Prior (Stage C) adapts extremely fast to new resolutio
 This pipeline should be run together with https://huggingface.co/warp-ai/wuerstchen:
 
 ```py
-import torch
+import paddle
 from diffusers import WuerstchenDecoderPipeline, WuerstchenPriorPipeline
 from diffusers.pipelines.wuerstchen import DEFAULT_STAGE_C_TIMESTEPS
 

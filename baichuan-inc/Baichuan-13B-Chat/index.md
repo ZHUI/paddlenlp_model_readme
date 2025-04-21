@@ -40,7 +40,7 @@ Baichuan-13B-Chat is the aligned version in the Baichuan-13B series of models, a
 
 如下是一个使用Baichuan-13B-Chat进行对话的示例，正确输出为"乔戈里峰。世界第二高峰———乔戈里峰西方登山者称其为k2峰，海拔高度是8611米，位于喀喇昆仑山脉的中巴边境上"
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 from paddlenlp.transformers.generation.utils import GenerationConfig
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan-13B-Chat", use_fast=False, trust_remote_code=True)
@@ -54,7 +54,7 @@ print(response)
 
 Here is an example of a conversation using Baichuan-13B-Chat, the correct output is "K2. The world's second highest peak - K2, also known as Mount Godwin-Austen or Chhogori, with an altitude of 8611 meters, is located on the China-Pakistan border in the Karakoram Range."
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 from paddlenlp.transformers.generation.utils import GenerationConfig
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan-13B-Chat", use_fast=False, trust_remote_code=True)

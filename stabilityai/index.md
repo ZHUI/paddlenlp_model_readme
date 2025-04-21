@@ -56,7 +56,7 @@ We used synthetic data and filtered publicly available data to train our models.
 Make sure you upgrade to the latest version of `diffusers`: `pip install -U diffusers`. And then you can run:
 
 ```python
-import torch
+import paddle
 from diffusers import StableDiffusion3Pipeline
 
 pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3-medium-diffusers", dtype=paddle.float16)

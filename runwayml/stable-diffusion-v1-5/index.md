@@ -23,7 +23,7 @@ You can use this both with the [🧨Diffusers library](https://github.com/huggin
 ### Use with Diffusers
 ```py
 from diffusers import StableDiffusionPipeline
-import torch
+import paddle
 
 model_id = "sd-legacy/stable-diffusion-v1-5"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)

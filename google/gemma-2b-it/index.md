@@ -65,7 +65,7 @@ As explained below, we recommend `paddle.bfloat16` as the default dtype. You can
 
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
+import paddle
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
@@ -87,7 +87,7 @@ print(tokenizer.decode(outputs[0]))
 ```python
 # pip install accelerate
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
+import paddle
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
@@ -115,7 +115,7 @@ You can also use `float32` if you skip the dtype, but no precision increase will
 ```python
 # pip install accelerate
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
+import paddle
 
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b-it")
 model = AutoModelForCausalLM.from_pretrained(
@@ -212,7 +212,7 @@ Let's load the model and apply the chat template to a conversation. In this exam
 ```py
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
-import torch
+import paddle
 
 model_id = "gg-hf/gemma-2b-it"
 dtype = paddle.bfloat16

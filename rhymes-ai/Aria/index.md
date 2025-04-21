@@ -82,7 +82,7 @@ Here is a code snippet to show you how to use Aria.
 
 ```python
 import requests
-import torch
+import paddle
 from PIL import Image
 
 from paddlenlp.transformers import AriaProcessor, AriaForConditionalGeneration
@@ -127,7 +127,7 @@ print(response)
 
 -----------
 From transformers>=v4.48, you can also pass image url or local path to the conversation history, and let the chat template handle the rest.
-Chat template will load the image for you and return inputs in `torch.Tensor` which you can pass directly to `model.generate()`.
+Chat template will load the image for you and return inputs in `paddle.Tensor` which you can pass directly to `model.generate()`.
 
 Here is how to rewrite the above example
 

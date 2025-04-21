@@ -56,7 +56,7 @@ used to load pre-trained weights and generate text-conditional audio outputs:
 
 ```python
 from diffusers import AudioLDM2Pipeline
-import torch
+import paddle
 
 repo_id = "cvssp/audioldm2"
 pipe = AudioLDM2Pipeline.from_pretrained(repo_id, dtype=paddle.float16)
@@ -99,7 +99,7 @@ The following example demonstrates how to construct a good audio generation usin
 
 ```python
 import scipy
-import torch
+import paddle
 from diffusers import AudioLDM2Pipeline
 
 # load the pipeline

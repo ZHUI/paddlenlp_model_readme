@@ -67,7 +67,7 @@ from llava.conversation import conv_templates
 from PIL import Image
 import requests
 import copy
-import torch
+import paddle
 import warnings
 
 warnings.filterwarnings("ignore")

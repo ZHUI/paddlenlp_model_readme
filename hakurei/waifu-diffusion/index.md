@@ -53,7 +53,7 @@ This model can be used for entertainment purposes and as a generative art assist
 ## Example Code
 
 ```python
-import torch
+import paddle
 from torch import autocast
 from diffusers import StableDiffusionPipeline
 

@@ -36,7 +36,7 @@ $ pip install transformers accelerate torch
 Now, let's first generate a low resolution video using [cerspense/zeroscope_v2_576w](https://huggingface.co/cerspense/zeroscope_v2_576w).
 
 ```py
-import torch
+import paddle
 from diffusers import DiffusionPipeline, DPMSolverMultistepScheduler
 from diffusers.utils import export_to_video
 

@@ -73,7 +73,7 @@ Please note that if you're using `transformers<4.40.0`, `trust_remote_code=True`
   
 ```python
 from paddlenlp.transformers import AutoModelForCausalLM
-import torch
+import paddle
 model = AutoModelForCausalLM.from_pretrained("ai21labs/Jamba-v0.1",
                                              dtype=paddle.bfloat16)    # you can also use dtype=paddle.float16
 ```
@@ -81,7 +81,7 @@ model = AutoModelForCausalLM.from_pretrained("ai21labs/Jamba-v0.1",
 When using half precision, you can enable the [FlashAttention2](https://github.com/Dao-AILab/flash-attention) implementation of the Attention blocks. In order to use it, you also need the model on a CUDA device. Since in this precision the model is to big to fit on a single 80GB GPU, you'll also need to parallelize it using [accelerate](https://huggingface.co/docs/accelerate/index):
 ```python
 from paddlenlp.transformers import AutoModelForCausalLM
-import torch
+import paddle
 model = AutoModelForCausalLM.from_pretrained("ai21labs/Jamba-v0.1",
                                              dtype=paddle.bfloat16,
                                              attn_implementation="flash_attention_2",
@@ -108,7 +108,7 @@ model = AutoModelForCausalLM.from_pretrained("ai21labs/Jamba-v0.1",
 Jamba is a base model that can be fine-tuned for custom solutions (including for chat/instruct versions). You can fine-tune it using any technique of your choice. Here is an example of fine-tuning with the [PEFT](https://huggingface.co/docs/peft/index) library (requires ~120GB GPU RAM, in example 2xA100 80GB):
 
 ```python
-import torch
+import paddle
 from datasets import load_dataset
 from trl import SFTTrainer, SFTConfig
 from peft import LoraConfig

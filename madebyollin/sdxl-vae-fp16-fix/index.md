@@ -20,7 +20,7 @@ SDXL-VAE-FP16-Fix is the [SDXL VAE](https://huggingface.co/stabilityai/sdxl-vae)
 Just load this checkpoint via `AutoencoderKL`:
 
 ```py
-import torch
+import paddle
 from diffusers import DiffusionPipeline, AutoencoderKL
 
 vae = AutoencoderKL.from_pretrained("madebyollin/sdxl-vae-fp16-fix", dtype=paddle.float16)

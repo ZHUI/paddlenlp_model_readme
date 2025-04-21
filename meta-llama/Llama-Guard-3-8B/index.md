@@ -321,7 +321,7 @@ Llama Guard 3 supports content safety for the following languages : English, Fre
 Llama Guard 3 can be directly used with `transformers`. It is only supported since `transformers` version 4.43.
 
   ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 model_id = "meta-llama/Llama-Guard-3-8B"

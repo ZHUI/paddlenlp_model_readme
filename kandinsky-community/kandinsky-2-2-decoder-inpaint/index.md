@@ -28,7 +28,7 @@ pip install diffusers transformers accelerate
 ```python
 from diffusers import AutoPipelineForInpainting
 from diffusers.utils import load_image
-import torch
+import paddle
 import numpy as np
 
 pipe = AutoPipelineForInpainting.from_pretrained("kandinsky-community/kandinsky-2-2-decoder-inpaint", dtype=paddle.float16)

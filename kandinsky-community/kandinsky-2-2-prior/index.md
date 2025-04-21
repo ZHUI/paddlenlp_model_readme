@@ -26,7 +26,7 @@ pip install diffusers transformers accelerate
 
 ```python
 from diffusers import AutoPipelineForText2Image
-import torch
+import paddle
 
 pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
 pipe = pipe
@@ -57,7 +57,7 @@ original_image = original_image.resize((768, 512))
 
 ```python
 from diffusers import AutoPipelineForImage2Image
-import torch
+import paddle
 
 pipe = AutoPipelineForImage2Image.from_pretrained("kandinsky-community/kandinsky-2-2-decoder", dtype=paddle.float16)
 pipe.enable_model_cpu_offload()
@@ -80,7 +80,7 @@ from diffusers import KandinskyV22PriorPipeline, KandinskyV22Pipeline
 from diffusers.utils import load_image
 import PIL
 
-import torch
+import paddle
 
 pipe_prior = KandinskyV22PriorPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-2-prior", dtype=paddle.float16
@@ -120,7 +120,7 @@ image.save("starry_cat.png")
 ```python
 from diffusers import AutoPipelineForInpainting
 from diffusers.utils import load_image
-import torch
+import paddle
 import numpy as np
 
 pipe = AutoPipelineForInpainting.from_pretrained("kandinsky-community/kandinsky-2-2-decoder-inpaint", dtype=paddle.float16)
@@ -169,7 +169,7 @@ mask = 1 - mask
 
 
 ```python
-import torch
+import paddle
 import numpy as np
 
 from paddlenlp.transformers import pipeline
@@ -234,7 +234,7 @@ images[0].save("robot_cat.png")
 ### Image-to-Image Generation with ControlNet Conditioning
 
 ```python
-import torch
+import paddle
 import numpy as np
 
 from diffusers import KandinskyV22PriorEmb2EmbPipeline, KandinskyV22ControlnetImg2ImgPipeline

@@ -1801,8 +1801,8 @@ Here is an example of how to encode queries and passages using Huggingface-trans
 ### Usage (HuggingFace Transformers)
 
 ```python
-import torch
-import torch.nn.functional as F
+import paddle
+import paddle.nn.functional as F
 from paddlenlp.transformers import AutoTokenizer, AutoModel
 
 # Each query needs to be accompanied by an corresponding instruction describing the task.
@@ -1847,7 +1847,7 @@ print(scores.tolist())
 ### Usage (Sentence-Transformers)
 
 ```python
-import torch
+import paddle
 from sentence_transformers import SentenceTransformer
 
 # Each query needs to be accompanied by an corresponding instruction describing the task.
@@ -1911,7 +1911,7 @@ For commercial purpose, we recommend you to use the models of [NeMo Retriever Mi
 #### 1. How to enable Multi-GPU (Note, this is the case for HuggingFace Transformers)
 ```python
 from paddlenlp.transformers import AutoModel
-from torch.nn import DataParallel
+from paddle.nn import DataParallel
 
 embedding_model = AutoModel.from_pretrained("nvidia/NV-Embed-v1")
 for module_key, module in embedding_model._modules.items():

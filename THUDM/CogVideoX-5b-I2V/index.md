@@ -159,7 +159,7 @@ pip install --upgrade transformers accelerate diffusers imageio-ffmpeg
 2. Run the code
 
 ```python
-import torch
+import paddle
 from diffusers import CogVideoXImageToVideoPipeline
 from diffusers.utils import export_to_video, load_image
 
@@ -198,7 +198,7 @@ with `torch.compile`, which can significantly accelerate inference.
 # To get started, PytorchAO needs to be installed from the GitHub source and PyTorch Nightly.
 # Source and nightly installation is only required until the next release.
 
-import torch
+import paddle
 from diffusers import AutoencoderKLCogVideoX, CogVideoXTransformer3DModel, CogVideoXImageToVideoPipeline
 from diffusers.utils import export_to_video, load_image
 from paddlenlp.transformers import T5EncoderModel

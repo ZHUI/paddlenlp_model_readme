@@ -45,7 +45,7 @@ Here is an example using UniDiffuser-v1 with `diffusers`:
 
 ```python
 import requests
-import torch
+import paddle
 from PIL import Image
 from io import BytesIO
 

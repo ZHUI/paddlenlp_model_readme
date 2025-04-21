@@ -55,7 +55,7 @@ For requirements on GPU memory and the respective throughput, see similar result
 Here we show a code snippet to show you how to use the Qwen2.5-Math-RM-72B with `transformers`:
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 
 model_name = "Qwen/Qwen2.5-Math-RM-72B"

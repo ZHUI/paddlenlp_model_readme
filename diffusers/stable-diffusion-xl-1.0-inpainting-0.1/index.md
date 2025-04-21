@@ -22,7 +22,7 @@ The SD-XL Inpainting 0.1 was initialized with the `stable-diffusion-xl-base-1.0`
 ```py
 from diffusers import AutoPipelineForInpainting
 from diffusers.utils import load_image
-import torch
+import paddle
 
 pipe = AutoPipelineForInpainting.from_pretrained("diffusers/stable-diffusion-xl-1.0-inpainting-0.1", dtype=paddle.float16, variant="fp16")
 

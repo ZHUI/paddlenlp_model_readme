@@ -90,7 +90,7 @@ $ pip install diffusers transformers accelerate
 import cv2
 from PIL import Image
 from diffusers import StableDiffusionControlNetPipeline, ControlNetModel, UniPCMultistepScheduler
-import torch
+import paddle
 import numpy as np
 from diffusers.utils import load_image
 

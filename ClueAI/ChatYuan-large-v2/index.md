@@ -96,7 +96,7 @@ model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2")
 使用模型进行预测推理方法：
 ```python
 # 使用
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer
 # 修改colab笔记本设置为gpu，推理更快
 device = torch.device('cuda')

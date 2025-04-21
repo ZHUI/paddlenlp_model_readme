@@ -123,7 +123,7 @@ print(processor.decode(out[0], skip_special_tokens=True))
 
 ```python
 # pip install accelerate
-import torch
+import paddle
 import requests
 from PIL import Image
 from paddlenlp.transformers import Blip2Processor, Blip2ForConditionalGeneration
@@ -149,7 +149,7 @@ print(processor.decode(out[0], skip_special_tokens=True))
 
 ```python
 # pip install accelerate bitsandbytes
-import torch
+import paddle
 import requests
 from PIL import Image
 from paddlenlp.transformers import Blip2Processor, Blip2ForConditionalGeneration

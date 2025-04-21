@@ -43,7 +43,7 @@ import os
 import os.path as osp
 
 from PIL import Image
-import torch
+import paddle
 from paddlenlp.transformers import AutoModel, AutoImageProcessor
 
 MODEL_HUB = "BAAI/Emu3-VisionTokenizer"
@@ -64,7 +64,7 @@ images = images.unsqueeze(0).cuda()
 # image autoencode
 image = images[:, 0]
 print(image.shape)
-with torch.no_grad():
+with paddle.no_grad():
     # encode
     codes = model.encode(image)
     # decode
@@ -82,7 +82,7 @@ images = images.view(
 )
 
 print(images.shape)
-with torch.no_grad():
+with paddle.no_grad():
     # encode
     codes = model.encode(images)
     # decode

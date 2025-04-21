@@ -192,7 +192,7 @@ print(tokenizer.decode(outputs[0]))
 <summary> Click to expand </summary>
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")
@@ -219,7 +219,7 @@ print(tokenizer.decode(outputs[0]))
 
 ```python
 # pip install accelerate
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-mamba-7b")

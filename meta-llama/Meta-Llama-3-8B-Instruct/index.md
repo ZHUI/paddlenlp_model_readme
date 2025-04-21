@@ -284,7 +284,7 @@ See the snippet below for usage with Transformers:
 
 ```python
 import transformers
-import torch
+import paddle
 
 model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
 

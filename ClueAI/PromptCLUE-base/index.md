@@ -44,7 +44,7 @@ model = T5ForConditionalGeneration.from_pretrained("ClueAI/PromptCLUE-base")
 
 使用模型进行预测推理方法：
 ```python
-import torch
+import paddle
 #device = torch.device('cpu')
 device = torch.device('cuda')
 model

@@ -58,7 +58,7 @@ pip install diffusers transformers
 
 ```python
 from PIL import Image
-import torch
+import paddle
 from diffusers import StableDiffusionAdapterPipeline, T2IAdapter
 
 image = Image.open('./images/color_ref.png')
@@ -76,7 +76,7 @@ pipe = StableDiffusionAdapterPipeline.from_pretrained(
 )
 pipe
 
-generator = torch.manual_seed(0)
+generator = paddle.seed(0)
 
 out_image = pipe(
     "At night, glowing cubes in front of the beach",

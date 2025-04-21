@@ -93,7 +93,7 @@ print(processor.decode(out[0], skip_special_tokens=True))
 <summary> Click to expand </summary>
 
 ```python
-import torch
+import paddle
 import requests
 from PIL import Image
 from paddlenlp.transformers import BlipProcessor, BlipForQuestionAnswering

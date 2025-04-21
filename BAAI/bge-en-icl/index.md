@@ -1772,8 +1772,8 @@ You also can set `os.environ["CUDA_VISIBLE_DEVICES"]=""` to make all GPUs unavai
 With the transformers package, you can use the model like this: First, you pass your input through the transformer model, then you select the last hidden state of the first token (i.e., [CLS]) as the sentence embedding.
 
 ```python
-import torch
-import torch.nn.functional as F
+import paddle
+import paddle.nn.functional as F
 
 from torch import Tensor
 from paddlenlp.transformers import AutoTokenizer, AutoModel
@@ -1787,7 +1787,7 @@ def last_token_pool(last_hidden_states: Tensor,
     else:
         sequence_lengths = attention_mask.sum(dim=1) - 1
         batch_size = last_hidden_states.shape[0]
-        return last_hidden_states[torch.arange(batch_size, device=last_hidden_states.device), sequence_lengths]
+        return last_hidden_states[paddle.arange(batch_size, device=last_hidden_states.device), sequence_lengths]
 
 
 def get_detailed_instruct(task_description: str, query: str) -> str:
@@ -1844,7 +1844,7 @@ new_query_max_len, new_queries = get_new_queries(queries, query_max_len, example
 query_batch_dict = tokenizer(new_queries, max_length=new_query_max_len, padding=True, truncation=True, return_tensors='pt')
 doc_batch_dict = tokenizer(documents, max_length=doc_max_len, padding=True, truncation=True, return_tensors='pt')
 
-with torch.no_grad():
+with paddle.no_grad():
     query_outputs = model(**query_batch_dict)
     query_embeddings = last_token_pool(query_outputs.last_hidden_state, query_batch_dict['attention_mask'])
     doc_outputs = model(**doc_batch_dict)

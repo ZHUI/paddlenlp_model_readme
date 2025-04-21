@@ -62,7 +62,7 @@ The specific release versions and download links are listed in the table below:
 In the Baichuan 2 series models, we have utilized the new feature `F.scaled_dot_product_attention` introduced in PyTorch 2.0 to accelerate inference speed. Therefore, the model needs to be run in a PyTorch 2.0 environment.
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan2-7B-Base", use_fast=False, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan2-7B-Base",  trust_remote_code=True)

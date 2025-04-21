@@ -34,7 +34,7 @@ We also observed that the Prior (Stage C) adapts extremely fast to new resolutio
 This pipeline should be run together with a prior https://huggingface.co/warp-ai/wuerstchen-prior:
 
 ```py
-import torch
+import paddle
 from diffusers import AutoPipelineForText2Image
 
 device = "cuda"

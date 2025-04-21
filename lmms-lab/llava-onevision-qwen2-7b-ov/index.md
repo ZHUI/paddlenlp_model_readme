@@ -371,7 +371,7 @@ from llava.conversation import conv_templates, SeparatorStyle
 from PIL import Image
 import requests
 import copy
-import torch
+import paddle
 
 import sys
 import warnings

@@ -24,7 +24,7 @@ pip install diffusers transformers accelerate safetensors
 
 ```python
 from diffusers import UnCLIPPipeline
-import torch
+import paddle
 
 pipe = UnCLIPPipeline.from_pretrained("kakaobrain/karlo-v1-alpha", dtype=paddle.float16)
 pipe = pipe.to('cuda')
@@ -42,7 +42,7 @@ image.save("./frog.png")
 
 ```python
 from diffusers import UnCLIPImageVariationPipeline
-import torch
+import paddle
 from PIL import Image
 
 pipe = UnCLIPImageVariationPipeline.from_pretrained("kakaobrain/karlo-v1-alpha-image-variations", dtype=paddle.float16)

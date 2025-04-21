@@ -90,7 +90,7 @@ cosine_score = model(**inputs, use_itm_head=False)[0]
 <summary> Click to expand </summary>
 
 ```python
-import torch
+import paddle
 import requests
 from PIL import Image
 from paddlenlp.transformers import BlipProcessor, BlipForImageTextRetrieval

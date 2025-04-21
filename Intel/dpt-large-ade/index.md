@@ -63,7 +63,7 @@ outputs = model(**inputs)
 logits = outputs.logits
 print(logits.shape)
 logits
-prediction = torch.nn.functional.interpolate(
+prediction = paddle.nn.functional.interpolate(
     logits,
     size=image.size[::-1],  # Reverse the size of the original image (width, height)
     mode="bicubic",

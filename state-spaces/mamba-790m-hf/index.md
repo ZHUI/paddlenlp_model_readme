@@ -35,7 +35,7 @@ If any of these two is not installed, the "eager" implementation will be used. O
 You can use the classic `generate` API:
 ```python
 >>> from paddlenlp.transformers import MambaConfig, MambaForCausalLM, AutoTokenizer
->>> import torch
+>>> import paddle
 
 >>> tokenizer = AutoTokenizer.from_pretrained("state-spaces/mamba-790m-hf")
 >>> model = MambaForCausalLM.from_pretrained("state-spaces/mamba-790m-hf")

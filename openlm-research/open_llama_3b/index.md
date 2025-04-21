@@ -21,7 +21,7 @@ We release the weights in two formats: an EasyLM format to be use with our [Easy
 Preview checkpoints can be directly loaded from Hugging Face Hub. **Please note that it is advised to avoid using the Hugging Face fast tokenizer for now, as we’ve observed that the auto-converted fast tokenizer sometimes gives incorrect tokenizations.** This can be achieved by directly using the `LlamaTokenizer` class, or passing in the `use_fast=False` option for the `AutoTokenizer` class. See the following example for usage.
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import LlamaTokenizer, LlamaForCausalLM
 
 model_path = 'openlm-research/open_llama_3b'

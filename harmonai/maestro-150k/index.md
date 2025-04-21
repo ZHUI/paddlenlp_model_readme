@@ -40,7 +40,7 @@ Faster at a small loss of quality
 # !pip install diffusers[torch] accelerate scipy
 from diffusers import DiffusionPipeline
 from scipy.io.wavfile import write
-import torch
+import paddle
 
 model_id = "harmonai/maestro-150k"
 pipe = DiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)

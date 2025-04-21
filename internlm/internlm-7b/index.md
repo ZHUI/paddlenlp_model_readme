@@ -65,7 +65,7 @@ We conducted a comprehensive evaluation of InternLM using the open-source evalua
 ### Import from Transformers
 To load the InternLM 7B Chat model using Transformers, use the following code:
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 tokenizer = AutoTokenizer.from_pretrained("internlm/internlm-7b", trust_remote_code=True)
 # Set `dtype=paddle.float16` to load model in float16, otherwise it will be loaded as float32 and might cause OOM Error.
@@ -118,7 +118,7 @@ InternLM ，即书生·浦语大模型，包含面向实用场景的70亿参数�
 ### 通过 Transformers 加载
 通过以下的代码加载 InternLM 7B Chat 模型
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 tokenizer = AutoTokenizer.from_pretrained("internlm/internlm-7b", trust_remote_code=True)
 # `dtype=paddle.float16` 可以令模型以 float16 精度加载，否则 transformers 会将模型加载为 float32，有可能导致显存不足

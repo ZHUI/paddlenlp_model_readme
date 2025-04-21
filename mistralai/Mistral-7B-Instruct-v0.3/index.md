@@ -144,7 +144,7 @@ in the `transformers` docs for more information.
 
 ```python
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
+import paddle
 
 model_id = "mistralai/Mistral-7B-Instruct-v0.3"
 tokenizer = AutoTokenizer.from_pretrained(model_id)

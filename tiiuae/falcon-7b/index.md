@@ -37,7 +37,7 @@ new_version: tiiuae/falcon-11B
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
-import torch
+import paddle
 
 model = "tiiuae/falcon-7b"
 
@@ -107,7 +107,7 @@ We recommend users of Falcon-7B to consider finetuning it for the specific set o
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
-import torch
+import paddle
 
 model = "tiiuae/falcon-7b"
 

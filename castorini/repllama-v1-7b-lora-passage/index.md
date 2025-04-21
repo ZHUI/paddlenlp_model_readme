@@ -24,7 +24,7 @@ Please check our paper for details.
 Below is an example to encode a query and a passage, and then compute their similarity using their embedding.
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 from peft import PeftModel, PeftConfig
 
@@ -48,16 +48,16 @@ query_input = tokenizer(f'query: {query}</s>', return_tensors='pt')
 passage_input = tokenizer(f'passage: {title} {passage}</s>', return_tensors='pt')
 
 # Run the model forward to compute embeddings and query-passage similarity score
-with torch.no_grad():
+with paddle.no_grad():
     # compute query embedding
     query_outputs = model(**query_input)
     query_embedding = query_outputs.last_hidden_state[0][-1]
-    query_embedding = torch.nn.functional.normalize(query_embedding, p=2, dim=0)
+    query_embedding = paddle.nn.functional.normalize(query_embedding, p=2, dim=0)
 
     # compute passage embedding
     passage_outputs = model(**passage_input)
     passage_embeddings = passage_outputs.last_hidden_state[0][-1]
-    passage_embeddings = torch.nn.functional.normalize(passage_embeddings, p=2, dim=0)
+    passage_embeddings = paddle.nn.functional.normalize(passage_embeddings, p=2, dim=0)
 
     # compute similarity score
     score = torch.dot(query_embedding, passage_embeddings)

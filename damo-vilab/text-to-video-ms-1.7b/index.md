@@ -47,7 +47,7 @@ $ pip install diffusers transformers accelerate torch
 Now, generate a video:
 
 ```python
-import torch
+import paddle
 from diffusers import DiffusionPipeline, DPMSolverMultistepScheduler
 from diffusers.utils import export_to_video
 
@@ -91,7 +91,7 @@ $ pip install git+https://github.com/huggingface/diffusers transformers accelera
 ```
 
 ```py
-import torch
+import paddle
 from diffusers import DiffusionPipeline, DPMSolverMultistepScheduler
 from diffusers.utils import export_to_video
 

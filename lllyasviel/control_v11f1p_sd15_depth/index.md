@@ -73,7 +73,7 @@ $ pip install diffusers transformers accelerate
 3. Run code:
 
 ```python
-import torch
+import paddle
 import os
 from huggingface_hub import HfApi
 from pathlib import Path
@@ -114,7 +114,7 @@ pipe = StableDiffusionControlNetPipeline.from_pretrained(
 pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)
 pipe.enable_model_cpu_offload()
 
-generator = torch.manual_seed(0)
+generator = paddle.seed(0)
 image = pipe(prompt, num_inference_steps=30, generator=generator, image=control_image).images[0]
 
 image.save('images/image_out.png')

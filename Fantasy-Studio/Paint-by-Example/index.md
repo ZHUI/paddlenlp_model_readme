@@ -35,7 +35,7 @@ The original codebase can be found [here](https://github.com/Fantasy-Studio/Pain
 
 import PIL
 import requests
-import torch
+import paddle
 from io import BytesIO
 from diffusers import DiffusionPipeline
 

@@ -49,7 +49,7 @@ license: apache-2.0
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
-import torch
+import paddle
 
 model = "tiiuae/falcon-7b-instruct"
 
@@ -121,7 +121,7 @@ We recommend users of Falcon-7B-Instruct to develop guardrails and to take appro
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
-import torch
+import paddle
 
 model = "tiiuae/falcon-7b-instruct"
 

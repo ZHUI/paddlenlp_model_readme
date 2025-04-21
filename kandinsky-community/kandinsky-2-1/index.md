@@ -26,7 +26,7 @@ pip install diffusers transformers accelerate
 
 ```python
 from diffusers import AutoPipelineForText2Image
-import torch
+import paddle
 
 pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-1", dtype=paddle.float16)
 pipe.enable_model_cpu_offload()
@@ -45,7 +45,7 @@ image.save("cheeseburger_monster.png")
 
 ```python
 from diffusers import AutoPipelineForImage2Image
-import torch
+import paddle
 import requests
 from io import BytesIO
 from PIL import Image
@@ -78,7 +78,7 @@ from diffusers import KandinskyPriorPipeline, KandinskyPipeline
 from diffusers.utils import load_image
 import PIL
 
-import torch
+import paddle
 
 pipe_prior = KandinskyPriorPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-1-prior", dtype=paddle.float16

@@ -24,7 +24,7 @@ pip install diffusers accelerate safetensors transformers
 ```python
 import PIL
 import requests
-import torch
+import paddle
 from diffusers import StableDiffusionInstructPix2PixPipeline, EulerAncestralDiscreteScheduler
 
 model_id = "timbrooks/instruct-pix2pix"

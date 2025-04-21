@@ -110,7 +110,7 @@ Step 3: 加载step 2得到的模型推理
 ```python3
 from paddlenlp.transformers import AutoTokenizer
 from paddlenlp.transformers import LlamaForCausalLM
-import torch
+import paddle
 
 device = torch.device("cuda")
 ckpt = '基于delta参数合并后的完整模型权重'
@@ -151,7 +151,7 @@ Step 3: Load the model obtained in Step 2 for inference.
 ```python3
 from paddlenlp.transformers import AutoTokenizer
 from paddlenlp.transformers import LlamaForCausalLM
-import torch
+import paddle
 
 
 device = torch.device("cuda")

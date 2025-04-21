@@ -159,7 +159,7 @@ print(output_text)
 ```python
 from PIL import Image
 import requests
-import torch
+import paddle
 from torchvision import io
 from typing import Dict
 from paddlenlp.transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor

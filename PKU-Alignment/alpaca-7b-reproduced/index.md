@@ -79,7 +79,7 @@ Bye!
 - Using Transformers
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model = AutoModelForCausalLM.from_pretrained('PKU-Alignment/alpaca-7b-reproduced', dtype=paddle.bfloat16, device_map='auto')

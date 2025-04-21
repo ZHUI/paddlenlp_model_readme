@@ -49,7 +49,7 @@ In case you want to implement the entire logic yourself, here's how to do that f
 
 ```python
 from paddlenlp.transformers import DPTImageProcessor, DPTForDepthEstimation
-import torch
+import paddle
 import numpy as np
 from PIL import Image
 import requests
@@ -63,12 +63,12 @@ model = DPTForDepthEstimation.from_pretrained("Intel/dpt-large")
 # prepare image for the model
 inputs = processor(images=image, return_tensors="pd")
 
-with torch.no_grad():
+with paddle.no_grad():
     outputs = model(**inputs)
     predicted_depth = outputs.predicted_depth
 
 # interpolate to original size
-prediction = torch.nn.functional.interpolate(
+prediction = paddle.nn.functional.interpolate(
     predicted_depth.unsqueeze(1),
     size=image.size[::-1],
     mode="bicubic",

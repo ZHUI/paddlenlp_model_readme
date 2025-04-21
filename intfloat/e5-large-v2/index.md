@@ -2623,7 +2623,7 @@ This model has 24 layers and the embedding size is 1024.
 Below is an example to encode queries and passages from the MS-MARCO passage ranking dataset.
 
 ```python
-import torch.nn.functional as F
+import paddle.nn.functional as F
 
 from torch import Tensor
 from paddlenlp.transformers import AutoTokenizer, AutoModel

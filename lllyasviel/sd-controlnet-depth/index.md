@@ -82,7 +82,7 @@ from paddlenlp.transformers import pipeline
 from diffusers import StableDiffusionControlNetPipeline, ControlNetModel, UniPCMultistepScheduler
 from PIL import Image
 import numpy as np
-import torch
+import paddle
 from diffusers.utils import load_image
 
 depth_estimator = pipeline('depth-estimation')

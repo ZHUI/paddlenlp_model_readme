@@ -268,7 +268,7 @@ Starting with `transformers >= 4.43.0` onward, you can run conversational infere
 Make sure to update your transformers installation via `pip install --upgrade transformers`.
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import pipeline
 
 model_id = "meta-llama/Llama-3.2-1B-Instruct"

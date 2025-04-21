@@ -240,7 +240,7 @@ palette = np.asarray([
 from paddlenlp.transformers import AutoImageProcessor, UperNetForSemanticSegmentation
 from PIL import Image
 import numpy as np
-import torch
+import paddle
 from diffusers import StableDiffusionControlNetPipeline, ControlNetModel, UniPCMultistepScheduler
 from diffusers.utils import load_image
 
@@ -251,7 +251,7 @@ image = load_image("https://huggingface.co/lllyasviel/sd-controlnet-seg/resolve/
 
 pixel_values = image_processor(image, return_tensors="pd").pixel_values
 
-with torch.no_grad():
+with paddle.no_grad():
   outputs = image_segmentor(pixel_values)
 
 seg = image_processor.post_process_semantic_segmentation(outputs, target_sizes=[image.size[::-1]])[0]

@@ -56,7 +56,7 @@ The original model checkpoint can be used with the [original consistency models 
 Here is an example of using the `cd-imagenet64-l2` checkpoint with `diffusers`:
 
 ```python
-import torch
+import paddle
 
 from diffusers import ConsistencyModelPipeline
 

@@ -26,7 +26,7 @@ please have a look at the [Stable Diffusion](https://huggingface.co/docs/diffuse
 ```python
 #!pip install diffusers transformers scipy torch
 from diffusers import StableDiffusionPipeline
-import torch
+import paddle
 
 model_id = "Langboat/Guohua-Diffusion"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)

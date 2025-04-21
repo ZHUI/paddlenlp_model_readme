@@ -242,7 +242,7 @@ Starting with transformers >= 4.43.0 onward, you can run inference evaluate the 
 
 ```python
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
+import paddle
 
 model_id = "meta-llama/Llama-Guard-3-1B"
 

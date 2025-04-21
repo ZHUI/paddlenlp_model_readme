@@ -43,7 +43,7 @@ Based on 基于[Randeng-BART-139M](https://huggingface.co/IDEA-CCNL/Randeng-BART
 
 ```python
 from paddlenlp.transformers import BartForConditionalGeneration, AutoTokenizer, Text2TextGenerationPipeline
-import torch
+import paddle
 
 tokenizer=AutoTokenizer.from_pretrained('IDEA-CCNL/Randeng-BART-139M-SUMMARY')
 model=BartForConditionalGeneration.from_pretrained('IDEA-CCNL/Randeng-BART-139M-SUMMARY')

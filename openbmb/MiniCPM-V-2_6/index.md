@@ -144,7 +144,7 @@ decord
 
 ```python
 # test.py
-import torch
+import paddle
 from PIL import Image
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 
@@ -185,7 +185,7 @@ for new_text in res:
 <summary> Click to view Python code running MiniCPM-V 2.6 with multiple images input. </summary>
   
 ```python
-import torch
+import paddle
 from PIL import Image
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 
@@ -214,7 +214,7 @@ print(answer)
 <summary> Click to view Python code running MiniCPM-V 2.6 with few-shot input. </summary>
 
 ```python
-import torch
+import paddle
 from PIL import Image
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 
@@ -250,7 +250,7 @@ print(answer)
 <summary> Click to view Python code running MiniCPM-V 2.6 with video input. </summary>
 
 ```python
-import torch
+import paddle
 from PIL import Image
 from paddlenlp.transformers import AutoModel, AutoTokenizer
 from decord import VideoReader, cpu    # pip install decord

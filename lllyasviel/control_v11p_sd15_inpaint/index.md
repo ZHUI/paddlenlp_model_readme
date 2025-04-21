@@ -74,7 +74,7 @@ $ pip install diffusers transformers accelerate
 from diffusers import StableDiffusionControlNetInpaintPipeline, ControlNetModel
 from diffusers.utils import load_image
 import numpy as np
-import torch
+import paddle
 
 init_image = load_image(
     "https://huggingface.co/datasets/diffusers/test-arrays/resolve/main/stable_diffusion_inpaint/boy.png"

@@ -44,7 +44,7 @@ image[0].save("ldm_generated_image.png")
 ```python
 !pip install diffusers
 from diffusers import UNet2DModel, DDIMScheduler, VQModel
-import torch
+import paddle
 import PIL.Image
 import numpy as np
 import tqdm
@@ -63,7 +63,7 @@ unet.to(torch_device)
 vqvae.to(torch_device)
 
 # generate gaussian noise to be decoded
-generator = torch.manual_seed(seed)
+generator = paddle.seed(seed)
 noise = torch.randn(
     (1, unet.in_channels, unet.sample_size, unet.sample_size),
     generator=generator,
@@ -75,7 +75,7 @@ scheduler.set_timesteps(num_inference_steps=200)
 image = noise
 for t in tqdm.tqdm(scheduler.timesteps):
     # predict noise residual of previous image
-    with torch.no_grad():
+    with paddle.no_grad():
         residual = unet(image, t)["sample"]
 
     # compute previous image x_t according to DDIM formula
@@ -85,7 +85,7 @@ for t in tqdm.tqdm(scheduler.timesteps):
     image = prev_image
 
 # decode image with vae
-with torch.no_grad():
+with paddle.no_grad():
     image = vqvae.decode(image)
 
 # process image

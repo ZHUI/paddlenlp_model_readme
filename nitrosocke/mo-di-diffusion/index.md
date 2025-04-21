@@ -39,7 +39,7 @@ You can also export the model to [ONNX](https://huggingface.co/docs/diffusers/op
 
 ```python
 from diffusers import StableDiffusionPipeline
-import torch
+import paddle
 
 model_id = "nitrosocke/mo-di-diffusion"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)

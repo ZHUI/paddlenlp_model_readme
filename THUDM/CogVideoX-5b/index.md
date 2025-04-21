@@ -236,7 +236,7 @@ pip install --upgrade transformers accelerate diffusers imageio-ffmpeg
 2. Run the code
 
 ```python
-import torch
+import paddle
 from diffusers import CogVideoXPipeline
 from diffusers.utils import export_to_video
 
@@ -273,7 +273,7 @@ quantization is fully compatible with `torch.compile`, which allows for much fas
 # To get started, PytorchAO needs to be installed from the GitHub source and PyTorch Nightly.
 # Source and nightly installation is only required until next release.
 
-import torch
+import paddle
 from diffusers import AutoencoderKLCogVideoX, CogVideoXTransformer3DModel, CogVideoXPipeline
 from diffusers.utils import export_to_video
 + from paddlenlp.transformers import T5EncoderModel

@@ -350,7 +350,7 @@ See the snippet below for usage with Transformers:
 
 ```python
 import transformers
-import torch
+import paddle
 from paddlenlp.transformers import snapshot_download
 
 model_id = snapshot_download("LLM-Research/Meta-Llama-3.1-70B-Instruct")
@@ -380,7 +380,7 @@ The model checkpoints can be used in `8-bit` and `4-bit` for further memory opti
 See the snippet below for usage:
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "meta-llama/Meta-Llama-3.1-70B-Instruct"

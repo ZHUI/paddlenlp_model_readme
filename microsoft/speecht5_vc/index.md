@@ -67,9 +67,9 @@ inputs = processor(audio=example_speech, sampling_rate=sampling_rate, return_ten
 
 # load xvector containing speaker's voice characteristics from a file
 import numpy as np
-import torch
+import paddle
 speaker_embeddings = np.load("xvector_speaker_embedding.npy")
-speaker_embeddings = torch.tensor(speaker_embeddings).unsqueeze(0)
+speaker_embeddings = paddle.Tensor(speaker_embeddings).unsqueeze(0)
 
 speech = model.generate_speech(inputs["input_values"], speaker_embeddings, vocoder=vocoder)
 

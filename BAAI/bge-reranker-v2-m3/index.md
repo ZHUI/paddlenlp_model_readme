@@ -107,7 +107,7 @@ print(scores)
 Get relevance scores (higher scores indicate more relevance):
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-reranker-v2-m3')
@@ -115,7 +115,7 @@ model = AutoModelForSequenceClassification.from_pretrained('BAAI/bge-reranker-v2
 model.eval()
 
 pairs = [['what is panda?', 'hi'], ['what is panda?', 'The giant panda (Ailuropoda melanoleuca), sometimes called a panda bear or simply panda, is a bear species endemic to China.']]
-with torch.no_grad():
+with paddle.no_grad():
     inputs = tokenizer(pairs, padding=True, truncation=True, return_tensors='pt', max_length=512)
     scores = model(**inputs, return_dict=True).logits.view(-1, ).float()
     print(scores)
@@ -124,7 +124,7 @@ with torch.no_grad():
 #### For LLM-based reranker
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 def get_inputs(pairs, tokenizer, prompt=None, max_length=1024):
@@ -176,7 +176,7 @@ yes_loc = tokenizer('Yes', add_special_tokens=False)['input_ids'][0]
 model.eval()
 
 pairs = [['what is panda?', 'hi'], ['what is panda?', 'The giant panda (Ailuropoda melanoleuca), sometimes called a panda bear or simply panda, is a bear species endemic to China.']]
-with torch.no_grad():
+with paddle.no_grad():
     inputs = get_inputs(pairs, tokenizer)
     scores = model(**inputs, return_dict=True).logits[:, -1, yes_loc].view(-1, ).float()
     print(scores)
@@ -185,7 +185,7 @@ with torch.no_grad():
 #### For LLM-based layerwise reranker
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 def get_inputs(pairs, tokenizer, prompt=None, max_length=1024):
@@ -237,7 +237,7 @@ model = model.to('cuda')
 model.eval()
 
 pairs = [['what is panda?', 'hi'], ['what is panda?', 'The giant panda (Ailuropoda melanoleuca), sometimes called a panda bear or simply panda, is a bear species endemic to China.']]
-with torch.no_grad():
+with paddle.no_grad():
     inputs = get_inputs(pairs, tokenizer)
     all_scores = model(**inputs, return_dict=True, cutoff_layers=[28])
     all_scores = [scores[:, -1].view(-1, ).float() for scores in all_scores[0]]

@@ -69,7 +69,7 @@ $ pip install diffusers transformers accelerate
 2. Run code:
 ```python
 
-import torch
+import paddle
 from PIL import Image
 from diffusers import ControlNetModel, DiffusionPipeline
 from diffusers.utils import load_image
@@ -103,7 +103,7 @@ image = pipe(prompt="best quality",
              width=condition_image.size[0],
              height=condition_image.size[1],
              strength=1.0,
-             generator=torch.manual_seed(0),
+             generator=paddle.seed(0),
              num_inference_steps=32,
             ).images[0]
 

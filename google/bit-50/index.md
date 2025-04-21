@@ -33,7 +33,7 @@ Here is how to use this model to classify an image of the COCO 2017 dataset into
 
 ```python
 from paddlenlp.transformers import BitImageProcessor, BitForImageClassification
-import torch
+import paddle
 from datasets import load_dataset
 
 dataset = load_dataset("huggingface/cats-image")
@@ -44,7 +44,7 @@ model = BitForImageClassification.from_pretrained("google/bit-50")
 
 inputs = feature_extractor(image, return_tensors="pd")
 
-with torch.no_grad():
+with paddle.no_grad():
     logits = model(**inputs).logits
 
 # model predicts one of the 1000 ImageNet classes

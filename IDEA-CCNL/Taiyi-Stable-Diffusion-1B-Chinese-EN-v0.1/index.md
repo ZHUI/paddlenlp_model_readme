@@ -82,7 +82,7 @@ image.save("小桥.png")
 ```py
 # !pip install git+https://github.com/huggingface/accelerate
 from diffusers import StableDiffusionPipeline
-import torch
+import paddle
 torch.backends.cudnn.benchmark = True
 pipe = StableDiffusionPipeline.from_pretrained("IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Chinese-EN-v0.1", dtype=paddle.float16)
 pipe.to('cuda')

@@ -234,7 +234,7 @@ ada_palette = np.asarray([
 3. Run code:
 
 ```python
-import torch
+import paddle
 import os
 from huggingface_hub import HfApi
 from pathlib import Path
@@ -261,7 +261,7 @@ image = load_image(
 prompt = "old house in stormy weather with rain and wind"
 
 pixel_values = image_processor(image, return_tensors="pd").pixel_values
-with torch.no_grad():
+with paddle.no_grad():
   outputs = image_segmentor(pixel_values)
 seg = image_processor.post_process_semantic_segmentation(outputs, target_sizes=[image.size[::-1]])[0]
 color_seg = np.zeros((seg.shape[0], seg.shape[1], 3), dtype=np.uint8) # height, width, 3
@@ -280,7 +280,7 @@ pipe = StableDiffusionControlNetPipeline.from_pretrained(
 pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)
 pipe.enable_model_cpu_offload()
 
-generator = torch.manual_seed(0)
+generator = paddle.seed(0)
 image = pipe(prompt, num_inference_steps=30, generator=generator, image=control_image).images[0]
 
 image.save('images/image_out.png')

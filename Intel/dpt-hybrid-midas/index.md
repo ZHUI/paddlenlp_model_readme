@@ -42,7 +42,7 @@ Here is how to use this model for zero-shot depth estimation on an image:
 from PIL import Image
 import numpy as np
 import requests
-import torch
+import paddle
 
 from paddlenlp.transformers import DPTImageProcessor, DPTForDepthEstimation
 
@@ -55,12 +55,12 @@ image = Image.open(requests.get(url, stream=True).raw)
 # prepare image for the model
 inputs = image_processor(images=image, return_tensors="pd")
 
-with torch.no_grad():
+with paddle.no_grad():
     outputs = model(**inputs)
     predicted_depth = outputs.predicted_depth
 
 # interpolate to original size
-prediction = torch.nn.functional.interpolate(
+prediction = paddle.nn.functional.interpolate(
     predicted_depth.unsqueeze(1),
     size=image.size[::-1],
     mode="bicubic",

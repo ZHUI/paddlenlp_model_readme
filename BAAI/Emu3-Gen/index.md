@@ -51,7 +51,7 @@ from PIL import Image
 from paddlenlp.transformers import AutoTokenizer, AutoModel, AutoImageProcessor, AutoModelForCausalLM
 from paddlenlp.transformers.generation.configuration_utils import GenerationConfig
 from paddlenlp.transformers.generation import LogitsProcessorList, PrefixConstrainedLogitsProcessor, UnbatchedClassifierFreeGuidanceLogitsProcessor
-import torch
+import paddle
 
 import sys
 sys.path.append(PATH_TO_BAAI_Emu3-Gen_MODEL)

@@ -17,7 +17,7 @@
 
 ```python
 #!pip install diffusers[torch] transformers
-import torch
+import paddle
 from diffusers import VQDiffusionPipeline
 
 pipeline = VQDiffusionPipeline.from_pretrained("microsoft/vq-diffusion-ithq", dtype=paddle.float16)

@@ -38,7 +38,7 @@ Yuan2.0 is a new generation Fundamental Large Language Model developed by IEIT S
 You can generate text by invoking the Yuan2-2B model with the following code:
 
 ```python
-import torch, transformers
+import paddle, transformers
 import sys, os
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))

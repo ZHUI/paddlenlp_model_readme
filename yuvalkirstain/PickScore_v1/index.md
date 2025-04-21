@@ -62,19 +62,19 @@ def calc_probs(prompt, images):
     )
 
 
-    with torch.no_grad():
+    with paddle.no_grad():
         # embed
         image_embs = model.get_image_features(**image_inputs)
-        image_embs = image_embs / torch.norm(image_embs, dim=-1, keepdim=True)
+        image_embs = image_embs / paddle.norm(image_embs, dim=-1, keepdim=True)
     
         text_embs = model.get_text_features(**text_inputs)
-        text_embs = text_embs / torch.norm(text_embs, dim=-1, keepdim=True)
+        text_embs = text_embs / paddle.norm(text_embs, dim=-1, keepdim=True)
     
         # score
         scores = model.logit_scale.exp() * (text_embs @ image_embs.T)[0]
         
         # get probabilities if you have multiple images to choose from
-        probs = torch.softmax(scores, dim=-1)
+        probs = paddle.softmax(scores, dim=-1)
     
     return probs.cpu().tolist()
 

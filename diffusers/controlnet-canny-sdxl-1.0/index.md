@@ -40,7 +40,7 @@ And then we're ready to go:
 from diffusers import ControlNetModel, StableDiffusionXLControlNetPipeline, AutoencoderKL
 from diffusers.utils import load_image
 from PIL import Image
-import torch
+import paddle
 import numpy as np
 import cv2
 

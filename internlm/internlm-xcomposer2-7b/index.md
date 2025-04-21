@@ -34,7 +34,7 @@ We release InternLM-XComposer2 series in two versions:
 ### Import from Transformers
 To load the InternLM-XComposer2-7B model using Transformers, use the following code:
 ```python
-import torch
+import paddle
 from PIL import Image
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 ckpt_path = "internlm/internlm-xcomposer2-7b"
@@ -52,7 +52,7 @@ for img_path in img_path_list:
     image = Image.open(img_path).convert("RGB")
     image = model.vis_processor(image)
     images.append(image)
-image = torch.stack(images)
+image = paddle.stack(images)
 query = '<ImageHere> <ImageHere>please write an article based on the images. Title: my favorite animal.'
 with torch.cuda.amp.autocast():
     response, history = model.chat(tokenizer, query=query, image=image, history=[], do_sample=False)
@@ -72,7 +72,7 @@ In conclusion, pandas are truly remarkable animals that deserve our admiration a
 通过以下的代码加载 InternLM-XComposer2-7B 模型
 
 ```python
-import torch
+import paddle
 from PIL import Image
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 ckpt_path = "internlm/internlm-xcomposer2-7b"
@@ -90,7 +90,7 @@ for img_path in img_path_list:
     image = Image.open(img_path).convert("RGB")
     image = model.vis_processor(image)
     images.append(image)
-image = torch.stack(images)
+image = paddle.stack(images)
 query = '<ImageHere> <ImageHere>请根据图片写一篇作文：我最喜欢的小动物。要求：选准角度，确定立意，明确文体，自拟标题。'
 with torch.cuda.amp.autocast():
     response, history = model.chat(tokenizer, query=query, image=image, history=[], do_sample=False)

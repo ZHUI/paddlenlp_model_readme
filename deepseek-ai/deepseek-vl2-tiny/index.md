@@ -46,7 +46,7 @@ pip install -e .
 ### Simple Inference Example
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM
 
 from deepseek_vl.models import DeepseekVLV2Processor, DeepseekVLV2ForCausalLM

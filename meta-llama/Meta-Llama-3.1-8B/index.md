@@ -346,7 +346,7 @@ Make sure to update your transformers installation via pip install --upgrade tra
 
 ```python
 import modelscope
-import torch
+import paddle
 
 model_id = "LLM-Research/Meta-Llama-3.1-8B"
 

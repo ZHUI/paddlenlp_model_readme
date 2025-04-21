@@ -105,7 +105,7 @@ You can directly employ [Huggingface's Transformers](https://github.com/huggingf
 #### Code Completion
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
+import paddle
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 input_text = "#write a quick sort algorithm"
@@ -117,7 +117,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 #### Code Insertion
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
+import paddle
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Base", trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 input_text = """<｜fim▁begin｜>def quick_sort(arr):
@@ -141,7 +141,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True)[len(input_text):])
 
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
+import paddle
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct", trust_remote_code=True, dtype=paddle.bfloat16).cuda()
 messages=[

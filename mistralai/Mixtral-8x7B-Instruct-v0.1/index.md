@@ -142,7 +142,7 @@ Note `float16` precision only works on GPU devices
 <summary> Click to expand </summary>
 
 ```diff
-+ import torch
++ import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
@@ -169,7 +169,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 <summary> Click to expand </summary>
 
 ```diff
-+ import torch
++ import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
@@ -197,7 +197,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 <summary> Click to expand </summary>
 
 ```diff
-+ import torch
++ import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"

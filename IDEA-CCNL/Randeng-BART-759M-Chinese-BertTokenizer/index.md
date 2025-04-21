@@ -44,7 +44,7 @@ To obtain a large-scale Chinese BART (around twice as large as BART-large), we u
 
 ```python
 from paddlenlp.transformers import BartForConditionalGeneration, AutoTokenizer, Text2TextGenerationPipeline
-import torch
+import paddle
 
 tokenizer=AutoTokenizer.from_pretrained('IDEA-CCNL/Randeng-BART-759M-Chinese-BertTokenizer', use_fast=false)
 model=BartForConditionalGeneration.from_pretrained('IDEA-CCNL/Randeng-BART-759M-Chinese-BertTokenizer')

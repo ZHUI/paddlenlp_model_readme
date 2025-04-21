@@ -53,7 +53,7 @@ import os
 import zmq
 import time
 import json
-import torch
+import paddle
 import random
 import socket
 import argparse

@@ -208,7 +208,7 @@ Then run the following python code:
 from pathlib import Path
 from lambda_diffusers import StableDiffusionImageEmbedPipeline
 from PIL import Image
-import torch
+import paddle
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 pipe = StableDiffusionImageEmbedPipeline.from_pretrained(

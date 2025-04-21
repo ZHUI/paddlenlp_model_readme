@@ -61,7 +61,7 @@ To use Versatile Diffusion for all tasks, it is recommend to use the [`Versatile
 ```py
 #! pip install git+https://github.com/huggingface/transformers diffusers torch
 from diffusers import VersatileDiffusionPipeline
-import torch
+import paddle
 import requests
 from io import BytesIO
 from PIL import Image
@@ -96,7 +96,7 @@ You can use them as follows:
 ### Text to Image
 ```py
 from diffusers import VersatileDiffusionTextToImagePipeline
-import torch
+import paddle
 
 pipe = VersatileDiffusionTextToImagePipeline.from_pretrained("shi-labs/versatile-diffusion", dtype=paddle.float16)
 pipe.remove_unused_weights()
@@ -109,7 +109,7 @@ image.save("./astronaut.png")
 #### Image variations
 ```py
 from diffusers import VersatileDiffusionImageVariationPipeline
-import torch
+import paddle
 import requests
 from io import BytesIO
 from PIL import Image
@@ -129,7 +129,7 @@ image.save("./car_variation.png")
 #### Dual-guided generation 
 ```py
 from diffusers import VersatileDiffusionDualGuidedPipeline
-import torch
+import paddle
 import requests
 from io import BytesIO
 from PIL import Image

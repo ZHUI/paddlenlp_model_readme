@@ -46,7 +46,7 @@ pip install --upgrade diffusers transformers scipy
 Running the pipeline with the default PNDM scheduler:
 
 ```python
-import torch
+import paddle
 from torch import autocast
 from diffusers import StableDiffusionPipeline
 
@@ -69,7 +69,7 @@ If you are limited by GPU memory and have less than 10GB of GPU RAM available, p
 
 
 ```py
-import torch
+import paddle
 
 pipe = StableDiffusionPipeline.from_pretrained(model_id, dtype=paddle.float16)
 pipe = pipe

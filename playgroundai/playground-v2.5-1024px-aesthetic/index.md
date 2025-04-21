@@ -41,7 +41,7 @@ Then, run the following snippet:
 
 ```python
 from diffusers import DiffusionPipeline
-import torch
+import paddle
 
 pipe = DiffusionPipeline.from_pretrained(
     "playgroundai/playground-v2.5-1024px-aesthetic",

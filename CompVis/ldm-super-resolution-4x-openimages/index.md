@@ -30,7 +30,7 @@ import requests
 from PIL import Image
 from io import BytesIO
 from diffusers import LDMSuperResolutionPipeline
-import torch
+import paddle
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model_id = "CompVis/ldm-super-resolution-4x-openimages"

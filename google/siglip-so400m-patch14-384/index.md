@@ -34,7 +34,7 @@ Here is how to use this model to perform zero-shot image classification:
 from PIL import Image
 import requests
 from paddlenlp.transformers import AutoProcessor, AutoModel
-import torch
+import paddle
 
 model = AutoModel.from_pretrained("google/siglip-so400m-patch14-384")
 processor = AutoProcessor.from_pretrained("google/siglip-so400m-patch14-384")
@@ -45,7 +45,7 @@ image = Image.open(requests.get(url, stream=True).raw)
 texts = ["a photo of 2 cats", "a photo of 2 dogs"]
 inputs = processor(text=texts, images=image, padding="max_length", return_tensors="pd")
 
-with torch.no_grad():
+with paddle.no_grad():
     outputs = model(**inputs)
 
 logits_per_image = outputs.logits_per_image

@@ -81,7 +81,7 @@ Do check the [TinyLlama](https://github.com/jzhang38/TinyLlama) GitHub page for 
 ```
 from paddlenlp.transformers import AutoTokenizer
 import transformers 
-import torch
+import paddle
 model = "TinyLlama/TinyLlama_v1.1"
 tokenizer = AutoTokenizer.from_pretrained(model)
 pipeline = transformers.pipeline(

@@ -90,7 +90,7 @@ $ pip pip install diffusers transformers accelerate
 ```py
 from PIL import Image
 from diffusers import StableDiffusionControlNetPipeline, ControlNetModel, UniPCMultistepScheduler
-import torch
+import paddle
 from controlnet_aux import MLSDdetector
 from diffusers.utils import load_image
 

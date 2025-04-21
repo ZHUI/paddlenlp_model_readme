@@ -71,7 +71,7 @@ Previously, media_offset recorded the range of images each token could see. Duri
 
 Load the mPLUG-Owl3. We now only support attn_implementation in ```['sdpa', 'flash_attention_2']```.
 ```Python
-import torch
+import paddle
 from paddlenlp.transformers import AutoConfig, AutoModel
 model_path = 'iic/mPLUG-Owl3-2B-241101'
 config = AutoConfig.from_pretrained(model_path, trust_remote_code=True)
@@ -202,7 +202,7 @@ def apply_liger_kernel_to_mplug_owl3(
             _patch_rms_norm_module(decoder_layer.post_attention_layernorm)
     print("Applied Liger kernels to Qwen2 in mPLUG-Owl3")
 
-import torch
+import paddle
 from paddlenlp.transformers import AutoConfig, AutoModel
 model_path = 'iic/mPLUG-Owl3-2B-241101'
 config = AutoConfig.from_pretrained(model_path, trust_remote_code=True)

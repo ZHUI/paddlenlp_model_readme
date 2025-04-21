@@ -160,7 +160,7 @@ You can directly employ [Huggingface's Transformers](https://github.com/huggingf
 
 #### Text Completion
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
 model_name = "deepseek-ai/DeepSeek-V2-Lite"
@@ -179,7 +179,7 @@ print(result)
 
 #### Chat Completion
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
 model_name = "deepseek-ai/DeepSeek-V2-Lite-Chat"

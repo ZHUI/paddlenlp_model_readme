@@ -96,8 +96,8 @@ We also welcome you to experience the InternVL2 series models in our [online dem
 
 ```python
 import numpy as np
-import torch
-import torchvision.transforms as T
+import paddle
+import paddlevision.transforms as T
 from decord import VideoReader, cpu
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
@@ -178,7 +178,7 @@ def load_image(image_file, input_size=448, max_num=6):
     transform = build_transform(input_size=input_size)
     images = dynamic_preprocess(image, image_size=input_size, use_thumbnail=True, max_num=max_num)
     pixel_values = [transform(image) for image in images]
-    pixel_values = torch.stack(pixel_values)
+    pixel_values = paddle.stack(pixel_values)
     return pixel_values
 
 
@@ -230,7 +230,7 @@ print(f'Assistant: {response}')
 # multi-image multi-round conversation, combined images (多图多轮对话，拼接图像)
 pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(paddle.bfloat16).cuda()
 pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(paddle.bfloat16).cuda()
-pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
+pixel_values = paddle.concat((pixel_values1, pixel_values2), dim=0)
 
 question = '<image>\nDescribe the two images in detail.'
 response, history = model.chat(tokenizer, pixel_values, question, generation_config,
@@ -245,7 +245,7 @@ print(f'Assistant: {response}')
 # multi-image multi-round conversation, separate images (多图多轮对话，独立图像)
 pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(paddle.bfloat16).cuda()
 pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(paddle.bfloat16).cuda()
-pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
+pixel_values = paddle.concat((pixel_values1, pixel_values2), dim=0)
 num_patches_list = [pixel_values1.size(0), pixel_values2.size(0)]
 
 question = 'Image-1: <image>\nImage-2: <image>\nDescribe the two images in detail.'
@@ -266,7 +266,7 @@ print(f'Assistant: {response}')
 pixel_values1 = load_image('./examples/image1.jpg', max_num=6).to(paddle.bfloat16).cuda()
 pixel_values2 = load_image('./examples/image2.jpg', max_num=6).to(paddle.bfloat16).cuda()
 num_patches_list = [pixel_values1.size(0), pixel_values2.size(0)]
-pixel_values = torch.cat((pixel_values1, pixel_values2), dim=0)
+pixel_values = paddle.concat((pixel_values1, pixel_values2), dim=0)
 
 questions = ['<image>\nDescribe the image in detail.'] * len(num_patches_list)
 responses = model.batch_chat(tokenizer, pixel_values,
@@ -304,10 +304,10 @@ def load_video(video_path, bound=None, input_size=448, max_num=1, num_segments=3
         img = Image.fromarray(vr[frame_index].asnumpy()).convert('RGB')
         img = dynamic_preprocess(img, image_size=input_size, use_thumbnail=True, max_num=max_num)
         pixel_values = [transform(tile) for tile in img]
-        pixel_values = torch.stack(pixel_values)
+        pixel_values = paddle.stack(pixel_values)
         num_patches_list.append(pixel_values.shape[0])
         pixel_values_list.append(pixel_values)
-    pixel_values = torch.cat(pixel_values_list)
+    pixel_values = paddle.concat(pixel_values_list)
     return pixel_values, num_patches_list
 
 

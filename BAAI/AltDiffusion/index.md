@@ -119,7 +119,7 @@ then you can run the following example:
 
 ```python
 from diffusers import AltDiffusionPipeline, DPMSolverMultistepScheduler
-import torch
+import paddle
 
 pipe = AltDiffusionPipeline.from_pretrained("BAAI/AltDiffusion", dtype=paddle.float16, revision="fp16")
 pipe = pipe
@@ -140,7 +140,7 @@ image.save("./alt.png")
 
 ```python
 import os
-import torch
+import paddle
 import transformers
 from paddlenlp.transformers import BertPreTrainedModel
 from paddlenlp.transformers.models.clip.modeling_clip import CLIPPreTrainedModel
@@ -148,8 +148,8 @@ from paddlenlp.transformers.models.xlm_roberta.tokenization_xlm_roberta import X
 from diffusers.schedulers import DDIMScheduler, LMSDiscreteScheduler, PNDMScheduler
 from diffusers import StableDiffusionPipeline
 from paddlenlp.transformers import BertPreTrainedModel,BertModel,BertConfig
-import torch.nn as nn
-import torch
+import paddle.nn as nn
+import paddle
 from paddlenlp.transformers.models.xlm_roberta.configuration_xlm_roberta import XLMRobertaConfig
 from paddlenlp.transformers import XLMRobertaModel
 from paddlenlp.transformers.activations import ACT2FN
@@ -175,13 +175,13 @@ class RobertaSeriesModelWithTransformation(BertPreTrainedModel):
         self.post_init()
         
     def get_text_embeds(self,bert_embeds,clip_embeds):
-        return self.merge_head(torch.cat((bert_embeds,clip_embeds)))
+        return self.merge_head(paddle.concat((bert_embeds,clip_embeds)))
 
     def set_tokenizer(self, tokenizer):
         self.tokenizer = tokenizer
 
-    def forward(self, input_ids: Optional[torch.Tensor] = None) :
-        attention_mask = (input_ids != self.tokenizer.pad_token_id).to(torch.int64)
+    def forward(self, input_ids: Optional[paddle.Tensor] = None) :
+        attention_mask = (input_ids != self.tokenizer.pad_token_id).to(paddle.int64)
         outputs = self.base_model(
             input_ids=input_ids,
             attention_mask=attention_mask,
@@ -211,7 +211,7 @@ print("diffusion pipeline loaded")
 pipe = pipe
 
 prompt = "Thirty years old lee evans as a sad 19th century postman. detailed, soft focus, candle light, interesting lights, realistic, oil canvas, character concept art by munkácsy mihály, csók istván, john everett millais, henry meynell rheam, and da vinci"
-with torch.no_grad():
+with paddle.no_grad():
     image = pipe(prompt, guidance_scale=7.5).images[0]  
     
 image.save("3.png")

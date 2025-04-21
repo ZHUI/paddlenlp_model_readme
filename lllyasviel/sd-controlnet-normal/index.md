@@ -85,7 +85,7 @@ from paddlenlp.transformers import pipeline
 import numpy as np
 import cv2
 from diffusers import StableDiffusionControlNetPipeline, ControlNetModel, UniPCMultistepScheduler
-import torch
+import paddle
 from diffusers.utils import load_image
 
 image = load_image("https://huggingface.co/lllyasviel/sd-controlnet-normal/resolve/main/images/toy.png").convert("RGB")

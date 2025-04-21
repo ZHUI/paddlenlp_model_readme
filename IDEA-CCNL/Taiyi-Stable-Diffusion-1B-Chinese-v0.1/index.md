@@ -116,7 +116,7 @@ image.save("飞流.png")
 
 ```py
 # !pip install git+https://github.com/huggingface/accelerate
-import torch
+import paddle
 from diffusers import StableDiffusionPipeline
 torch.backends.cudnn.benchmark = True
 pipe = StableDiffusionPipeline.from_pretrained("IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Chinese-v0.1", dtype=paddle.float16)

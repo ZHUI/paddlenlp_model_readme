@@ -65,7 +65,7 @@ In the Baichuan 2 series models, we have utilized the new feature `F.scaled_dot_
 
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 from paddlenlp.transformers.generation.utils import GenerationConfig
 tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan2-7B-Chat", use_fast=False, trust_remote_code=True)

@@ -40,7 +40,7 @@ pip install git+https://github.com/huggingface/diffusers@@shap-ee
 Once the dependencies are installed, use the code below:
 
 ```python 
-import torch
+import paddle
 from diffusers import ShapEImg2ImgPipeline
 from diffusers.utils import export_to_gif, load_image
 

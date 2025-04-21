@@ -26,7 +26,7 @@ In this project, we introduce LLaRA:
 ## Usage
 
 ```
-import torch
+import paddle
 from paddlenlp.transformers import AutoModel, AutoTokenizer, LlamaModel
 
 def get_query_inputs(queries, tokenizer, max_length=512):
@@ -87,18 +87,18 @@ query_input = get_query_inputs([query], tokenizer)
 passage_input = get_passage_inputs([passage], tokenizer)
 
 
-with torch.no_grad():
+with paddle.no_grad():
     # compute query embedding
     query_outputs = model(**query_input, return_dict=True, output_hidden_states=True)
     query_embedding = query_outputs.hidden_states[-1][:, -8:, :]
-    query_embedding = torch.mean(query_embedding, dim=1)
-    query_embedding = torch.nn.functional.normalize(query_embedding, dim=-1)
+    query_embedding = paddle.mean(query_embedding, dim=1)
+    query_embedding = paddle.nn.functional.normalize(query_embedding, dim=-1)
 
     # compute passage embedding
     passage_outputs = model(**passage_input, return_dict=True, output_hidden_states=True)
     passage_embeddings = passage_outputs.hidden_states[-1][:, -8:, :]
-    passage_embeddings = torch.mean(passage_embeddings, dim=1)
-    passage_embeddings = torch.nn.functional.normalize(passage_embeddings, dim=-1)
+    passage_embeddings = paddle.mean(passage_embeddings, dim=1)
+    passage_embeddings = paddle.nn.functional.normalize(passage_embeddings, dim=-1)
 
     # compute similarity score
     score = query_embedding @ passage_embeddings.T

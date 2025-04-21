@@ -18,7 +18,7 @@ Unofficial community fork for Diffusers-format weights on [`tencent/HunyuanVideo
 HunyuanVideo can be used directly from Diffusers. Install the latest version of Diffusers.
 
 ```python
-import torch
+import paddle
 from diffusers import HunyuanVideoPipeline, HunyuanVideoTransformer3DModel
 from diffusers.utils import export_to_video
 

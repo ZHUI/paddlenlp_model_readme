@@ -45,7 +45,7 @@ GLM-4-9B 是智谱 AI 推出的最新一代预训练模型 GLM-4 系列中的开
 使用 transformers 后端进行推理:
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForCausalLM, AutoTokenizer
 
 device = "cuda"
@@ -70,7 +70,7 @@ model = AutoModelForCausalLM.from_pretrained(
 ).eval()
 
 gen_kwargs = {"max_length": 2500, "do_sample": True, "top_k": 1}
-with torch.no_grad():
+with paddle.no_grad():
     outputs = model.generate(**inputs, **gen_kwargs)[0]
     outputs = outputs[:, inputs['input_ids'].shape[1]:]
     print(tokenizer.decode(outputs[0], skip_special_tokens=True))

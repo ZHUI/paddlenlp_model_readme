@@ -246,7 +246,7 @@ With the transformers package, you can use the model like this: First, you pass 
 
 ```python
 from paddlenlp.transformers import AutoTokenizer, AutoModel
-import torch
+import paddle
 # Sentences we want sentence embeddings for
 sentences = ["样例数据-1", "样例数据-2"]
 
@@ -261,12 +261,12 @@ encoded_input = tokenizer(sentences, padding=True, truncation=True, return_tenso
 # encoded_input = tokenizer([instruction + q for q in queries], padding=True, truncation=True, return_tensors='pt')
 
 # Compute token embeddings
-with torch.no_grad():
+with paddle.no_grad():
     model_output = model(**encoded_input)
     # Perform pooling. In this case, cls pooling.
     sentence_embeddings = model_output[0][:, 0]
 # normalize embeddings
-sentence_embeddings = torch.nn.functional.normalize(sentence_embeddings, p=2, dim=1)
+sentence_embeddings = paddle.nn.functional.normalize(sentence_embeddings, p=2, dim=1)
 print("Sentence embeddings:", sentence_embeddings)
 ```
 
@@ -298,7 +298,7 @@ print(scores)
 #### Using Huggingface transformers
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-reranker-large')
@@ -306,7 +306,7 @@ model = AutoModelForSequenceClassification.from_pretrained('BAAI/bge-reranker-la
 model.eval()
 
 pairs = [['what is panda?', 'hi'], ['what is panda?', 'The giant panda (Ailuropoda melanoleuca), sometimes called a panda bear or simply panda, is a bear species endemic to China.']]
-with torch.no_grad():
+with paddle.no_grad():
     inputs = tokenizer(pairs, padding=True, truncation=True, return_tensors='pt', max_length=512)
     scores = model(**inputs, return_dict=True).logits.view(-1, ).float()
     print(scores)
@@ -317,7 +317,7 @@ with torch.no_grad():
 ```python
 from optimum.onnxruntime import ORTModelForSequenceClassification  # type: ignore
 
-import torch
+import paddle
 from paddlenlp.transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-reranker-large')

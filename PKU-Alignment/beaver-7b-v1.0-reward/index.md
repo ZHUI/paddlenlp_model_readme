@@ -48,7 +48,7 @@ It can play a role in the safe RLHF algorithm, helping the Beaver model become m
 ## How to Use the Reward Model
 
 ```python
-import torch
+import paddle
 from paddlenlp.transformers import AutoTokenizer
 from safe_rlhf.models import AutoModelForScore
 
